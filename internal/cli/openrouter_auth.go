@@ -88,6 +88,7 @@ func newOpenRouterLogoutCommand() *cobra.Command {
 }
 
 func initOpenRouterUtilityCommands(parent *cobra.Command) {
+	parent.AddCommand(newOpenRouterInitCommand())
 	parent.AddCommand(newOpenRouterDoctorCommand())
 	parent.AddCommand(newOpenRouterExecCommand())
 	initOpenRouterKeyCommands(parent)

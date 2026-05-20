@@ -2,7 +2,7 @@
 
 Agent-friendly command-line access to OpenRouter.
 
-This CLI is generated from `openapi.yaml` with Speakeasy, then lightly customized for the OpenRouter auth workflow agents need: secure login, key validation, keychain-backed storage, machine-readable output, and a safe way to inject `OPENROUTER_API_KEY` into child tools without writing secrets into shell profiles or project files.
+This CLI is generated from `openapi.yaml` with Speakeasy, then lightly customized for the OpenRouter auth workflow agents need: secure login, key validation, keychain-backed storage, project key provisioning, Varlock-compatible env setup, and machine-readable output.
 
 ## Install locally
 
@@ -34,11 +34,33 @@ Resolution order is:
 
 API keys are not read from or written to plaintext config files. If secure credential storage is unavailable, `openrouter login` refuses to save the key and tells the user to use `OPENROUTER_API_KEY` for that invocation instead.
 
-For agents and local tools that require `OPENROUTER_API_KEY`, inject it into a child process without writing it to a shell profile:
+For one-off agent and local tool commands that require `OPENROUTER_API_KEY`, inject it into a child process without writing it to a shell profile:
 
 ```sh
 openrouter exec -- your-agent-command
 ```
+
+## Project setup
+
+Most app projects should use a project-level OpenRouter key. Run this from the project root:
+
+```sh
+openrouter init
+```
+
+`init` creates a new OpenRouter API key using the saved management credential, writes it as `OPENROUTER_API_KEY`, and never prints the full secret.
+
+Secret storage modes:
+
+```sh
+openrouter init --secrets auto
+openrouter init --secrets varlock
+openrouter init --secrets plaintext
+```
+
+`auto` uses Varlock when the `varlock` command is available. `varlock` mode pipes the new key to `varlock encrypt` and writes only an encrypted `varlock("local:...")` resolver to `.env.local` or `.env`; it also adds a sensitive `OPENROUTER_API_KEY` entry to `.env.schema` so agents can understand the project config without seeing the secret.
+
+Use `plaintext` only when a gitignored local env file is acceptable. The CLI updates `.gitignore` for the target env file.
 
 ## API key management
 
@@ -96,6 +118,7 @@ For more information about the API: [OpenRouter Documentation](https://openroute
 * [OpenRouter CLI](#openrouter-cli)
   * [Install locally](#install-locally)
   * [Authenticate](#authenticate)
+  * [Project setup](#project-setup)
   * [API key management](#api-key-management)
   * [Agent-friendly output](#agent-friendly-output)
   * [Speakeasy generation](#speakeasy-generation)

@@ -3,7 +3,7 @@
 Use this when an agent lands on `openrouter.ai/agents` and needs local OpenRouter access.
 
 ```text
-Install the OpenRouter CLI first, then use it for auth and key management.
+Install the OpenRouter CLI first, then use it for auth and project key setup.
 
 1. Install:
    curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | bash
@@ -17,13 +17,16 @@ Install the OpenRouter CLI first, then use it for auth and key management.
    openrouter --json doctor
    openrouter --json whoami
 
-4. Use OpenRouter from tools that expect OPENROUTER_API_KEY:
+4. Set up the current project:
+   openrouter init --secrets auto
+
+   If Varlock is available or the project already uses .env.schema, prefer:
+   openrouter init --secrets varlock
+
+   This creates a project-level OpenRouter key. Varlock mode stores only an encrypted resolver in the local env file and updates .env.schema so agents can see the required config without seeing the secret.
+
+5. If a one-off tool command needs OPENROUTER_API_KEY without project env setup:
    openrouter exec -- <command>
-
-5. When the user has a management key and wants a separate scoped local key:
-   openrouter keys create-saved --name agent-dev --limit 10 --limit-reset monthly
-
-   This creates a key through OpenRouter and immediately replaces the local saved credential with the new key. The CLI only prints a masked value.
 
 Auth resolution order:
 1. --api-key

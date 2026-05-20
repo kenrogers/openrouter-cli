@@ -9,6 +9,9 @@ This project uses the Speakeasy-generated Go/Cobra CLI as the base. The custom l
 - Plaintext config-file fallback for API keys is disabled.
 - `openrouter doctor` reports credential storage, auth source, and API validation status.
 - `openrouter exec -- <command>` injects `OPENROUTER_API_KEY` into a child process without writing it to shell profiles or project files.
+- `openrouter init` creates a project-level OpenRouter key and configures the current project with `OPENROUTER_API_KEY`.
+- `openrouter init --secrets varlock` pipes the created key through `varlock encrypt`, writes only a `varlock("local:...")` resolver to the project env file, and updates `.env.schema` with a sensitive OpenRouter entry.
+- `openrouter init --secrets plaintext` writes to a local env file and ensures that file is covered by `.gitignore`.
 - `--json` is a shortcut for `--output-format json`.
 
 ## API Key Management
