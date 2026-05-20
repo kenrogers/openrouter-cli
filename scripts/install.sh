@@ -98,6 +98,20 @@ get_install_dir() {
         return
     fi
 
+    # If openrouter already exists and we can write there, replace the binary
+    # that the current PATH will actually execute.
+    local existing_binary
+    existing_binary=$(command -v "$BINARY_NAME" 2>/dev/null || true)
+    if [ -n "$existing_binary" ]; then
+        local existing_dir
+        existing_dir=$(dirname "$existing_binary")
+        if [ -w "$existing_dir" ] && { [ ! -e "$existing_binary" ] || [ -w "$existing_binary" ]; }; then
+            echo "$existing_dir"
+            return
+        fi
+        log_info "Found existing $BINARY_NAME at $existing_binary but cannot overwrite it without elevated permissions" >&2
+    fi
+
     # Try to use /usr/local/bin if we have write access
     if [ -w "$DEFAULT_INSTALL_DIR" ] || [ -w "$(dirname "$DEFAULT_INSTALL_DIR")" ]; then
         echo "$DEFAULT_INSTALL_DIR"
@@ -207,15 +221,34 @@ install_cli() {
         cmd_to_check="${BINARY_NAME}.exe"
     fi
 
-    if command -v "$cmd_to_check" >/dev/null 2>&1; then
-        log_info "Installation successful! Run '$BINARY_NAME --help' to get started."
+    local installed_version
+    installed_version=$("$target_binary" version 2>/dev/null | head -n 1 || true)
+    if [ -n "$installed_version" ]; then
+        log_info "Installed binary reports: $installed_version"
+    fi
+
+    local resolved_binary
+    resolved_binary=$(command -v "$cmd_to_check" 2>/dev/null || true)
+    if [ -n "$resolved_binary" ]; then
+        if [ "$resolved_binary" = "$target_binary" ]; then
+            log_info "Installation successful! Run '$BINARY_NAME --help' to get started."
+        else
+            local resolved_version
+            resolved_version=$("$resolved_binary" version 2>/dev/null | head -n 1 || true)
+            log_warn "Installed $BINARY_NAME to $target_binary, but PATH resolves $BINARY_NAME to $resolved_binary"
+            if [ -n "$resolved_version" ]; then
+                log_warn "PATH binary reports: $resolved_version"
+            fi
+            log_warn "Use this command before continuing:"
+            log_warn "  export PATH=\"$INSTALL_DIR:\$PATH\""
+        fi
     else
         log_warn "Installation complete, but $BINARY_NAME is not in your PATH."
         if [ "$os" = "Windows" ]; then
             log_warn "Add $INSTALL_DIR to your PATH environment variable."
         else
-            log_warn "Add $INSTALL_DIR to your PATH by adding this to your ~/.bashrc or ~/.zshrc:"
-            log_warn "  export PATH=\"\$PATH:$INSTALL_DIR\""
+            log_warn "Add $INSTALL_DIR to the front of your PATH by adding this to your ~/.bashrc or ~/.zshrc:"
+            log_warn "  export PATH=\"$INSTALL_DIR:\$PATH\""
             log_warn ""
             log_warn "Then run: source ~/.bashrc  # or source ~/.zshrc"
         fi

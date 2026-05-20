@@ -6,8 +6,12 @@ Use this when an agent lands on `openrouter.ai/agents` and needs local OpenRoute
 Install the OpenRouter CLI first, then use it for auth and project key setup.
 
 1. Install:
-   curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | env OPENROUTER_VERSION=v0.1.2 bash
+   export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
+   hash -r 2>/dev/null || true
    openrouter version
+
+   The version must be 0.1.2 or newer. If it is older, stop and report the install output, the output of `command -v openrouter`, and the output of `openrouter version`.
 
 2. Authenticate:
    openrouter login

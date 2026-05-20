@@ -124,11 +124,22 @@ function Install-CLI {
             Write-ColorOutput "Adding $InstallDir to your PATH..." -Color Cyan
             [Environment]::SetEnvironmentVariable(
                 "Path",
-                "$userPath;$InstallDir",
+                "$InstallDir;$userPath",
                 "User"
             )
-            $env:Path = "$env:Path;$InstallDir"
+            $env:Path = "$InstallDir;$env:Path"
             Write-ColorOutput "Added to PATH. You may need to restart your terminal for changes to take effect." -Color Yellow
+        }
+
+        $installedVersion = & $binaryPath version 2>$null | Select-Object -First 1
+        if ($installedVersion) {
+            Write-ColorOutput "Installed binary reports: $installedVersion" -Color Green
+        }
+
+        $resolvedCommand = Get-Command "openrouter" -ErrorAction SilentlyContinue
+        if ($resolvedCommand -and $resolvedCommand.Source -ne $binaryPath) {
+            Write-ColorOutput "Installed openrouter to $binaryPath, but PATH resolves openrouter to $($resolvedCommand.Source)" -Color Yellow
+            Write-ColorOutput "Use this command before continuing: `$env:Path = `"$InstallDir;`$env:Path`"" -Color Yellow
         }
 
         Write-ColorOutput "Installation successful! Run 'openrouter --help' to get started." -Color Green
