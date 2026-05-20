@@ -3,6 +3,9 @@
 package config
 
 import (
+	"os/exec"
+	"runtime"
+	"strings"
 	"sync"
 
 	"github.com/zalando/go-keyring"
@@ -31,6 +34,7 @@ func (d defaultKeyring) Delete(service, key string) error {
 var (
 	backend          KeyringBackend = defaultKeyring{}
 	keyringAvailable *bool
+	keyringReason    string
 	keyringMu        sync.Mutex
 )
 
@@ -53,12 +57,36 @@ func isKeyringAvailable() bool {
 		return *keyringAvailable
 	}
 
+	if reason := keyringPreflightFailure(); reason != "" {
+		result := false
+		keyringAvailable = &result
+		keyringReason = reason
+		return result
+	}
+
 	// Probe with a Get on a key that won't exist.
 	// ErrNotFound means the backend is working; any other error means unavailable.
 	_, err := backend.Get(cliName+"-probe", "availability-check")
 	result := err == keyring.ErrNotFound || err == nil
+	if !result && err != nil {
+		keyringReason = err.Error()
+	}
 	keyringAvailable = &result
 	return result
+}
+
+func keyringPreflightFailure() string {
+	if runtime.GOOS != "darwin" {
+		return ""
+	}
+	out, err := exec.Command("security", "default-keychain").Output()
+	if err != nil {
+		return "macOS has no default keychain configured"
+	}
+	if strings.TrimSpace(string(out)) == "" {
+		return "macOS returned an empty default keychain"
+	}
+	return ""
 }
 
 // GetKeyringValue retrieves a credential from the OS keychain.
@@ -91,11 +119,19 @@ func KeyringAvailable() bool {
 	return isKeyringAvailable()
 }
 
+// KeyringUnavailableReason returns the cached reason the keyring probe failed.
+func KeyringUnavailableReason() string {
+	keyringMu.Lock()
+	defer keyringMu.Unlock()
+	return keyringReason
+}
+
 // ResetKeyring clears the cached keyring availability state and restores the
 // default backend. Used in tests to re-probe keyring availability.
 func ResetKeyring() {
 	keyringMu.Lock()
 	defer keyringMu.Unlock()
 	keyringAvailable = nil
+	keyringReason = ""
 	backend = defaultKeyring{}
 }

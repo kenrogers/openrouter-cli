@@ -6,12 +6,12 @@ Use this when an agent lands on `openrouter.ai/agents` and needs local OpenRoute
 Install the OpenRouter CLI first, then use it for auth and project key setup.
 
 1. Install:
-   curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | env OPENROUTER_VERSION=v0.1.2 bash
+   curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | env OPENROUTER_VERSION=v0.1.3 bash
    export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
    hash -r 2>/dev/null || true
    openrouter version
 
-   The version must be 0.1.2 or newer. If it is older, stop and report the install output, the output of `command -v openrouter`, and the output of `openrouter version`.
+   The version must be 0.1.3 or newer. If it is older, stop and report the install output, the output of `command -v openrouter`, and the output of `openrouter version`.
 
 2. Authenticate:
    openrouter login
@@ -19,6 +19,8 @@ Install the OpenRouter CLI first, then use it for auth and project key setup.
    This opens OpenRouter in the browser, waits for the local callback, and saves the returned API key in the operating system credential store. Do not ask the user to paste an API key into chat. If the browser cannot open automatically, run:
    openrouter login --no-open
    Then show the printed URL to the user.
+
+   If login reports credential_store_unavailable or macOS shows a Keychain reset dialog, stop. Tell the user to cancel the dialog unless they intentionally want to reset their default keychain, then ask them to unlock or restore the login keychain in Keychain Access before retrying.
 
 3. Verify:
    openrouter --json doctor

@@ -126,6 +126,9 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return err
 	}
+	if !config.KeyringAvailable() {
+		return credentialStoreUnavailableError(cmd)
+	}
 
 	if key == "" {
 		var userID string
@@ -175,6 +178,24 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	fmt.Fprintln(out, "Secret stored in the operating system credential store.")
 	fmt.Fprintf(out, "Config saved to %s without storing the API key in plaintext.\n", config.GetConfigPath())
 	return nil
+}
+
+func credentialStoreUnavailableError(cmd *cobra.Command) error {
+	reason := strings.TrimSpace(config.KeyringUnavailableReason())
+	message := "Secure credential storage is unavailable; refusing to save the API key outside the OS credential store"
+	if reason != "" {
+		message = fmt.Sprintf("%s (%s)", message, reason)
+	}
+	return output.AgentModeError(cmd,
+		"credential_store_unavailable",
+		message,
+		[]string{
+			"On macOS, cancel any Keychain reset dialog unless you intentionally want to reset your default keychain",
+			"Open Keychain Access and make sure the login keychain exists, is unlocked, and is the default keychain",
+			"If the login keychain exists, run `security default-keychain -s ~/Library/Keychains/login.keychain-db` and retry `openrouter login`",
+			"For one command only, set OPENROUTER_API_KEY in the shell instead of saving it globally",
+		},
+	)
 }
 
 func loginKeyCandidate(cmd *cobra.Command) (string, string, error) {
