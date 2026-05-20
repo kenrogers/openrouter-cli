@@ -6,12 +6,12 @@ Use this when an agent lands on `openrouter.ai/agents` and needs local OpenRoute
 Install the OpenRouter CLI first, then use it to make OPENROUTER_API_KEY available to local agents.
 
 1. Install:
-   curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | env OPENROUTER_VERSION=v0.1.6 bash
+   curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | env OPENROUTER_VERSION=v0.1.7 bash
    export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
    hash -r 2>/dev/null || true
    openrouter version
 
-   The version must be 0.1.6 or newer. If it is older, stop and report the install output, the output of `command -v openrouter`, and the output of `openrouter version`.
+   The version must be 0.1.7 or newer. If it is older, stop and report the install output, the output of `command -v openrouter`, and the output of `openrouter version`.
 
 2. Authenticate:
    eval "$(openrouter login --print-env --no-store --install-env)"

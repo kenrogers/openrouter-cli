@@ -1,9 +1,13 @@
 package cli
 
 import (
+	"context"
+	"encoding/json"
+	"fmt"
 	"io"
 	"net"
 	"net/http"
+	"net/http/httptest"
 	"net/url"
 	"strconv"
 	"strings"
@@ -104,6 +108,56 @@ func TestPKCECallbackServerReceivesCodeOnRoot(t *testing.T) {
 		}
 	case <-time.After(2 * time.Second):
 		t.Fatal("timed out waiting for callback result")
+	}
+}
+
+func TestExchangePKCECodeForKeyDoesNotSendExistingAPIKey(t *testing.T) {
+	t.Setenv("OPENROUTER_API_KEY", "sk-or-v1-stale")
+
+	var gotAuthorization string
+	var gotBody map[string]string
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodPost {
+			t.Errorf("method = %s, want POST", r.Method)
+		}
+		if r.URL.Path != "/auth/keys" {
+			t.Errorf("path = %s, want /auth/keys", r.URL.Path)
+		}
+		gotAuthorization = r.Header.Get("Authorization")
+		if err := json.NewDecoder(r.Body).Decode(&gotBody); err != nil {
+			t.Errorf("decode body: %v", err)
+		}
+		w.Header().Set("Content-Type", "application/json")
+		fmt.Fprint(w, `{"key":"sk-or-v1-new","user_id":"user_test"}`)
+	}))
+	defer server.Close()
+
+	cmd := &cobra.Command{}
+	cmd.SetContext(context.Background())
+	cmd.Flags().String("server-url", "", "")
+	cmd.Flags().String("api-key", "", "")
+	if err := cmd.Flags().Set("server-url", server.URL); err != nil {
+		t.Fatalf("set server-url: %v", err)
+	}
+	if err := cmd.Flags().Set("api-key", "sk-or-v1-stale"); err != nil {
+		t.Fatalf("set api-key: %v", err)
+	}
+
+	key, userID, err := exchangePKCECodeForKey(cmd, "auth_code_123", "verifier_123")
+	if err != nil {
+		t.Fatalf("exchange code: %v", err)
+	}
+	if key != "sk-or-v1-new" {
+		t.Fatalf("key = %q, want sk-or-v1-new", key)
+	}
+	if userID != "user_test" {
+		t.Fatalf("userID = %q, want user_test", userID)
+	}
+	if gotAuthorization != "" {
+		t.Fatalf("Authorization header = %q, want empty", gotAuthorization)
+	}
+	if gotBody["code"] != "auth_code_123" || gotBody["code_verifier"] != "verifier_123" || gotBody["code_challenge_method"] != "S256" {
+		t.Fatalf("unexpected exchange body: %#v", gotBody)
 	}
 }
 

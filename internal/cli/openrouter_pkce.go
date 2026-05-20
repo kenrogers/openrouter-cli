@@ -1,22 +1,22 @@
 package cli
 
 import (
+	"bytes"
 	"context"
 	"crypto/rand"
 	"crypto/sha256"
 	"encoding/base64"
+	"encoding/json"
 	"fmt"
 	"html"
+	"io"
 	"net"
 	"net/http"
 	"net/url"
 	"strings"
 	"time"
 
-	sdkclient "github.com/kenrogers/openrouter-cli/internal/client"
 	"github.com/kenrogers/openrouter-cli/internal/output"
-	"github.com/kenrogers/openrouter-cli/internal/sdk/models/operations"
-	"github.com/kenrogers/openrouter-cli/internal/sdk/optionalnullable"
 	"github.com/spf13/cobra"
 )
 
@@ -189,31 +189,60 @@ func writePKCECallbackPage(w http.ResponseWriter, result pkceCallbackResult) {
 }
 
 func exchangePKCECodeForKey(cmd *cobra.Command, code, verifier string) (string, string, error) {
-	method := operations.CodeChallengeMethodS256
-	req := operations.ExchangeAuthCodeForAPIKeyRequest{
-		Body: operations.ExchangeAuthCodeForAPIKeyRequestBody{
-			Code:                code,
-			CodeVerifier:        &verifier,
-			CodeChallengeMethod: optionalnullable.From(&method),
-		},
+	baseURL := openRouterDefaultAPIBase
+	if f := cmd.Flag("server-url"); f != nil && f.Changed && strings.TrimSpace(f.Value.String()) != "" {
+		baseURL = strings.TrimRight(strings.TrimSpace(f.Value.String()), "/")
 	}
-	s, err := sdkclient.NewClient(cmd)
+
+	body, err := json.Marshal(map[string]string{
+		"code":                  code,
+		"code_verifier":         verifier,
+		"code_challenge_method": "S256",
+	})
 	if err != nil {
 		return "", "", err
 	}
-	res, err := s.OAuth.ExchangeAuthCodeForAPIKey(cmd.Context(), req)
-	if err != nil {
-		return "", "", output.Error(cmd, err)
+
+	ctx := cmd.Context()
+	if ctx == nil {
+		ctx = context.Background()
 	}
-	obj := res.GetObject()
-	if obj == nil || normalizeAPIKey(obj.Key) == "" {
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, baseURL+"/auth/keys", bytes.NewReader(body))
+	if err != nil {
+		return "", "", err
+	}
+	req.Header.Set("Accept", "application/json")
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("User-Agent", "openrouter-cli/"+Version)
+	req.Header.Set("X-OpenRouter-Title", "OpenRouter CLI")
+	req.Header.Set("HTTP-Referer", "https://openrouter.ai/agents")
+
+	client := &http.Client{Timeout: 30 * time.Second}
+	res, err := client.Do(req)
+	if err != nil {
+		return "", "", err
+	}
+	defer res.Body.Close()
+
+	data, err := io.ReadAll(res.Body)
+	if err != nil {
+		return "", "", err
+	}
+	if res.StatusCode < 200 || res.StatusCode >= 300 {
+		return "", "", fmt.Errorf("%s", openRouterErrorMessage(res.StatusCode, data))
+	}
+
+	var payload struct {
+		Key    string `json:"key"`
+		UserID string `json:"user_id"`
+	}
+	if err := json.Unmarshal(data, &payload); err != nil {
+		return "", "", err
+	}
+	if normalizeAPIKey(payload.Key) == "" {
 		return "", "", fmt.Errorf("OpenRouter did not return an API key")
 	}
-	userID := ""
-	if obj.UserID != nil {
-		userID = *obj.UserID
-	}
-	return normalizeAPIKey(obj.Key), userID, nil
+	return normalizeAPIKey(payload.Key), payload.UserID, nil
 }
 
 func generatePKCEVerifier() (string, error) {
