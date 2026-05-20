@@ -39,6 +39,22 @@ If you already have a saved credential and just need it in the current shell:
 eval "$(openrouter env)"
 ```
 
+To make `OPENROUTER_API_KEY` available to future shell-launched agents, install
+a managed shell startup hook:
+
+```sh
+openrouter env install
+```
+
+That mode loads the key from the operating system credential store without
+writing the secret into your shell profile. If you intentionally want the key to
+be globally discoverable through the user's shell environment and are
+comfortable storing it in the profile file, use:
+
+```sh
+openrouter env install --plaintext
+```
+
 Resolution order is:
 
 1. `--api-key`
@@ -55,15 +71,19 @@ For one-off agent and local tool commands that require `OPENROUTER_API_KEY`, inj
 openrouter exec -- your-agent-command
 ```
 
-## Project setup
+## Optional project key setup
 
-Most app projects should use a project-level OpenRouter key. Run this from the project root:
+Most agent workflows only need `OPENROUTER_API_KEY` in the environment. If you
+specifically need the CLI to provision a separate project-level OpenRouter key,
+authenticate with a management API key first, then run this from the project
+root:
 
 ```sh
 openrouter init
 ```
 
-`init` creates a new OpenRouter API key using the saved management credential, writes it as `OPENROUTER_API_KEY`, and never prints the full secret.
+`init` creates a new OpenRouter API key using the active management credential,
+writes it as `OPENROUTER_API_KEY`, and never prints the full secret.
 
 Secret storage modes:
 

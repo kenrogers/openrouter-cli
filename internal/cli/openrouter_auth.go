@@ -366,13 +366,17 @@ func newOpenRouterDoctorCommand() *cobra.Command {
 			}
 
 			add("Config file", "pass", config.GetConfigPath())
+			key, source := config.ResolveSecurityCredential(cmd, "api-key")
 			if config.KeyringAvailable() {
 				add("Credential storage", "pass", "OS credential store is available")
+			} else if key != "" && source == "env" {
+				add("Credential storage", "warn", "OS credential store is unavailable; using OPENROUTER_API_KEY from the environment")
+			} else if key != "" && source == "flag" {
+				add("Credential storage", "warn", "OS credential store is unavailable; using --api-key for this invocation")
 			} else {
 				add("Credential storage", "fail", "OS credential store is unavailable; API keys will not be saved")
 			}
 
-			key, source := config.ResolveSecurityCredential(cmd, "api-key")
 			if key == "" {
 				add("API key", "fail", "No API key found. Run `openrouter login`.")
 				return output.Result(cmd, map[string]any{"ok": report.OK, "checks": report.Checks})

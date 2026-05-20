@@ -7,8 +7,9 @@ This project uses the Speakeasy-generated Go/Cobra CLI as the base. The custom l
 - `openrouter login` and `openrouter auth login` use a browser-based PKCE flow, exchange the authorization code for an API key, validate it with `/key`, and save it.
 - `openrouter login --print-env --no-store` performs session-only PKCE auth and emits shell code for `OPENROUTER_API_KEY` without touching Keychain or writing plaintext.
 - `openrouter env` emits shell code for exporting the active credential into the current shell.
-- API keys are stored only in the operating system credential store.
-- Plaintext config-file fallback for API keys is disabled.
+- `openrouter env install` installs a shell startup hook so future local agents inherit `OPENROUTER_API_KEY`; `--plaintext` is available when the user explicitly wants a globally discoverable environment variable.
+- `openrouter login` stores API keys only in the operating system credential store.
+- Plaintext config-file fallback for API keys is disabled; plaintext shell-profile export requires explicit `openrouter env install --plaintext`.
 - `openrouter doctor` reports credential storage, auth source, and API validation status.
 - `openrouter exec -- <command>` injects `OPENROUTER_API_KEY` into a child process without writing it to shell profiles or project files.
 - `openrouter init` creates a project-level OpenRouter key and configures the current project with `OPENROUTER_API_KEY`.

@@ -1,30 +1,29 @@
-## openrouter env
+## openrouter auth env install
 
-Emit shell code for OPENROUTER_API_KEY
+Install a shell startup hook for OPENROUTER_API_KEY
 
 ### Synopsis
 
-Emit shell code that exports OPENROUTER_API_KEY from the current
-OpenRouter credential source.
+Install a managed shell startup block so future shells can expose
+OPENROUTER_API_KEY to local agents and developer tools.
 
-Use this when an agent or local tool needs OpenRouter credentials in its
-environment without writing the key to a shell profile:
-
-  eval "$(openrouter env)"
-
-If a saved OS credential is unavailable, this command can still re-export an
-OPENROUTER_API_KEY that is already present in the current process environment.
+By default, this installs a secure loader that reads the saved OpenRouter
+credential from the operating system credential store each time the shell
+starts. To write the key itself into the shell startup file, pass --plaintext.
+Plaintext mode is convenient for agent discovery, but any process or user that
+can read the profile file can read the key.
 
 ```
-openrouter env [flags]
+openrouter auth env install [flags]
 ```
 
 ### Options
 
 ```
-  -h, --help           help for env
-      --quiet          Suppress status messages on stderr
-      --shell string   Shell syntax to emit: auto, posix, fish, powershell, or cmd (default "auto")
+  -h, --help                  help for install
+      --plaintext             Write the API key directly into the profile file
+      --profile-file string   Shell startup file to update (default: auto-detect)
+      --shell string          Shell profile syntax: auto, posix, fish, powershell, or cmd (default "auto")
 ```
 
 ### Options inherited from parent commands
@@ -56,6 +55,4 @@ openrouter env [flags]
 
 ### SEE ALSO
 
-* [openrouter](openrouter.md)	 - OpenRouter API: OpenAI-compatible API with additional OpenRouter features
-* [openrouter env install](openrouter_env_install.md)	 - Install a shell startup hook for OPENROUTER_API_KEY
-* [openrouter env uninstall](openrouter_env_uninstall.md)	 - Remove the OpenRouter shell startup hook
+* [openrouter auth env](openrouter_auth_env.md)	 - Emit shell code for OPENROUTER_API_KEY

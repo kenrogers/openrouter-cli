@@ -23,6 +23,7 @@ openrouter auth env [flags]
 
 ```
   -h, --help           help for env
+      --quiet          Suppress status messages on stderr
       --shell string   Shell syntax to emit: auto, posix, fish, powershell, or cmd (default "auto")
 ```
 
@@ -56,3 +57,5 @@ openrouter auth env [flags]
 ### SEE ALSO
 
 * [openrouter auth](openrouter_auth.md)	 - Manage authentication credentials
+* [openrouter auth env install](openrouter_auth_env_install.md)	 - Install a shell startup hook for OPENROUTER_API_KEY
+* [openrouter auth env uninstall](openrouter_auth_env_uninstall.md)	 - Remove the OpenRouter shell startup hook
