@@ -1,0 +1,2409 @@
+lockVersion: 2.0.0
+id: c3002ac8-ce37-4e80-8f96-5a7e47495dd3
+management:
+  docChecksum: 3e583856d3609b7d9c01a66b8807169d
+  docVersion: 1.0.0
+  speakeasyVersion: 1.763.4
+  generationVersion: 2.884.11
+  releaseVersion: 0.1.0
+  configChecksum: d804b86c19e61132db0c070e9d208d5a
+  repoURL: https://github.com/openrouter/openrouter-cli
+  installationURL: https://github.com/openrouter/openrouter-cli
+features:
+  cli:
+    additionalProperties: 0.0.0
+    constsAndDefaults: 0.0.0
+    core: 0.2.9
+    customCodeRegions: 0.0.1
+    deprecations: 0.0.0
+    downloadStreams: 0.0.1
+    globalSecurity: 0.0.1
+    globalServerURLs: 0.0.0
+    globals: 0.0.0
+    groups: 0.1.0
+    ignores: 0.0.0
+    methodSecurity: 0.0.0
+    nameOverrides: 0.0.0
+    openEnums: 0.0.0
+    pagination: 0.1.0
+    responseFormat: 0.1.1
+    retries: 0.0.0
+    serverEvents: 0.0.0
+    serverIDs: 0.0.0
+    unions: 0.0.1
+trackedFiles:
+  .gitattributes:
+    last_write_checksum: sha1:84b0115789fc3ea52e31df701d8a27f76077e29f
+  .github/workflows/release.yaml:
+    last_write_checksum: sha1:ff4e1df729b880f7e346d013376669ee52735e11
+  .goreleaser.yaml:
+    last_write_checksum: sha1:06d1e612d96cc455a8d62f3ae815442b32149c1f
+  USAGE.md:
+    last_write_checksum: sha1:ffb2561b4ec5f710c9d34b5cf686255ec2aa7b0f
+  cmd/gendocs/main.go:
+    last_write_checksum: sha1:11b5fc8ccfe4ec7df2b6787e3333c82438b437cc
+  cmd/openrouter/main.go:
+    last_write_checksum: sha1:a50c47214350be337162b5aa1d2a357546b72488
+  go.mod:
+    last_write_checksum: sha1:68036b98e14b88cb41bffaa3043a162ebbaaf45c
+  internal/cli/analytics/getuseractivity.go:
+    last_write_checksum: sha1:9e8f5b49c2928aa9b9ff91ee8ac1a82b158633e3
+  internal/cli/analytics/root.go:
+    last_write_checksum: sha1:cd588ede27a86928d1b6e088858e947cdd151272
+  internal/cli/apikeys/create.go:
+    last_write_checksum: sha1:b6877746e51c626d41e546a3cc201179e466428a
+  internal/cli/apikeys/delete.go:
+    last_write_checksum: sha1:deb1383a20c3240fb6ee949642aaab8dd557a9ab
+  internal/cli/apikeys/get.go:
+    last_write_checksum: sha1:e96b490181c254f3e27ffb8dea7adf7b7a30c6c7
+  internal/cli/apikeys/getcurrentkeymetadata.go:
+    last_write_checksum: sha1:9fd8377d0f895c206f80a37e6b1563c970640407
+  internal/cli/apikeys/list.go:
+    last_write_checksum: sha1:bbe0fa85c78aab21d895721f977479456e6537bd
+  internal/cli/apikeys/root.go:
+    last_write_checksum: sha1:9b95bc330bfb026a7027daa93dc21d65ff977f85
+  internal/cli/apikeys/update.go:
+    last_write_checksum: sha1:f30d8cc20138c1c6ad20faab4ed3b2e1c8d59a9a
+  internal/cli/auth.go:
+    last_write_checksum: sha1:0a49bdb4895cf767e98ad2f36d933a9c96372429
+  internal/cli/beta/responses/root.go:
+    last_write_checksum: sha1:53f6bff91be196273a81a383848b61da91aaff91
+  internal/cli/beta/responses/send.go:
+    last_write_checksum: sha1:68528b7bb9ee6c098c2a82c2514b0d8db3c3547a
+  internal/cli/beta/root.go:
+    last_write_checksum: sha1:e7ba08d7b4644a879888cdfe6631a6ccb3a3c44c
+  internal/cli/byok/create.go:
+    last_write_checksum: sha1:c8dec2b5c6871a3db8994a82e208f9e69278e1f7
+  internal/cli/byok/delete.go:
+    last_write_checksum: sha1:c09b4396112b71746e0eaf534dc27eb794f8c9ea
+  internal/cli/byok/get.go:
+    last_write_checksum: sha1:611649548715f25171ec91336c006e79ecd98d0e
+  internal/cli/byok/list.go:
+    last_write_checksum: sha1:7c6611ad80d09d7f6033dae1ffdcb6221d6f5020
+  internal/cli/byok/root.go:
+    last_write_checksum: sha1:a114dcdf70250982ae5bb326ab0a4db7948c8410
+  internal/cli/byok/update.go:
+    last_write_checksum: sha1:0150fcacc42b8336e162fce0093df21738e303b4
+  internal/cli/chat/root.go:
+    last_write_checksum: sha1:94bbfc034426d0fb1545bba2d6f098f0d3cab00a
+  internal/cli/chat/send.go:
+    last_write_checksum: sha1:5097a64a5d0c31ccf344f9d67208916a4d52d7c5
+  internal/cli/configure.go:
+    last_write_checksum: sha1:2b9c8837dd0092e86659c1394d402509cfc8d270
+  internal/cli/credits/getcredits.go:
+    last_write_checksum: sha1:d3cdd406d92fd44ddea72541db109dbd5e91299b
+  internal/cli/credits/root.go:
+    last_write_checksum: sha1:27bcf9c8c4bfaa71b861d626523925f70dd3c60b
+  internal/cli/embeddings/generate.go:
+    last_write_checksum: sha1:97bdbd102aa110ab34a841b2d6f7e89fe0a7b1ff
+  internal/cli/embeddings/listmodels.go:
+    last_write_checksum: sha1:6fef18657019f8a8e483d120b878ca4970edb0e4
+  internal/cli/embeddings/root.go:
+    last_write_checksum: sha1:42492dca0b50419f212e2a41945efc0426a6078e
+  internal/cli/endpoints/list.go:
+    last_write_checksum: sha1:e0014ffbdbe2e0c99ef04c8c99895c5aa1bc34b9
+  internal/cli/endpoints/listzdrendpoints.go:
+    last_write_checksum: sha1:8d7282e4b2100ab8b31571066ba39e70a4120bca
+  internal/cli/endpoints/root.go:
+    last_write_checksum: sha1:271e87e5667acc295a16191049590ef0c7f0bd87
+  internal/cli/generations/getgeneration.go:
+    last_write_checksum: sha1:2c78787b04532b0cd1a050c31e505a55d178ce90
+  internal/cli/generations/listgenerationcontent.go:
+    last_write_checksum: sha1:530aeba50567e683256cf039b2c1f36992d7a8a2
+  internal/cli/generations/root.go:
+    last_write_checksum: sha1:034977c2f07727d475484738a5d06c486f02226c
+  internal/cli/guardrails/bulkassignkeys.go:
+    last_write_checksum: sha1:248c9c59b9de1035a4f0944b02d4841516428ff0
+  internal/cli/guardrails/bulkassignmembers.go:
+    last_write_checksum: sha1:3783e18f0c65ae84d33b658f92c48cf6d95a68f5
+  internal/cli/guardrails/bulkunassignkeys.go:
+    last_write_checksum: sha1:b9c68d67d7677183464e1306154d08f054ea07f5
+  internal/cli/guardrails/bulkunassignmembers.go:
+    last_write_checksum: sha1:86aedbcf0517775db129ab0b662edbc6e0e144f0
+  internal/cli/guardrails/create.go:
+    last_write_checksum: sha1:a4bb5868bdfcba447b88176bb14f8a4636207a91
+  internal/cli/guardrails/delete.go:
+    last_write_checksum: sha1:20ade57bd9e464af052eb751718556c8e22dec74
+  internal/cli/guardrails/get.go:
+    last_write_checksum: sha1:9e91a40b4894e71816b22dca1e7ebcfe75112e33
+  internal/cli/guardrails/list.go:
+    last_write_checksum: sha1:7f7601ae8db5d0eea5a221b23a88f2112810e0c4
+  internal/cli/guardrails/listguardrailkeyassignments.go:
+    last_write_checksum: sha1:45ac293ae62d82fb3d8054b6e48eb1df606f65ed
+  internal/cli/guardrails/listguardrailmemberassignments.go:
+    last_write_checksum: sha1:128939b2ff6c6677067ff347f20c00d5908e2b42
+  internal/cli/guardrails/listkeyassignments.go:
+    last_write_checksum: sha1:b733fa15d129f93d5ca1f90be272eade3d7e8d1a
+  internal/cli/guardrails/listmemberassignments.go:
+    last_write_checksum: sha1:8e3bc3d6b87417ff89135044de5db4c5250b190d
+  internal/cli/guardrails/root.go:
+    last_write_checksum: sha1:2290950b10cc973a28d9cad3790ec0d3ec5c75ac
+  internal/cli/guardrails/update.go:
+    last_write_checksum: sha1:45b768411940ba7dfb2fc2819a29413c4b72e98f
+  internal/cli/masking.go:
+    last_write_checksum: sha1:5a69fa055d628c1b8507cd123f3cd18309aa9a53
+  internal/cli/models/count.go:
+    last_write_checksum: sha1:135dff3cf8fda879056ef2606d4f0f48c5381ad1
+  internal/cli/models/list.go:
+    last_write_checksum: sha1:e7677cd8c11cf0b0dc4145b24517a20265ea975f
+  internal/cli/models/listforuser.go:
+    last_write_checksum: sha1:2eb4d7729e87b5287218770b67ab35bf0164d7b5
+  internal/cli/models/root.go:
+    last_write_checksum: sha1:c8f14bfdacbf6c95585bdc7341050dd5f1737f9f
+  internal/cli/oauth/createauthcode.go:
+    last_write_checksum: sha1:3c91ceb087f8bdd5a0a598d4734effd3a60d347f
+  internal/cli/oauth/exchangeauthcodeforapikey.go:
+    last_write_checksum: sha1:83e29b9c1594fb81b10eca70c16cd6a040be1be1
+  internal/cli/oauth/root.go:
+    last_write_checksum: sha1:52739bac61965069998cde1cb17fb9460d70261b
+  internal/cli/observability/create.go:
+    last_write_checksum: sha1:6dee52bb4d13a3880cf621937d02eb444054e952
+  internal/cli/observability/delete.go:
+    last_write_checksum: sha1:c2cf13cc31fa6c1c95ca6f1f373ed11e49b5b1d2
+  internal/cli/observability/get.go:
+    last_write_checksum: sha1:e81faef426c0fd1c64f842a852a99ccdfb827d46
+  internal/cli/observability/list.go:
+    last_write_checksum: sha1:e11f87b17fcc0b264db24df333a3ddd549ea96f8
+  internal/cli/observability/root.go:
+    last_write_checksum: sha1:c049eb86f7efefe724725afecbaccaabc4645075
+  internal/cli/observability/update.go:
+    last_write_checksum: sha1:7801eea6c5f7d8b2ed236fb7d75fc9dab6bbe8d5
+  internal/cli/organization/listmembers.go:
+    last_write_checksum: sha1:31ef928f2fc311d3cab471e7f71b80551688e053
+  internal/cli/organization/root.go:
+    last_write_checksum: sha1:f0fa16a019c0c34258b7ff2de7057d22fefe2d85
+  internal/cli/presets/createpresetschatcompletions.go:
+    last_write_checksum: sha1:c10969b4bb53d1927e398d8fd678da9e93f025af
+  internal/cli/presets/root.go:
+    last_write_checksum: sha1:60905680dfe899908120374b6cefdcf9477d17dd
+  internal/cli/providers/list.go:
+    last_write_checksum: sha1:6c03b44749da3f03ec5b7124dec2c7d0cae4b15b
+  internal/cli/providers/root.go:
+    last_write_checksum: sha1:9f3696582143d9b6dc52ab46cfd61486df710313
+  internal/cli/rerank/rerank.go:
+    last_write_checksum: sha1:db758f7556792f737d3c538e16ab3e5ea8c3ce13
+  internal/cli/rerank/root.go:
+    last_write_checksum: sha1:6f6cdd5bca2765fb6a591ffd18d6ffb3ebdfc8ab
+  internal/cli/root.go:
+    last_write_checksum: sha1:1af3a85031403ea157c77b3386515a39148ff1f1
+  internal/cli/stt/createtranscription.go:
+    last_write_checksum: sha1:f91acbcd0fcc4d44840e679117bb6115093fb8ad
+  internal/cli/stt/root.go:
+    last_write_checksum: sha1:65dc944740661149a57c52b6dc4df9c5c157ce4e
+  internal/cli/tts/createspeech.go:
+    last_write_checksum: sha1:f63ecde7356e2101d22849c3aa2f92b9dd839261
+  internal/cli/tts/root.go:
+    last_write_checksum: sha1:1d51e8a6adef96d39a3bd539d42ef8b555c00d35
+  internal/cli/version.go:
+    last_write_checksum: sha1:974c4cb7b060ad73f7e23942f3bb5a4b6fe540ad
+  internal/cli/videogeneration/generate.go:
+    last_write_checksum: sha1:5bbc6c768b53529de811655611e27c954f08ea7b
+  internal/cli/videogeneration/getgeneration.go:
+    last_write_checksum: sha1:1453956b09eccd17118784e775bcde75b8056e10
+  internal/cli/videogeneration/getvideocontent.go:
+    last_write_checksum: sha1:80431379130bb277941b879a116a32d575d16150
+  internal/cli/videogeneration/listvideosmodels.go:
+    last_write_checksum: sha1:9721b740219cbdebd1b8a975b1f0c86651c564c2
+  internal/cli/videogeneration/root.go:
+    last_write_checksum: sha1:22ba108a510db032731eb52f5c2bdeb2dd856ffc
+  internal/cli/whoami.go:
+    last_write_checksum: sha1:d5cde8231faa41aa027fd4a6672eddca46d4dc64
+  internal/cli/workspaces/bulkaddmembers.go:
+    last_write_checksum: sha1:189d1b9522d5100e1dc860a74a27b3a3d91e597f
+  internal/cli/workspaces/bulkremovemembers.go:
+    last_write_checksum: sha1:ba401e784f5fcd382b46144878fe3137f0972733
+  internal/cli/workspaces/create.go:
+    last_write_checksum: sha1:6a75403329ae344a716793c3590f25a78754374a
+  internal/cli/workspaces/delete.go:
+    last_write_checksum: sha1:dc43125aa6b30899f8e43cdbacf3f488744c0db5
+  internal/cli/workspaces/get.go:
+    last_write_checksum: sha1:d0064055eb760651ffeb6b9f77b8107e59242a1d
+  internal/cli/workspaces/list.go:
+    last_write_checksum: sha1:4c1938151b3091251743ffe5eb4fa9340f849c06
+  internal/cli/workspaces/root.go:
+    last_write_checksum: sha1:0dcaff5c70867c3dbf0b20266d47e4dacb55ee12
+  internal/cli/workspaces/update.go:
+    last_write_checksum: sha1:9fbea224bd4d7edc8e904c184247c938d29a2462
+  internal/client/client.go:
+    last_write_checksum: sha1:51cb20e4ad48623d619227678792fe3bb88c6292
+  internal/client/diagnostics.go:
+    last_write_checksum: sha1:5a577c192ba468fafd1c9f43f020fb6220951dff
+  internal/config/config.go:
+    last_write_checksum: sha1:0afbfd92ca427b24053b8de616497a75fedc1c56
+  internal/config/keyring.go:
+    last_write_checksum: sha1:26003ef4f52c8734520f8ab8950f3f56a61f16e8
+  internal/explorer/explorer.go:
+    last_write_checksum: sha1:fce74125eb90e8db82b77cc0f0c96d10bc30bfb9
+  internal/explorer/styles.go:
+    last_write_checksum: sha1:2828c2efe410bee01a8563e1cf7cc985d4d29ee8
+  internal/explorer/tree.go:
+    last_write_checksum: sha1:16dea1c4b16d808202bf0c6f819fb5fba285ade7
+  internal/explorer/tui.go:
+    last_write_checksum: sha1:6323b44c3089bf6cab45c7c7df1d862fea349b7c
+  internal/flagutil/flags.go:
+    last_write_checksum: sha1:d4a4640b46562ae38fb0d55ec14eee7a7bcc7601
+  internal/flagutil/metadata.go:
+    last_write_checksum: sha1:69a6400c2675efc3d5dc7aba04333cfda0f833fc
+  internal/interactive/interactive.go:
+    last_write_checksum: sha1:ad8a5a12995b7b58cbec5f7fdaff5813c9023b9e
+  internal/output/agentmode.go:
+    last_write_checksum: sha1:ad83f11ac7efcaeae356fe3653ad434d1697ca50
+  internal/output/binary.go:
+    last_write_checksum: sha1:6f8ee6dc8ee45547c3d5cb2d86e78f65f1d273be
+  internal/output/color.go:
+    last_write_checksum: sha1:c618ec769569213c248114c0e42b07582fffefcc
+  internal/output/jq.go:
+    last_write_checksum: sha1:37f028aa252cf0ae8b4c90b49396bcddab05c900
+  internal/output/output.go:
+    last_write_checksum: sha1:69e14e115849ab89a6c8ea6c75dd0bd9b43f06ab
+  internal/output/outputitems.go:
+    last_write_checksum: sha1:29c3e7bb8289e9535e776f21c9a7ef1f25187c51
+  internal/output/paginated.go:
+    last_write_checksum: sha1:387cba11b534789039577185bb555d93506c2c21
+  internal/output/pretty.go:
+    last_write_checksum: sha1:3a40fae5d40a578667ba06448419d8f6c5549e20
+  internal/output/streaming.go:
+    last_write_checksum: sha1:9c5b04023d6f74fb97522d86c2804dc2b4373558
+  internal/sdk/.gitattributes:
+    last_write_checksum: sha1:84b0115789fc3ea52e31df701d8a27f76077e29f
+  internal/sdk/analytics.go:
+    last_write_checksum: sha1:6ffd7e5ec8b485bd68009ed3a3929619bbe3f9c6
+  internal/sdk/apikeys.go:
+    last_write_checksum: sha1:d7baf08f1421242f24fe0ba6d6f1646f040e3888
+  internal/sdk/beta.go:
+    last_write_checksum: sha1:4d1f16dc3889937abd28fb8d6d6d9d03c8edf0a2
+  internal/sdk/byok.go:
+    last_write_checksum: sha1:f5dc84317c0ad97596d5bfe2a19b52c872b0de8f
+  internal/sdk/chat.go:
+    last_write_checksum: sha1:bb1669ac89535f79626101627b7130853b122bf1
+  internal/sdk/credits.go:
+    last_write_checksum: sha1:1a56bb480051c7f7d3afff6870c7a1a574d9bc1b
+  internal/sdk/docs/models/operations/option.md:
+    last_write_checksum: sha1:c325e82fb2b57602024e6fd0e1fd30148d5754ba
+  internal/sdk/embeddings.go:
+    last_write_checksum: sha1:6db5cc8ef6038e8ce6e6ab185605c4db7df177bb
+  internal/sdk/endpoints.go:
+    last_write_checksum: sha1:e4500767f234d7cabadbcc141d0374fe367a9a51
+  internal/sdk/generations.go:
+    last_write_checksum: sha1:5be581dbb7dd35592d1ebbfaec193d2670216f90
+  internal/sdk/guardrails.go:
+    last_write_checksum: sha1:e00eb72bfb65ace2c8fb78e891db2c2b67da477c
+  internal/sdk/models.go:
+    last_write_checksum: sha1:c7a76f6f6832c7423afa931aba4fb77845268807
+  internal/sdk/models/components/activityitem.go:
+    last_write_checksum: sha1:e0e9d08399ac4c28dab7429ca8ebbd2b680081cc
+  internal/sdk/models/components/activityresponse.go:
+    last_write_checksum: sha1:3be5b61c5cd92c78d71014892a73b929d091de3e
+  internal/sdk/models/components/annotationaddedevent.go:
+    last_write_checksum: sha1:2c0d0845318849eb34735fb61e7af6be16f7a3e9
+  internal/sdk/models/components/anthropiccachecontroldirective.go:
+    last_write_checksum: sha1:f121cd0054c3747dd8c48e5793bf89960b3024e7
+  internal/sdk/models/components/anthropiccachecontrolttl.go:
+    last_write_checksum: sha1:aa0bd6c006c6588b6a9ec2e9e32c2a67141356e8
+  internal/sdk/models/components/applypatchcallitem.go:
+    last_write_checksum: sha1:5b4526899739adbe3fcf80596e90bf68cf2f674e
+  internal/sdk/models/components/applypatchcalloperation.go:
+    last_write_checksum: sha1:3690cf1e6b56fc694f7f1587bcfda81536f3b5a3
+  internal/sdk/models/components/applypatchcalloperationdiffdeltaevent.go:
+    last_write_checksum: sha1:666f50674518e1a7ff8b8b2602dcce0ac59c0a7c
+  internal/sdk/models/components/applypatchcalloperationdiffdoneevent.go:
+    last_write_checksum: sha1:5d19d3d6e5406c9bd813c53d1961251b7afe4768
+  internal/sdk/models/components/applypatchcalloutputitem.go:
+    last_write_checksum: sha1:3cdd23dc1032e944920bf97335a1f7ef3d253c9b
+  internal/sdk/models/components/applypatchcallstatus.go:
+    last_write_checksum: sha1:4b5b7a373857caf38d783db6d786755dc890241d
+  internal/sdk/models/components/applypatchcreatefileoperation.go:
+    last_write_checksum: sha1:4309610f4880fa5ab2086eea9dd21a35f7ec9385
+  internal/sdk/models/components/applypatchdeletefileoperation.go:
+    last_write_checksum: sha1:b817c5ac6f53fe2dd7c3479963552834894362fd
+  internal/sdk/models/components/applypatchengineenum.go:
+    last_write_checksum: sha1:83d11d97e998f003808a881b8f96f5f4ad5bbdeb
+  internal/sdk/models/components/applypatchservertool.go:
+    last_write_checksum: sha1:6a6c65ec6a611c2d5d5369236315380d0e64f056
+  internal/sdk/models/components/applypatchservertoolconfig.go:
+    last_write_checksum: sha1:7192606f7c0e00f6dc71fd265d5374939497af0c
+  internal/sdk/models/components/applypatchservertoolopenrouter.go:
+    last_write_checksum: sha1:ead7c62c8a5cf4f44ef30750c91be0baf2fb4152
+  internal/sdk/models/components/applypatchupdatefileoperation.go:
+    last_write_checksum: sha1:2fcbd79d5fcbb9866cf0b3d1652eefdcaf49b7e0
+  internal/sdk/models/components/autorouterplugin.go:
+    last_write_checksum: sha1:1d80e90911ae8c7674ac6eb41694b0b507ce7385
+  internal/sdk/models/components/badgatewayresponseerrordata.go:
+    last_write_checksum: sha1:1bfdb96737f9072bea2f99b0159cfb7a763dd642
+  internal/sdk/models/components/badrequestresponseerrordata.go:
+    last_write_checksum: sha1:c358014fd9f94b6814f1fe0a77adff8625a588df
+  internal/sdk/models/components/baseinputs.go:
+    last_write_checksum: sha1:085c5f7e5697c43cab4832bde9a707597ba17a99
+  internal/sdk/models/components/basereasoningconfig.go:
+    last_write_checksum: sha1:14f2f60ac63b87bf1011dcd5236401be80902e75
+  internal/sdk/models/components/bulkaddworkspacemembersrequest.go:
+    last_write_checksum: sha1:24a4d4d5141fc0d1b60585eaba64d760ddb28e94
+  internal/sdk/models/components/bulkaddworkspacemembersresponse.go:
+    last_write_checksum: sha1:220ecea4f095b0a368d2ee1b5906703e7ac42160
+  internal/sdk/models/components/bulkassignkeysrequest.go:
+    last_write_checksum: sha1:70b0ec7563924cd709d49365517224c5b6077b22
+  internal/sdk/models/components/bulkassignkeysresponse.go:
+    last_write_checksum: sha1:1acab4a5dfbc6f3f1428166217ed8215bdca03d8
+  internal/sdk/models/components/bulkassignmembersrequest.go:
+    last_write_checksum: sha1:33c62e4ac7d17fd54f8b03236e952d69720e4daf
+  internal/sdk/models/components/bulkassignmembersresponse.go:
+    last_write_checksum: sha1:00142584750365e7a3f88d8863792ff4a7b1c7ea
+  internal/sdk/models/components/bulkremoveworkspacemembersrequest.go:
+    last_write_checksum: sha1:8ee1d52075726de51220153d63c396b8c59702d2
+  internal/sdk/models/components/bulkremoveworkspacemembersresponse.go:
+    last_write_checksum: sha1:3f534952d2d49ce3d59dcf2a79602d85d347d95a
+  internal/sdk/models/components/bulkunassignkeysrequest.go:
+    last_write_checksum: sha1:67f2c3168c39e6a2b5eb3be43f4de16119818f30
+  internal/sdk/models/components/bulkunassignkeysresponse.go:
+    last_write_checksum: sha1:0c560cf34be0b47d174e0df90406cc37c963ec07
+  internal/sdk/models/components/bulkunassignmembersrequest.go:
+    last_write_checksum: sha1:ce041461dd12512984c0402a5777c336429897ed
+  internal/sdk/models/components/bulkunassignmembersresponse.go:
+    last_write_checksum: sha1:4958ccd935a684c60af880cc443711480e944365
+  internal/sdk/models/components/byokkey.go:
+    last_write_checksum: sha1:d100d0e81b687dadd7d2dadc275080003f5c2d52
+  internal/sdk/models/components/byokproviderslug.go:
+    last_write_checksum: sha1:7c1b1998ab814c2d352d0b147e8308b9f2a06e4d
+  internal/sdk/models/components/chatassistantimages.go:
+    last_write_checksum: sha1:b1eb9968525ad0e8dbeceeb12ad04f58b27d7365
+  internal/sdk/models/components/chatassistantmessage.go:
+    last_write_checksum: sha1:fa944d28c772163b29ca636b982703539833879a
+  internal/sdk/models/components/chataudiooutput.go:
+    last_write_checksum: sha1:80f364bfd86934b20e452e7ef38c66c4b4c2eeb3
+  internal/sdk/models/components/chatchoice.go:
+    last_write_checksum: sha1:e8c87adb0390a114a92616ff67cb474899adafe0
+  internal/sdk/models/components/chatcontentaudio.go:
+    last_write_checksum: sha1:5ff65f7745a252ecab91d4938578a8b8e48aa750
+  internal/sdk/models/components/chatcontentcachecontrol.go:
+    last_write_checksum: sha1:258750ffa9a2bf9f98807425160b4f21b307c766
+  internal/sdk/models/components/chatcontentfile.go:
+    last_write_checksum: sha1:f06f4154ce8232042c572342c27e343d82df149c
+  internal/sdk/models/components/chatcontentimage.go:
+    last_write_checksum: sha1:99beccf3f4fef90e81342030a3afef3b9ea9b453
+  internal/sdk/models/components/chatcontentitems.go:
+    last_write_checksum: sha1:c3ae0f2e3dd68be1394e15fc1ad4bcc3fbf5461a
+  internal/sdk/models/components/chatcontenttext.go:
+    last_write_checksum: sha1:0f6606b0ad3f3a61c7f96f83703f18998b6fac90
+  internal/sdk/models/components/chatcontentvideo.go:
+    last_write_checksum: sha1:c9c73cd35854c685c7bbb25d55828c8a2f5c82c1
+  internal/sdk/models/components/chatcontentvideoinput.go:
+    last_write_checksum: sha1:2aa47bd5fc8a58ae97365a2520c933b6f1bb72d5
+  internal/sdk/models/components/chatdebugoptions.go:
+    last_write_checksum: sha1:6d3b337b9fe6b67dab68fe7e3dc61b08471527dc
+  internal/sdk/models/components/chatdevelopermessage.go:
+    last_write_checksum: sha1:bc1077796d1da99fdfb580f48fdbda02bbc20f00
+  internal/sdk/models/components/chatfinishreasonenum.go:
+    last_write_checksum: sha1:82ad7b52b790d43cf54f47ef9f1351041b929e0d
+  internal/sdk/models/components/chatformatgrammarconfig.go:
+    last_write_checksum: sha1:425c1bfc7326fcf514f37a4c95f08d6f8b688109
+  internal/sdk/models/components/chatformatjsonschemaconfig.go:
+    last_write_checksum: sha1:0c2d29f7f1d7ec661e1129700e070f476f9e9c82
+  internal/sdk/models/components/chatformatpythonconfig.go:
+    last_write_checksum: sha1:bc401824bb4e2d57242dd6be13dc509a93d56a41
+  internal/sdk/models/components/chatformattextconfig.go:
+    last_write_checksum: sha1:9e6409891e992f892dd4703586942243de61e768
+  internal/sdk/models/components/chatfunctiontool.go:
+    last_write_checksum: sha1:1b71effdc9ca85ad36e99163abbcd6aaa4e83d65
+  internal/sdk/models/components/chatjsonschemaconfig.go:
+    last_write_checksum: sha1:253fbb02fddddb465442738ad5326473165815cb
+  internal/sdk/models/components/chatmessages.go:
+    last_write_checksum: sha1:f7c23c9ce559f7504b9e1acc4031e1a951b16369
+  internal/sdk/models/components/chatnamedtoolchoice.go:
+    last_write_checksum: sha1:7d2cf15a93f2c139ce03c029d4bace6bdcbc247f
+  internal/sdk/models/components/chatreasoningsummaryverbosityenum.go:
+    last_write_checksum: sha1:eb93b8030966c51872d9e0d8ad7e1925c499175c
+  internal/sdk/models/components/chatrequest.go:
+    last_write_checksum: sha1:8baa9a542cdbfed764599a243e3cc3ca2c4921af
+  internal/sdk/models/components/chatresult.go:
+    last_write_checksum: sha1:3abb6a6d9aa7344c0acecf2d8d7a2dfaf6b674c1
+  internal/sdk/models/components/chatsearchmodelsservertool.go:
+    last_write_checksum: sha1:2deff5fc3cce50d889c9cfa3159cbaf0d2c7564e
+  internal/sdk/models/components/chatservertoolchoice.go:
+    last_write_checksum: sha1:9334ed8a3d984d09099708fef7b5cdd005cb241c
+  internal/sdk/models/components/chatstreamchoice.go:
+    last_write_checksum: sha1:8c44c72b80ab7a83109ccc5de9b68eab1fe5bb91
+  internal/sdk/models/components/chatstreamchunk.go:
+    last_write_checksum: sha1:c13e4c162bd42e78fcf2ccf6e0989385e09afe73
+  internal/sdk/models/components/chatstreamdelta.go:
+    last_write_checksum: sha1:daf5a2a56a5baef2ec458b28baaaf0952bc0f08f
+  internal/sdk/models/components/chatstreamingresponse.go:
+    last_write_checksum: sha1:f17ac39e03348e3703681eb176c1947717a762e2
+  internal/sdk/models/components/chatstreamoptions.go:
+    last_write_checksum: sha1:29329d4e23a04a8ba15d7b69fccd3828a900f18e
+  internal/sdk/models/components/chatstreamtoolcall.go:
+    last_write_checksum: sha1:09e4038d19f218472d4ae348840767333e3635bc
+  internal/sdk/models/components/chatsystemmessage.go:
+    last_write_checksum: sha1:a0228e9756979c78075e42982b0f94eac48efa66
+  internal/sdk/models/components/chattokenlogprob.go:
+    last_write_checksum: sha1:41a81beb4eb3be99386ca8cd75dd47c3d12df6e3
+  internal/sdk/models/components/chattokenlogprobs.go:
+    last_write_checksum: sha1:b9cf29ab5dc3ddb83f5f954df2045b31604116e1
+  internal/sdk/models/components/chattoolcall.go:
+    last_write_checksum: sha1:d1bc75fa0af1bab01deae195d9f41741723e5587
+  internal/sdk/models/components/chattoolchoice.go:
+    last_write_checksum: sha1:48b1c921f9b702ba21a1cbdb9dbff764fd9ef64f
+  internal/sdk/models/components/chattoolmessage.go:
+    last_write_checksum: sha1:f4dd8a2a1ccf0e0783704ccb257b0357ada89ade
+  internal/sdk/models/components/chatusage.go:
+    last_write_checksum: sha1:7aacbf3f1eda01073ea3a93fe37f7a5d6abaa697
+  internal/sdk/models/components/chatusermessage.go:
+    last_write_checksum: sha1:875b2434cf11778715b6bd3f0d28ed15fdcff8f9
+  internal/sdk/models/components/chatwebsearchshorthand.go:
+    last_write_checksum: sha1:38280e7ee6461b9de155fe0a3233d8a312987a18
+  internal/sdk/models/components/codeinterpreterservertool.go:
+    last_write_checksum: sha1:01fa900615344077eec3ac06738aa58b84094935
+  internal/sdk/models/components/codexlocalshelltool.go:
+    last_write_checksum: sha1:1a5c224212655f62bb8da17b1065f85d153d6d68
+  internal/sdk/models/components/compactionitem.go:
+    last_write_checksum: sha1:205ff6fc702dc3595aab28859a822668efecf142
+  internal/sdk/models/components/compoundfilter.go:
+    last_write_checksum: sha1:4d84db4304bf4c51a5cb31c893afcc8fe1c19787
+  internal/sdk/models/components/computeruseservertool.go:
+    last_write_checksum: sha1:ac8b7459fbaecd1d5e1fb9e2e768376543ad4205
+  internal/sdk/models/components/conflictresponseerrordata.go:
+    last_write_checksum: sha1:5a0ce28c20727d26f409448eb737bcda62d8853d
+  internal/sdk/models/components/contentfilteraction.go:
+    last_write_checksum: sha1:4dc61b5c7336d7e0997dacef2f5990c6ade53114
+  internal/sdk/models/components/contentfilterbuiltinaction.go:
+    last_write_checksum: sha1:46e2e750c23b97c89a9a1638b42567a45db7224c
+  internal/sdk/models/components/contentfilterbuiltinentry.go:
+    last_write_checksum: sha1:672bd3639010413d0b20f3f25f8d2699640f35fe
+  internal/sdk/models/components/contentfilterbuiltinslug.go:
+    last_write_checksum: sha1:65e9888f478d0aeb5fef29e42c36a9f2539f0e86
+  internal/sdk/models/components/contentfilterentry.go:
+    last_write_checksum: sha1:0bc15a62742c23539f29519ebaf2d645995a2658
+  internal/sdk/models/components/contentpartaddedevent.go:
+    last_write_checksum: sha1:a91bfdc250138e7499b8d4ac5eb1e22599246166
+  internal/sdk/models/components/contentpartdoneevent.go:
+    last_write_checksum: sha1:b20ce1672d0e8472bd5f8815698fee1497521f37
+  internal/sdk/models/components/contentpartimage.go:
+    last_write_checksum: sha1:b13146d3b57b51cfc9345266139fed4745820eec
+  internal/sdk/models/components/contentpartinputaudio.go:
+    last_write_checksum: sha1:83dcf081ec032a838d538ceb744a1967cc00a5fe
+  internal/sdk/models/components/contentpartinputfile.go:
+    last_write_checksum: sha1:00686d73aa71ead36a06a6a2161bc44927248317
+  internal/sdk/models/components/contentpartinputvideo.go:
+    last_write_checksum: sha1:0da9fa0ab7016ca006cee32dbec9e9883a998303
+  internal/sdk/models/components/contextcompressionengine.go:
+    last_write_checksum: sha1:0461deef9c719e3a6f2c19f4a2df868f7994e3c6
+  internal/sdk/models/components/contextcompressionplugin.go:
+    last_write_checksum: sha1:7aa83a6c0f9802d2049daec3c0a24836a125b527
+  internal/sdk/models/components/costdetails.go:
+    last_write_checksum: sha1:abe5fbb839fc56c2bfac127ba4128e98fc7d28da
+  internal/sdk/models/components/createbyokkeyrequest.go:
+    last_write_checksum: sha1:13c7233a660b7d3fca4c408291ff63a7f8281e34
+  internal/sdk/models/components/createbyokkeyresponse.go:
+    last_write_checksum: sha1:59e90514adc995e655194adfc5b509c057de39b2
+  internal/sdk/models/components/createguardrailrequest.go:
+    last_write_checksum: sha1:acd012f82f76355b3187c16342cf84191890550f
+  internal/sdk/models/components/createguardrailresponse.go:
+    last_write_checksum: sha1:53c063df40ab8f40e29a1ed628f4537f21b1cf3f
+  internal/sdk/models/components/createobservabilitydestinationrequest.go:
+    last_write_checksum: sha1:416b9919da63364a5c934c27bf7b4944cbe9a92d
+  internal/sdk/models/components/createobservabilitydestinationresponse.go:
+    last_write_checksum: sha1:81e220923fec6553a4e091ecabea21846cbc1239
+  internal/sdk/models/components/createpresetfrominferenceresponse.go:
+    last_write_checksum: sha1:93cbd427e7ecc3ddcbb46fcd6ac2008f86a9de45
+  internal/sdk/models/components/createworkspacerequest.go:
+    last_write_checksum: sha1:43bf9431fc09ebf150a3c9683d2f7fd5d65b2112
+  internal/sdk/models/components/createworkspaceresponse.go:
+    last_write_checksum: sha1:f9deefc65475960d8b663854b57e934298c88d88
+  internal/sdk/models/components/customtool.go:
+    last_write_checksum: sha1:8839e3a869b2234e1b71f72e253c5b2ed698b7df
+  internal/sdk/models/components/customtoolcallinputdeltaevent.go:
+    last_write_checksum: sha1:14e1f726a94362adc28684fb286bb5863023477f
+  internal/sdk/models/components/customtoolcallinputdoneevent.go:
+    last_write_checksum: sha1:e37b6e5d8e5e97d4674a4049ea0451ffebb24593
+  internal/sdk/models/components/customtoolcallitem.go:
+    last_write_checksum: sha1:de491974445864fdb51a87d5106fa2b8cf0c98ee
+  internal/sdk/models/components/customtoolcalloutputitem.go:
+    last_write_checksum: sha1:40001dca9ae6458b4d668620559b9e6de7bf969f
+  internal/sdk/models/components/datetimeservertool.go:
+    last_write_checksum: sha1:0ee008d4f9cf49e79047617ba553dcebb05b1213
+  internal/sdk/models/components/datetimeservertoolconfig.go:
+    last_write_checksum: sha1:287452eda5eb28072842c2d4a243b5a12b086217
+  internal/sdk/models/components/defaultparameters.go:
+    last_write_checksum: sha1:70f59d7f13e9a93481a40102278308283f478006
+  internal/sdk/models/components/deletebyokkeyresponse.go:
+    last_write_checksum: sha1:87fd982c154e329754d2e09db07b3d8c212f077e
+  internal/sdk/models/components/deleteguardrailresponse.go:
+    last_write_checksum: sha1:9605e276d2cd47d6b64e7be422e34e9b5f772103
+  internal/sdk/models/components/deleteobservabilitydestinationresponse.go:
+    last_write_checksum: sha1:b4da7afccfb59dc058d2c4c26ea93bcd91d0c252
+  internal/sdk/models/components/deleteworkspaceresponse.go:
+    last_write_checksum: sha1:c6bef7fef2d2be8ee2a5f886c7a2272f6d86d0f5
+  internal/sdk/models/components/easyinputmessage.go:
+    last_write_checksum: sha1:26d4533f8daba3638c25c7b65c180a26db8df5c6
+  internal/sdk/models/components/edgenetworktimeoutresponseerrordata.go:
+    last_write_checksum: sha1:8753a8e9696046ba2033a9e1fae50ae6607238d1
+  internal/sdk/models/components/endpointinfo.go:
+    last_write_checksum: sha1:a13188660c802026fea63282779136a57f81e519
+  internal/sdk/models/components/endpointsmetadata.go:
+    last_write_checksum: sha1:9174f8ad19ea7275767bb86cb903ead4b351c2bf
+  internal/sdk/models/components/endpointstatus.go:
+    last_write_checksum: sha1:f67d681fdb81f324585a35cb03893a9847fac4a9
+  internal/sdk/models/components/errorevent.go:
+    last_write_checksum: sha1:3cbb145e3791ae5699b644cc6e5fffc25065ae6f
+  internal/sdk/models/components/filecitation.go:
+    last_write_checksum: sha1:58c0816f201876706b1a8bc869997e6d92671237
+  internal/sdk/models/components/fileparserplugin.go:
+    last_write_checksum: sha1:03e309033b3ec140ea83203b10f7293abffbe305
+  internal/sdk/models/components/filepath.go:
+    last_write_checksum: sha1:705bfd0b53cbcd3df27f906db5dd33675c32a916
+  internal/sdk/models/components/filesearchservertool.go:
+    last_write_checksum: sha1:559abe101463d7c5b2950c3787e7abe841158712
+  internal/sdk/models/components/forbiddenresponseerrordata.go:
+    last_write_checksum: sha1:e21055f15f8ded69577d4a6959621519788df499
+  internal/sdk/models/components/formatjsonobjectconfig.go:
+    last_write_checksum: sha1:9bb4661ec236b712db7453abcae2efbaf41e593a
+  internal/sdk/models/components/formatjsonschemaconfig.go:
+    last_write_checksum: sha1:af115e3008addd3ac9d343bffd588decac844c6b
+  internal/sdk/models/components/formats.go:
+    last_write_checksum: sha1:997ee5c328c5b6fc2163367ef9a422d68b6dcf2b
+  internal/sdk/models/components/formattextconfig.go:
+    last_write_checksum: sha1:f07fb838cb2da9b8fe79efec78c26f08ae215b4a
+  internal/sdk/models/components/frameimage.go:
+    last_write_checksum: sha1:032296801531ed6770b4f0e4e207fe5c6647ebf9
+  internal/sdk/models/components/functioncallargsdeltaevent.go:
+    last_write_checksum: sha1:31b8558f23925518855eb29ac874627aab33f055
+  internal/sdk/models/components/functioncallargsdoneevent.go:
+    last_write_checksum: sha1:5fdb1d1089fb7ebde224b211ef2505bec7b0fe05
+  internal/sdk/models/components/functioncallitem.go:
+    last_write_checksum: sha1:002b377232f3737a21d144f808433521d8b1d5dd
+  internal/sdk/models/components/functioncalloutputitem.go:
+    last_write_checksum: sha1:fbda108954284860e319cc976b80aa355ae5fbd2
+  internal/sdk/models/components/fusionplugin.go:
+    last_write_checksum: sha1:7eda4c86ae4675dcff56521f2cd99fea6fb116bc
+  internal/sdk/models/components/fusionservertoolconfig.go:
+    last_write_checksum: sha1:076bf0c79cc93f2dbd1abaf312e8ff0d53ef3509
+  internal/sdk/models/components/fusionservertoolopenrouter.go:
+    last_write_checksum: sha1:9ef965455934bfeacd4c6cb38f4844fc9ff6e524
+  internal/sdk/models/components/generationcontentdata.go:
+    last_write_checksum: sha1:268d30eb80dc4cf788dc9ba8e5532c0eb0fc34d3
+  internal/sdk/models/components/generationcontentresponse.go:
+    last_write_checksum: sha1:d9ff88f8bc4a8b072b398b90870b1c0e61752260
+  internal/sdk/models/components/generationresponse.go:
+    last_write_checksum: sha1:6f02acfc60bac58e3bc129e1ecf6def6f978a29f
+  internal/sdk/models/components/getbyokkeyresponse.go:
+    last_write_checksum: sha1:2c730a305b0f4628e664405f1a4f9e23a2285cf4
+  internal/sdk/models/components/getguardrailresponse.go:
+    last_write_checksum: sha1:216298dd9641fbbc1f58f133b7f3792cce8d26ca
+  internal/sdk/models/components/getobservabilitydestinationresponse.go:
+    last_write_checksum: sha1:e95fceb1b1f556669661802c01d78af14fd9b29a
+  internal/sdk/models/components/getworkspaceresponse.go:
+    last_write_checksum: sha1:f48de4958863e7c5d175265331762bccaed2efb4
+  internal/sdk/models/components/guardrail.go:
+    last_write_checksum: sha1:d4e6481ad6eb3c532deb23ece15767e6d4c6cbf0
+  internal/sdk/models/components/guardrailinterval.go:
+    last_write_checksum: sha1:b7dce0e7eb4f95be28d292d227a6bf3be940bee0
+  internal/sdk/models/components/httpmetadata.go:
+    last_write_checksum: sha1:01a20fcff33179809ff9920ee431c7adabbd98f1
+  internal/sdk/models/components/imageconfig.go:
+    last_write_checksum: sha1:3f5d68a4f3b57666d4780469cf3d1c6ada4c17eb
+  internal/sdk/models/components/imagegencallcompletedevent.go:
+    last_write_checksum: sha1:2c9f89557c1957f9217435a3dcb3a1239eeceeee
+  internal/sdk/models/components/imagegencallgeneratingevent.go:
+    last_write_checksum: sha1:be4c81070a3751e9434043108af976979815afce
+  internal/sdk/models/components/imagegencallinprogressevent.go:
+    last_write_checksum: sha1:ab1932606a2cde38edea900b13c556f085eafa33
+  internal/sdk/models/components/imagegencallpartialimageevent.go:
+    last_write_checksum: sha1:4e1181c3e04c82602f71fece480c8c4df377c2b8
+  internal/sdk/models/components/imagegenerationservertool.go:
+    last_write_checksum: sha1:36cd2653b7be3dfc1364a2b91bc3ad9dc8840dff
+  internal/sdk/models/components/imagegenerationservertoolconfig.go:
+    last_write_checksum: sha1:2b8864366cfcd512c431e681a97f942075406e74
+  internal/sdk/models/components/imagegenerationservertoolconfig1.go:
+    last_write_checksum: sha1:75d013b442a92ae6f34740f744a93b97166b1c27
+  internal/sdk/models/components/imagegenerationservertoolopenrouter.go:
+    last_write_checksum: sha1:3a5344a5831333e411400ffd153ea9499f79d005
+  internal/sdk/models/components/imagegenerationstatus.go:
+    last_write_checksum: sha1:b0538fd85c7deec0f1ec78f233f01792491e37ac
+  internal/sdk/models/components/incompletedetails.go:
+    last_write_checksum: sha1:77e95ba5b999638db63eed992be26ca8825078c2
+  internal/sdk/models/components/inputaudio.go:
+    last_write_checksum: sha1:f822d62811da84e00ebf2fed53b7bfa928f6e653
+  internal/sdk/models/components/inputfile.go:
+    last_write_checksum: sha1:d2dc3fb2588b5e2a6cba9f1fe707e66423782849
+  internal/sdk/models/components/inputimage.go:
+    last_write_checksum: sha1:63ee1aa26d5c429e69fabd6386f96122d2d60836
+  internal/sdk/models/components/inputmessageitem.go:
+    last_write_checksum: sha1:96daa04b652ab1ddf4948612b27a32b03d25c95b
+  internal/sdk/models/components/inputmodality.go:
+    last_write_checksum: sha1:a72c2afa3f670c703b3b66d5728b419816e13e98
+  internal/sdk/models/components/inputs.go:
+    last_write_checksum: sha1:dc9f2bfc148f3518fea210912fb2d4ae8692437f
+  internal/sdk/models/components/inputtext.go:
+    last_write_checksum: sha1:f60d182bb67bacd9ae1b066ea1961e61f0b0b329
+  internal/sdk/models/components/inputvideo.go:
+    last_write_checksum: sha1:07ac1b63328693c048271b5b7f9a62a7c867d67a
+  internal/sdk/models/components/instructtype.go:
+    last_write_checksum: sha1:aa09fb491b53265777a5f4c78aeca0ef9d022da7
+  internal/sdk/models/components/internalserverresponseerrordata.go:
+    last_write_checksum: sha1:b5a09dea0ce140280a7ad11d9d1e1310067ab7a3
+  internal/sdk/models/components/itemreferenceitem.go:
+    last_write_checksum: sha1:a83bee714c7ea426ba0440bd4d20e604d0897953
+  internal/sdk/models/components/keyassignment.go:
+    last_write_checksum: sha1:683bd140357e1d9c2169453dd76377a078c638fa
+  internal/sdk/models/components/legacychatcontentvideo.go:
+    last_write_checksum: sha1:c3940670831e51e3d63d87e3b4cfe50a3896e0be
+  internal/sdk/models/components/legacywebsearchservertool.go:
+    last_write_checksum: sha1:44e43128e1b078655c5e056d84f22739692ae781
+  internal/sdk/models/components/listbyokkeysresponse.go:
+    last_write_checksum: sha1:7aadfa5921ec0dce645fce7b4a62f1260872bc75
+  internal/sdk/models/components/listendpointsresponse.go:
+    last_write_checksum: sha1:9638242c38eddb7f490f2955897ff24802682f8f
+  internal/sdk/models/components/listguardrailsresponse.go:
+    last_write_checksum: sha1:ef58ece34f58959f79c60d573f833df39f250b00
+  internal/sdk/models/components/listkeyassignmentsresponse.go:
+    last_write_checksum: sha1:033c2cfba3274e8364ecd154a3649aa4ed8a5786
+  internal/sdk/models/components/listmemberassignmentsresponse.go:
+    last_write_checksum: sha1:0844d8c863e12af4a6e1b814c4508892ae7258a9
+  internal/sdk/models/components/listobservabilitydestinationsresponse.go:
+    last_write_checksum: sha1:bdca967441310bbb2a21b3a669046f3f746409ad
+  internal/sdk/models/components/listworkspacesresponse.go:
+    last_write_checksum: sha1:e8839ef3dee6df2c308da509c447d575ad831558
+  internal/sdk/models/components/localshellcallitem.go:
+    last_write_checksum: sha1:c3a1c1cfdfeb0edefce48ef816409a81a164f53e
+  internal/sdk/models/components/localshellcalloutputitem.go:
+    last_write_checksum: sha1:cbe5f3164011f4484bb7a4f5754c272b5bfccf34
+  internal/sdk/models/components/mcpapprovalrequestitem.go:
+    last_write_checksum: sha1:31fa4cad2b1f88cfd5ff3673ea203e4dd1cc65bc
+  internal/sdk/models/components/mcpapprovalresponseitem.go:
+    last_write_checksum: sha1:1d6e1f3cb026496f78e6e25f18d53d7036e23942
+  internal/sdk/models/components/mcpcallitem.go:
+    last_write_checksum: sha1:e9567e3fe4e34b8de90527724df0872d2c0e7ae3
+  internal/sdk/models/components/mcplisttoolsitem.go:
+    last_write_checksum: sha1:4f2cb75335c3e35411dd098c13a9d9823894a796
+  internal/sdk/models/components/mcpservertool.go:
+    last_write_checksum: sha1:84cc140506518cd82a72587ae46f23209fc5647a
+  internal/sdk/models/components/memberassignment.go:
+    last_write_checksum: sha1:4cf0435477239b9d3c857f227a0beb1561e19bc0
+  internal/sdk/models/components/metadatalevel.go:
+    last_write_checksum: sha1:dee5e6934d706fb1d9154b630fbed34b3257e868
+  internal/sdk/models/components/model.go:
+    last_write_checksum: sha1:8635f902920b12de886eb28314d3cfb96971c6cb
+  internal/sdk/models/components/modelarchitecture.go:
+    last_write_checksum: sha1:a6c6b9f9e856599f28764dafebdb031573b8c600
+  internal/sdk/models/components/modelgroup.go:
+    last_write_checksum: sha1:93dad4f912412778de6ef830cd824369a652b335
+  internal/sdk/models/components/modellinks.go:
+    last_write_checksum: sha1:564598c394bc8b823d8105da0ee218f6ec226ae0
+  internal/sdk/models/components/modelscountresponse.go:
+    last_write_checksum: sha1:7ebcf0ffc74d033cbc08db978f2f18ec549d78e2
+  internal/sdk/models/components/modelslistresponse.go:
+    last_write_checksum: sha1:c99217a2c3cd908fb1d0222bdd7bd401021abd8b
+  internal/sdk/models/components/moderationplugin.go:
+    last_write_checksum: sha1:39da645730541d97ddb8e59400dae161b5f227d1
+  internal/sdk/models/components/multimodalmedia.go:
+    last_write_checksum: sha1:d9d757fe5c2c26e2db24a5beb17efac68f61de84
+  internal/sdk/models/components/notfoundresponseerrordata.go:
+    last_write_checksum: sha1:f9c0cc4e8651a4ad7e91427d91d8942360dc6cb3
+  internal/sdk/models/components/observabilityarizedestination.go:
+    last_write_checksum: sha1:cf5694ae1b38c4677cc15416cb4c7b0f8412a508
+  internal/sdk/models/components/observabilitybraintrustdestination.go:
+    last_write_checksum: sha1:88edeab86677b3a5d787a23fbd2919549dc0ddb7
+  internal/sdk/models/components/observabilityclickhousedestination.go:
+    last_write_checksum: sha1:1a99223672e823c52bb4a5ffaaa3df1ccac59c98
+  internal/sdk/models/components/observabilitydatadogdestination.go:
+    last_write_checksum: sha1:4c7eea48588e9d806e41437d096e6ffc4109c555
+  internal/sdk/models/components/observabilitydestination.go:
+    last_write_checksum: sha1:c6dee98e3d2b44503f70e878a8c77df9635cdd1f
+  internal/sdk/models/components/observabilityfilterrulesconfig.go:
+    last_write_checksum: sha1:d4bd36e9703c335e5aa63c4a7ad0a4a4d2f63ea2
+  internal/sdk/models/components/observabilitygrafanadestination.go:
+    last_write_checksum: sha1:e62abbc29cae942a791b24c96bf1c28b9adb8b99
+  internal/sdk/models/components/observabilitylangfusedestination.go:
+    last_write_checksum: sha1:c2b1f3ed91eb8b2a7be8adda6b854f00083ea8f1
+  internal/sdk/models/components/observabilitylangsmithdestination.go:
+    last_write_checksum: sha1:2b1a5deb1db76eea26faa6daf2bbdae1baf75644
+  internal/sdk/models/components/observabilitynewrelicdestination.go:
+    last_write_checksum: sha1:a594207903e09b133be3ea6ab6e386294867736d
+  internal/sdk/models/components/observabilityopikdestination.go:
+    last_write_checksum: sha1:e92da7633d97a0bdc8288bcdd5931d5a698c69e3
+  internal/sdk/models/components/observabilityotelcollectordestination.go:
+    last_write_checksum: sha1:ec4c7a5b73978788e8e55c71832148240f613df2
+  internal/sdk/models/components/observabilityposthogdestination.go:
+    last_write_checksum: sha1:7a3caa4b8dcbb62b61ccffddc6392f653c0fe02c
+  internal/sdk/models/components/observabilityrampdestination.go:
+    last_write_checksum: sha1:558a4d960663e2fab3d0b05f8635319e432ef12e
+  internal/sdk/models/components/observabilitys3destination.go:
+    last_write_checksum: sha1:08870e2a03262e62a1f3b1c18ed38dc642f6a6f2
+  internal/sdk/models/components/observabilitysentrydestination.go:
+    last_write_checksum: sha1:14f11ce4d37800d07b4af0ea2b906c632e242f43
+  internal/sdk/models/components/observabilitysnowflakedestination.go:
+    last_write_checksum: sha1:0316d9aaa151e71b768d80a3fd70751bd0ac647b
+  internal/sdk/models/components/observabilityweavedestination.go:
+    last_write_checksum: sha1:0786ad343c21f1cc32f7c2f3a225246ac723f763
+  internal/sdk/models/components/observabilitywebhookdestination.go:
+    last_write_checksum: sha1:bfc38208efb3734d0e8ba24cfa76b62f00e75223
+  internal/sdk/models/components/openairesponsecustomtoolcall.go:
+    last_write_checksum: sha1:da527670f21fb1938d372ccb40991469404ca45b
+  internal/sdk/models/components/openairesponsecustomtoolcalloutput.go:
+    last_write_checksum: sha1:d3f96e9124428f56fdeebcf2f8e1217effac26ef
+  internal/sdk/models/components/openairesponsefunctiontoolcall.go:
+    last_write_checksum: sha1:2eb786124f178452bda7417b64c996618db0132b
+  internal/sdk/models/components/openairesponsefunctiontoolcalloutput.go:
+    last_write_checksum: sha1:e0c23d25f0f330cf9ffc8b1bdb7780e0f566c71b
+  internal/sdk/models/components/openairesponseinputmessageitem.go:
+    last_write_checksum: sha1:0620bec43ad3842e4c287e2e506c1c93543c74bb
+  internal/sdk/models/components/openairesponsesannotation.go:
+    last_write_checksum: sha1:1c0bf84358eeb8cce6865440ecc0337dd895f52c
+  internal/sdk/models/components/openairesponsesrefusalcontent.go:
+    last_write_checksum: sha1:d867896fd170ae3529196e11d2e11dddc8b58ec3
+  internal/sdk/models/components/openairesponsesresponsestatus.go:
+    last_write_checksum: sha1:dfa994dbfc8a79c071be3d1f9f75b56fe4454d1c
+  internal/sdk/models/components/openairesponsestoolchoice.go:
+    last_write_checksum: sha1:32bac2c5eee3b93e7841186ec635f75a1f1caff4
+  internal/sdk/models/components/openairesponsestruncation.go:
+    last_write_checksum: sha1:343e3f7992e10abd217c8f3a043f8dfd63628477
+  internal/sdk/models/components/openresponsescreatedevent.go:
+    last_write_checksum: sha1:3a474a6cd326889a39cba4865e0cbd82629fc7a9
+  internal/sdk/models/components/openresponsesinprogressevent.go:
+    last_write_checksum: sha1:01367f7e8265159d802658088f8e3314d2a90a6b
+  internal/sdk/models/components/openresponsesresult.go:
+    last_write_checksum: sha1:d8450672a13e35929eb83d3994b6f5568fd2fe12
+  internal/sdk/models/components/openroutermetadata.go:
+    last_write_checksum: sha1:1ad6af72304f49ca90b3509694d21d38e406b30e
+  internal/sdk/models/components/openrouterwebsearchservertool.go:
+    last_write_checksum: sha1:e2f7942d7d872e72b1baee22ebafa0612036af99
+  internal/sdk/models/components/outputapplypatchcallitem.go:
+    last_write_checksum: sha1:258d414ed9f0026184758e164ef3d69374253b95
+  internal/sdk/models/components/outputapplypatchservertoolitem.go:
+    last_write_checksum: sha1:ba68ac7e2e63a0107e1c64a92e7ee74b06938b29
+  internal/sdk/models/components/outputbashservertoolitem.go:
+    last_write_checksum: sha1:b32be84114bb793f79e06fb070d5678d9b07a87a
+  internal/sdk/models/components/outputbrowseruseservertoolitem.go:
+    last_write_checksum: sha1:9e394f376a61353d751fd25f17c3c12ec6354a7e
+  internal/sdk/models/components/outputcodeinterpretercallitem.go:
+    last_write_checksum: sha1:63de5bfe57e4cdbb408c634f89c3496434ecd526
+  internal/sdk/models/components/outputcodeinterpreterservertoolitem.go:
+    last_write_checksum: sha1:cd6655b18a3765351e5674b2750df2c2fc1c66f6
+  internal/sdk/models/components/outputcomputercallitem.go:
+    last_write_checksum: sha1:4d294c8af3156e9d834c55c9ddd68ca0d06df079
+  internal/sdk/models/components/outputcustomtoolcallitem.go:
+    last_write_checksum: sha1:ff15f0afc052701238616f1736c2657f1f575a3a
+  internal/sdk/models/components/outputdatetimeitem.go:
+    last_write_checksum: sha1:a9e833817ebd02a1b23ac4d68f2612343e4c1dd4
+  internal/sdk/models/components/outputfilesearchcallitem.go:
+    last_write_checksum: sha1:338dc83febcbda8b31ad297e1175aae9e32944f7
+  internal/sdk/models/components/outputfilesearchservertoolitem.go:
+    last_write_checksum: sha1:f3f3d141873aeef482720e01b140c65a53312542
+  internal/sdk/models/components/outputfunctioncallitem.go:
+    last_write_checksum: sha1:90ba2d5277c5bbbba7352b278832fdb285242e2e
+  internal/sdk/models/components/outputfusionservertoolitem.go:
+    last_write_checksum: sha1:a81426814552f8f82fa9b8a9c8ebc15d72401c68
+  internal/sdk/models/components/outputimagegenerationcallitem.go:
+    last_write_checksum: sha1:a9417f9b0e4691f31e8ab57062d17fb3eac12689
+  internal/sdk/models/components/outputimagegenerationservertoolitem.go:
+    last_write_checksum: sha1:1daeb0392e3da12a8ae4c1a539b979a4f4472362
+  internal/sdk/models/components/outputitemimagegenerationcall.go:
+    last_write_checksum: sha1:680f65e86bbbef5f7b5c99bcd6845ec6331d57ab
+  internal/sdk/models/components/outputitems.go:
+    last_write_checksum: sha1:41a23bed29c40f316e70ba041b99d19041552b2d
+  internal/sdk/models/components/outputmcpservertoolitem.go:
+    last_write_checksum: sha1:94793569924c33703fee7971a802a4be039b23ba
+  internal/sdk/models/components/outputmemoryservertoolitem.go:
+    last_write_checksum: sha1:3823597f27805e40d62104d47002d2489a985a0e
+  internal/sdk/models/components/outputmessage.go:
+    last_write_checksum: sha1:eeafc2d6e26281e90044bee7ae30772a4cdc924e
+  internal/sdk/models/components/outputmessageitem.go:
+    last_write_checksum: sha1:81a38fa164eb5c327e679e04e0b3feaeafed7df9
+  internal/sdk/models/components/outputmodality.go:
+    last_write_checksum: sha1:8e89e1cc5266132a2eb385e0d053803f97ec3812
+  internal/sdk/models/components/outputmodalityenum.go:
+    last_write_checksum: sha1:17bbbffa64e043bb4d5881db1eab914621b4011e
+  internal/sdk/models/components/outputreasoningitem.go:
+    last_write_checksum: sha1:5d11bd6fe6e4c496857792329e75c356e986c7a3
+  internal/sdk/models/components/outputsearchmodelsservertoolitem.go:
+    last_write_checksum: sha1:e66d1a1a192fd08f0337af72a625e5694d74a68b
+  internal/sdk/models/components/outputtexteditorservertoolitem.go:
+    last_write_checksum: sha1:e145552711f38392325c448634c0b6878e7df081
+  internal/sdk/models/components/outputtoolsearchservertoolitem.go:
+    last_write_checksum: sha1:a9cfadcf07bee0a360698e8f58c122c1de60a2e1
+  internal/sdk/models/components/outputwebfetchservertoolitem.go:
+    last_write_checksum: sha1:fe9829c524108ff7d3d0c3368fc4d6ed6d54d108
+  internal/sdk/models/components/outputwebsearchcallitem.go:
+    last_write_checksum: sha1:fdd82c696096c30cca06a0b61bdf933ccb0808ad
+  internal/sdk/models/components/outputwebsearchservertoolitem.go:
+    last_write_checksum: sha1:1c52126f2476b88fae768ae763ceeea2c37cc6d5
+  internal/sdk/models/components/parameter.go:
+    last_write_checksum: sha1:e9d7091f949947726bbebbd1da6bbcd05c49f733
+  internal/sdk/models/components/paretorouterplugin.go:
+    last_write_checksum: sha1:39735343b0adcc66ae694ae07cb336c63d3b545f
+  internal/sdk/models/components/payloadtoolargeresponseerrordata.go:
+    last_write_checksum: sha1:a383382bf37a70fc6943bdf6d7d9c487fb8561ca
+  internal/sdk/models/components/paymentrequiredresponseerrordata.go:
+    last_write_checksum: sha1:169abaea614b102505f9da3a1dcae8e6dd3fb899
+  internal/sdk/models/components/pdfparserengine.go:
+    last_write_checksum: sha1:dacbf17ca26d29b3ce230eb99010229438870f7f
+  internal/sdk/models/components/pdfparseroptions.go:
+    last_write_checksum: sha1:920070eeaf50c7219ddcd7548fb6ad45bde090a6
+  internal/sdk/models/components/percentilelatencycutoffs.go:
+    last_write_checksum: sha1:794bb1948620f56fb89072a09226253fb7477af9
+  internal/sdk/models/components/percentilestats.go:
+    last_write_checksum: sha1:6c5685006795753075286442a1ea7b3abf5ab95f
+  internal/sdk/models/components/percentilethroughputcutoffs.go:
+    last_write_checksum: sha1:590a014836f4f2f35b8fc5339398e6039270fe58
+  internal/sdk/models/components/perrequestlimits.go:
+    last_write_checksum: sha1:bb106e3b25a00a549908e0eddc8aa66a3db5ce46
+  internal/sdk/models/components/pipelinestage.go:
+    last_write_checksum: sha1:30d4ee07df5bbb4f5f3d4c67cc9821642023aac1
+  internal/sdk/models/components/pipelinestagetype.go:
+    last_write_checksum: sha1:dfa84ab1c6e6115219c12270d1563ff95fed9997
+  internal/sdk/models/components/preferredmaxlatency.go:
+    last_write_checksum: sha1:8408e88e095bf71be70fa15e69f5de12c4479cf9
+  internal/sdk/models/components/preferredminthroughput.go:
+    last_write_checksum: sha1:f83f119b6a7525ad3e8be40cb02255e6cbc7d16f
+  internal/sdk/models/components/presetdesignatedversion.go:
+    last_write_checksum: sha1:98d9b7edf7addd1607092289239d3098241ac5df
+  internal/sdk/models/components/presetwithdesignatedversion.go:
+    last_write_checksum: sha1:76b5521591d6d20b9ab1f28fc12844000efeaf64
+  internal/sdk/models/components/preview20250311websearchservertool.go:
+    last_write_checksum: sha1:702ad84ef5eb816dad962136a3cb95877457a34e
+  internal/sdk/models/components/previewwebsearchservertool.go:
+    last_write_checksum: sha1:9c24c3b724f23a8410fd574abbb2378c7c26ef71
+  internal/sdk/models/components/previewwebsearchuserlocation.go:
+    last_write_checksum: sha1:528a0215b05519491a49c3140d499590183d795c
+  internal/sdk/models/components/providername.go:
+    last_write_checksum: sha1:13532d3a785190baf8fb3b9b07ae4b417c511ecd
+  internal/sdk/models/components/provideroptions.go:
+    last_write_checksum: sha1:6b077f5a5776009874614f9cfd24f4944282f552
+  internal/sdk/models/components/provideroverloadedresponseerrordata.go:
+    last_write_checksum: sha1:4f5691348cb858c91116bd81b0ffceaf183243f2
+  internal/sdk/models/components/providerpreferences.go:
+    last_write_checksum: sha1:7b436e05d68467ff034ef2c35027f79393785a75
+  internal/sdk/models/components/providerresponse.go:
+    last_write_checksum: sha1:fbe22fd0a341dd857a5a05e5e738acb397908641
+  internal/sdk/models/components/providersort.go:
+    last_write_checksum: sha1:d56d1125483e113e3f1c1cb7dc566ef0837b485e
+  internal/sdk/models/components/providersortconfig.go:
+    last_write_checksum: sha1:a99739739fdf0b7dc4002666c53aac3ec9eb9eb7
+  internal/sdk/models/components/publicendpoint.go:
+    last_write_checksum: sha1:cef16f0e044a08d038092245616ba12e8d8d7ca6
+  internal/sdk/models/components/publicpricing.go:
+    last_write_checksum: sha1:969282cf77a255566765d1fc6c7a79e359d1344c
+  internal/sdk/models/components/quantization.go:
+    last_write_checksum: sha1:6908b4e7f3d9ae701504858de96ed83e5d9e9283
+  internal/sdk/models/components/reasoningconfig.go:
+    last_write_checksum: sha1:d2650817ad264b145cb4247b8c2da08c34121ab7
+  internal/sdk/models/components/reasoningdeltaevent.go:
+    last_write_checksum: sha1:4846a35f3a990efc00990b4061278869db743c01
+  internal/sdk/models/components/reasoningdetailencrypted.go:
+    last_write_checksum: sha1:7536f5ca68bf6fb759d87e59f7948ed85b5549ce
+  internal/sdk/models/components/reasoningdetailsummary.go:
+    last_write_checksum: sha1:ec78452fbea073e6bee4257b317bb1c9e5062a70
+  internal/sdk/models/components/reasoningdetailtext.go:
+    last_write_checksum: sha1:98a473a8b574a82e4bd255db93dd5f35c6add119
+  internal/sdk/models/components/reasoningdetailunion.go:
+    last_write_checksum: sha1:bc8f23d0f2407b5cee25966dee13f047f34a6ff9
+  internal/sdk/models/components/reasoningdoneevent.go:
+    last_write_checksum: sha1:b8d5ba20d6919750d4addb31344b5291d5ead69f
+  internal/sdk/models/components/reasoningeffort.go:
+    last_write_checksum: sha1:528486d05ce94ae7441667c02c5403015698d8af
+  internal/sdk/models/components/reasoningformat.go:
+    last_write_checksum: sha1:23c1a7ca3ce557e617c3c84911433b58905eeae3
+  internal/sdk/models/components/reasoningitem.go:
+    last_write_checksum: sha1:c2e6cc37ccf5451a34975b3510c768a86fec629e
+  internal/sdk/models/components/reasoningsummarypartaddedevent.go:
+    last_write_checksum: sha1:90859af20afe8e1adaabba4bc1378087ca260b87
+  internal/sdk/models/components/reasoningsummarypartdoneevent.go:
+    last_write_checksum: sha1:204d3d0a5dee14a8abf2c05421c54843d07df61c
+  internal/sdk/models/components/reasoningsummarytext.go:
+    last_write_checksum: sha1:f4abbf724910164b0e680ef23acd591a9258e807
+  internal/sdk/models/components/reasoningsummarytextdeltaevent.go:
+    last_write_checksum: sha1:f8afc5042adf952c33b2da3544074c53aea8d52c
+  internal/sdk/models/components/reasoningsummarytextdoneevent.go:
+    last_write_checksum: sha1:a27df5b6cb7affedc67ca50e12cce2ebabc360e8
+  internal/sdk/models/components/reasoningsummaryverbosity.go:
+    last_write_checksum: sha1:bcd38817ba0ddc46fd51285126d41921a935ff4c
+  internal/sdk/models/components/reasoningtextcontent.go:
+    last_write_checksum: sha1:25d8a344d4d62ef27a08894ffd73f35462f93774
+  internal/sdk/models/components/refusaldeltaevent.go:
+    last_write_checksum: sha1:3cb64e0fef0059419111bcd981644b0cb2dc3045
+  internal/sdk/models/components/refusaldoneevent.go:
+    last_write_checksum: sha1:39beecf506002188970a55480b4546fb983dc7ca
+  internal/sdk/models/components/requesttimeoutresponseerrordata.go:
+    last_write_checksum: sha1:c7b94fea9b104d768d3c774714fa802039ea1b48
+  internal/sdk/models/components/responsehealingplugin.go:
+    last_write_checksum: sha1:7e74c9027087e898a962803a61237ed04358350f
+  internal/sdk/models/components/responseincludesenum.go:
+    last_write_checksum: sha1:1033a68eb9b7fc59e04ea7fa55341ed932cd8f76
+  internal/sdk/models/components/responseoutputtext.go:
+    last_write_checksum: sha1:e85cf11ecb1279be6e3b5bb119a4d6bc9c890c51
+  internal/sdk/models/components/responseserrorfield.go:
+    last_write_checksum: sha1:6062a8812d9373b0129f6b103c2cf92a7f569487
+  internal/sdk/models/components/responsesrequest.go:
+    last_write_checksum: sha1:7de37ca993b6e2842943d13733f66f80c931e9dd
+  internal/sdk/models/components/responsesstreamingresponse.go:
+    last_write_checksum: sha1:8c2ad4c8b72e6aa7ade9bb698e7d980281dd351a
+  internal/sdk/models/components/routerattempt.go:
+    last_write_checksum: sha1:821a1631a5165bf9505ec4802c46d19997d857b4
+  internal/sdk/models/components/routerparams.go:
+    last_write_checksum: sha1:c3a295a355e1e2e5474d4955c4aa764b23a777b0
+  internal/sdk/models/components/routingstrategy.go:
+    last_write_checksum: sha1:8f2423ac7d41d69e2a85db44eba14623fb1ae6ab
+  internal/sdk/models/components/searchcontextsizeenum.go:
+    last_write_checksum: sha1:e5a55817b6f6922a0f6d94012de27fca4e0d3e97
+  internal/sdk/models/components/searchmodelsservertoolconfig.go:
+    last_write_checksum: sha1:db02dc17ebf6657d4a5164ac94847fd3ddf4c5e4
+  internal/sdk/models/components/searchqualitylevel.go:
+    last_write_checksum: sha1:36fbcae076d54b0c80549a73b6d18a5fb6ffc957
+  internal/sdk/models/components/security.go:
+    last_write_checksum: sha1:85b257e603c29112fee73135a70ac94d5e1c2af4
+  internal/sdk/models/components/serviceunavailableresponseerrordata.go:
+    last_write_checksum: sha1:821095b53a586523d5bb83a1e3a37e76e06b3c9d
+  internal/sdk/models/components/shellcallitem.go:
+    last_write_checksum: sha1:1e93424ac31597b720983c7365412902603981b5
+  internal/sdk/models/components/shellcalloutputitem.go:
+    last_write_checksum: sha1:d38f14378226918946c5d2190d464a3fa86e6218
+  internal/sdk/models/components/shellservertool.go:
+    last_write_checksum: sha1:15481b86e0ceffcc145849a96a4a0e05dcb1d259
+  internal/sdk/models/components/speechrequest.go:
+    last_write_checksum: sha1:25e5469243d35d7a0abdee602a048142d8d610fb
+  internal/sdk/models/components/stopservertoolswhencondition.go:
+    last_write_checksum: sha1:f102537f245a2023d201c9097211ed0ca3ae26f3
+  internal/sdk/models/components/stopservertoolswhenfinishreasonis.go:
+    last_write_checksum: sha1:d123454308316cb12e8003d0eaf217e91bab49cc
+  internal/sdk/models/components/stopservertoolswhenhastoolcall.go:
+    last_write_checksum: sha1:633ebe09d1cf395170b4790e68cd00346e98b78e
+  internal/sdk/models/components/stopservertoolswhenmaxcost.go:
+    last_write_checksum: sha1:ea8f0fd4f3144da1c5d7e14a2e32f04a11399611
+  internal/sdk/models/components/stopservertoolswhenmaxtokensused.go:
+    last_write_checksum: sha1:8d521f381061e5966fb554edd4d988c732b7cf3c
+  internal/sdk/models/components/stopservertoolswhenstepcountis.go:
+    last_write_checksum: sha1:3c3ba22ca4e7ebb1986d40e2e39909491772fd3e
+  internal/sdk/models/components/storedprompttemplate.go:
+    last_write_checksum: sha1:615d8eaaca986a49c6ea92f380719f56ef79b171
+  internal/sdk/models/components/streamevents.go:
+    last_write_checksum: sha1:fb3ad05d91b0a604bab7c5921e35bc4008c0cfc1
+  internal/sdk/models/components/streameventsresponsecompleted.go:
+    last_write_checksum: sha1:a01b4e3e32b988fd99a7c3fd9dad0ca47baf87c6
+  internal/sdk/models/components/streameventsresponsefailed.go:
+    last_write_checksum: sha1:8dc42e7bb51c5a4ea092463ad72cd07ddc62a6fd
+  internal/sdk/models/components/streameventsresponseincomplete.go:
+    last_write_checksum: sha1:0083732202ad26bf783612b70a0c55190d9f496d
+  internal/sdk/models/components/streameventsresponseoutputitemadded.go:
+    last_write_checksum: sha1:70a6596cb37d9c265e3c81fa06ef331150f709e4
+  internal/sdk/models/components/streameventsresponseoutputitemdone.go:
+    last_write_checksum: sha1:1799a1c0f04023ee7e50cb4d7a44e01def837197
+  internal/sdk/models/components/streamlogprob.go:
+    last_write_checksum: sha1:075330f94c9dbdf67b88598f6a13105808f7113c
+  internal/sdk/models/components/streamlogprobtoplogprob.go:
+    last_write_checksum: sha1:6ae8056e5e13f9ed4fe59428e919e2f8d1c7ceda
+  internal/sdk/models/components/sttinputaudio.go:
+    last_write_checksum: sha1:6b013bd531544681f08930f39b7ac8ed8fba4d2f
+  internal/sdk/models/components/sttrequest.go:
+    last_write_checksum: sha1:e275540bea20569ab7908f56443e6d8c7abe14bb
+  internal/sdk/models/components/sttresponse.go:
+    last_write_checksum: sha1:36759559fb9de4bfb25c4e8357933103b5f9b4ac
+  internal/sdk/models/components/sttusage.go:
+    last_write_checksum: sha1:b36822eb6077462b082b997927c571cc08580c06
+  internal/sdk/models/components/textdeltaevent.go:
+    last_write_checksum: sha1:29083df409fe2cb964e042080cfbfc988ce9c5f6
+  internal/sdk/models/components/textdoneevent.go:
+    last_write_checksum: sha1:e8a059d2e3a629f3313df2c2c2f74199295b9b12
+  internal/sdk/models/components/textextendedconfig.go:
+    last_write_checksum: sha1:1bd2a625584ac0105979bd0a83322fc0828af593
+  internal/sdk/models/components/toolcallstatus.go:
+    last_write_checksum: sha1:3715e8a0c0a4a166f3a6b3f83fb6675cf2b2a6ce
+  internal/sdk/models/components/toolchoiceallowed.go:
+    last_write_checksum: sha1:88415d37512e314286ce1fef48fc415c4317fa85
+  internal/sdk/models/components/toomanyrequestsresponseerrordata.go:
+    last_write_checksum: sha1:9dd2e31f4d71b8616b1f57c78f603f8cf5313d39
+  internal/sdk/models/components/topproviderinfo.go:
+    last_write_checksum: sha1:3816c84904a210b43d656a05336bd3d03cb0c596
+  internal/sdk/models/components/traceconfig.go:
+    last_write_checksum: sha1:ecb4b8eca11411d0ce7ec8fd4c8b078123913587
+  internal/sdk/models/components/truncation.go:
+    last_write_checksum: sha1:15f762d72c73c99e6a7855b5465379c302573653
+  internal/sdk/models/components/unauthorizedresponseerrordata.go:
+    last_write_checksum: sha1:5909514e22bbb38b08166442f7926f8e4ee93521
+  internal/sdk/models/components/unprocessableentityresponseerrordata.go:
+    last_write_checksum: sha1:7c6d57f5ed1eaeb7beb811ded01131140d1dd0cb
+  internal/sdk/models/components/updatebyokkeyrequest.go:
+    last_write_checksum: sha1:87c56225ab26627e0137ae1f3cc716ab5bea3c5b
+  internal/sdk/models/components/updatebyokkeyresponse.go:
+    last_write_checksum: sha1:274b66cd5e9faaf66cb1f2bfa2d4f2b1f0415cfb
+  internal/sdk/models/components/updateguardrailrequest.go:
+    last_write_checksum: sha1:57dcce8a612ebce504c94b925ddc3f324ddababd
+  internal/sdk/models/components/updateguardrailresponse.go:
+    last_write_checksum: sha1:e17b7dc763b86b36d0ee259e888303506f220c9c
+  internal/sdk/models/components/updateobservabilitydestinationrequest.go:
+    last_write_checksum: sha1:aa28e4fb50c42fffa5c570ca9e2f711e611fa5fa
+  internal/sdk/models/components/updateobservabilitydestinationresponse.go:
+    last_write_checksum: sha1:251cb54f2643537c0e13f0914604887e3fbeb58c
+  internal/sdk/models/components/updateworkspacerequest.go:
+    last_write_checksum: sha1:72b284dc6974ea089a992f1a2cd4b59aca8a3ce4
+  internal/sdk/models/components/updateworkspaceresponse.go:
+    last_write_checksum: sha1:cb1883a5d50d18a8ec7046dc2b4d8a5ecc3460ab
+  internal/sdk/models/components/urlcitation.go:
+    last_write_checksum: sha1:ec5784bce89af4fb4b9d31592432ffa93b7ed11b
+  internal/sdk/models/components/usage.go:
+    last_write_checksum: sha1:68287a36bba13468ea00e9eed9cacc3b2be73937
+  internal/sdk/models/components/videogenerationrequest.go:
+    last_write_checksum: sha1:e840adfdd198c688f078ff2897930059bfea0ec2
+  internal/sdk/models/components/videogenerationresponse.go:
+    last_write_checksum: sha1:c278ac0ab9f0769e348807fb37c937ed9b522206
+  internal/sdk/models/components/videogenerationusage.go:
+    last_write_checksum: sha1:d2777d965d7f69948301be0205d807f7a5ad9f68
+  internal/sdk/models/components/videomodel.go:
+    last_write_checksum: sha1:5286717390e51e03e680c9f8878d43dd13bb1c31
+  internal/sdk/models/components/videomodelslistresponse.go:
+    last_write_checksum: sha1:ac70816ce0bd21dd3730e111782e0f3bba8b5d29
+  internal/sdk/models/components/webfetchengineenum.go:
+    last_write_checksum: sha1:81a193a8dcf2b8416b39bbedc64c4ad0e4bfbb38
+  internal/sdk/models/components/webfetchplugin.go:
+    last_write_checksum: sha1:cd7939ff0d3092da48a450967946e9dcd72b8e35
+  internal/sdk/models/components/webfetchservertool.go:
+    last_write_checksum: sha1:c2b111b96e237dbdfce07e0bb61f17ad05910be0
+  internal/sdk/models/components/webfetchservertoolconfig.go:
+    last_write_checksum: sha1:a62caa924e6902836b26b456b5e2293b564f64cc
+  internal/sdk/models/components/websearchcallcompletedevent.go:
+    last_write_checksum: sha1:54b7c2bb3926770fb4ee1e977ac2b927078ed335
+  internal/sdk/models/components/websearchcallinprogressevent.go:
+    last_write_checksum: sha1:f81831a78f661f056b3322f455824d47a9e625a3
+  internal/sdk/models/components/websearchcallsearchingevent.go:
+    last_write_checksum: sha1:f6ae216b4418db6d0abe797eff098bd8000357d4
+  internal/sdk/models/components/websearchconfig.go:
+    last_write_checksum: sha1:1b26536db6f2489645fad00c0e65f2d1fd911494
+  internal/sdk/models/components/websearchdomainfilter.go:
+    last_write_checksum: sha1:e920e60064bb39303415546016311696405067a6
+  internal/sdk/models/components/websearchengine.go:
+    last_write_checksum: sha1:87feb996dfc7954e74875c9904ae360452257463
+  internal/sdk/models/components/websearchengineenum.go:
+    last_write_checksum: sha1:7a74ac5cbac6f561b368b123105a2d288a8cf78a
+  internal/sdk/models/components/websearchplugin.go:
+    last_write_checksum: sha1:3dccb9c0e512193ef6076f1af3fb10d6d87147f1
+  internal/sdk/models/components/websearchservertool.go:
+    last_write_checksum: sha1:55be93e4d923d5b05020fb097237cd291c5e1eef
+  internal/sdk/models/components/websearchservertoolconfig.go:
+    last_write_checksum: sha1:10544e1bdced4042b24353216e4f5ecf6665a374
+  internal/sdk/models/components/websearchservertoolopenrouter.go:
+    last_write_checksum: sha1:7b8dec1475a00fa8301c51b9702c2f44c99bf814
+  internal/sdk/models/components/websearchsource.go:
+    last_write_checksum: sha1:4916da16253242ab601d9801883d7e1f2281d041
+  internal/sdk/models/components/websearchstatus.go:
+    last_write_checksum: sha1:7a8b145a93e2e827839946a13a0cab54b86711f9
+  internal/sdk/models/components/websearchuserlocation.go:
+    last_write_checksum: sha1:bc04dfb13f299205c4aa6767d01529750c98e763
+  internal/sdk/models/components/websearchuserlocationservertool.go:
+    last_write_checksum: sha1:22dc7d5bf3d347f16bfb9519feaf900c2712e8ec
+  internal/sdk/models/components/workspace.go:
+    last_write_checksum: sha1:91369623426b1e7ac18e9e4c069a92981475274b
+  internal/sdk/models/components/workspacemember.go:
+    last_write_checksum: sha1:815c205fdc5811f38e0e912d616af5ebef9207e6
+  internal/sdk/models/operations/bulkaddworkspacemembers.go:
+    last_write_checksum: sha1:661f6074b7b2ea3ea189ab341f206aac94b7d60a
+  internal/sdk/models/operations/bulkassignkeystoguardrail.go:
+    last_write_checksum: sha1:849585f008b015731ca694cbeabb59f82c4ec281
+  internal/sdk/models/operations/bulkassignmemberstoguardrail.go:
+    last_write_checksum: sha1:5adbcc49353abfc2ec8d479652dfa29cc991b394
+  internal/sdk/models/operations/bulkremoveworkspacemembers.go:
+    last_write_checksum: sha1:4bf699f6c31a22a6e627b5642eaa695e4ef63561
+  internal/sdk/models/operations/bulkunassignkeysfromguardrail.go:
+    last_write_checksum: sha1:f4c4f373d74fec0cbf9b80d949c92304b1459537
+  internal/sdk/models/operations/bulkunassignmembersfromguardrail.go:
+    last_write_checksum: sha1:9fbfb657b8c190a8aa8f62ea9b85df3e72363797
+  internal/sdk/models/operations/createaudiospeech.go:
+    last_write_checksum: sha1:559f99ea5e38d4bd0c2afc0bc08bb805d183f3b1
+  internal/sdk/models/operations/createaudiotranscriptions.go:
+    last_write_checksum: sha1:24613aed7f6113439ceb4cb653e8e5760e05000b
+  internal/sdk/models/operations/createauthkeyscode.go:
+    last_write_checksum: sha1:4e3dca7f75b527e83d6f68c02df8b84b5e0fb700
+  internal/sdk/models/operations/createbyokkey.go:
+    last_write_checksum: sha1:5489d1008366c32abf436c25689c1f4ed50a36e1
+  internal/sdk/models/operations/createembeddings.go:
+    last_write_checksum: sha1:e52f9dc90f008e9f66df3d0e7ffa2e7ed4e96448
+  internal/sdk/models/operations/createguardrail.go:
+    last_write_checksum: sha1:4c404c56917fd3b60264e0081d2598ce7a7c7812
+  internal/sdk/models/operations/createkeys.go:
+    last_write_checksum: sha1:fb6f5094c9e1649f9d2e0f8fe337a3644f9e2f9f
+  internal/sdk/models/operations/createobservabilitydestination.go:
+    last_write_checksum: sha1:8918f3d68b29ec8d73d91c16bba565bf37c8c7fb
+  internal/sdk/models/operations/createpresetschatcompletions.go:
+    last_write_checksum: sha1:937e79d6d8d2ca27860d39f8af963a40e01132ed
+  internal/sdk/models/operations/creatererank.go:
+    last_write_checksum: sha1:1367ee845574de9ae97ce0bd34d5d67720584c53
+  internal/sdk/models/operations/createresponses.go:
+    last_write_checksum: sha1:853100d7bdce1fd0694acb2716c497a6b0298223
+  internal/sdk/models/operations/createvideos.go:
+    last_write_checksum: sha1:05a2bc08bca3bf1c3a4b2fad9a2f6ae0994534db
+  internal/sdk/models/operations/createworkspace.go:
+    last_write_checksum: sha1:4ee4d9e8c6c3bb7f8a68b3d4fa2a1874e72f4194
+  internal/sdk/models/operations/deletebyokkey.go:
+    last_write_checksum: sha1:462d32cae182395ddb5f1cc83722ea4affb68232
+  internal/sdk/models/operations/deleteguardrail.go:
+    last_write_checksum: sha1:48bff73600dc860b3e5e5f98d82d1c299c1bcf9d
+  internal/sdk/models/operations/deletekeys.go:
+    last_write_checksum: sha1:30d0386dd9a38c544f4655e498e797a89231561a
+  internal/sdk/models/operations/deleteobservabilitydestination.go:
+    last_write_checksum: sha1:568ff77d3bcd608656542133a3019c08656d5898
+  internal/sdk/models/operations/deleteworkspace.go:
+    last_write_checksum: sha1:101bc6c12a1d3ef65e1b07df60b944743aca4248
+  internal/sdk/models/operations/exchangeauthcodeforapikey.go:
+    last_write_checksum: sha1:e0a588e31f623166f296881377544cfb2c15b305
+  internal/sdk/models/operations/getbyokkey.go:
+    last_write_checksum: sha1:4d9d854648778f87b0a3e68760872cbeacc82209
+  internal/sdk/models/operations/getcredits.go:
+    last_write_checksum: sha1:068b0029e3cdf522b31740562e60b17660bc9f24
+  internal/sdk/models/operations/getcurrentkey.go:
+    last_write_checksum: sha1:c9c91e191846315c370b60a6a53ad80cd0189dbe
+  internal/sdk/models/operations/getgeneration.go:
+    last_write_checksum: sha1:1a358b8c865e74b98f271c5b1e98d50f1be39d97
+  internal/sdk/models/operations/getguardrail.go:
+    last_write_checksum: sha1:86f472228f293070df0140a7609b6e51f5cadb4a
+  internal/sdk/models/operations/getkey.go:
+    last_write_checksum: sha1:3483126f66c2770601069cf4392d529109f4fafc
+  internal/sdk/models/operations/getmodels.go:
+    last_write_checksum: sha1:ed2fe7dd651c0dc79fa3ca854130310b0a36bd7d
+  internal/sdk/models/operations/getobservabilitydestination.go:
+    last_write_checksum: sha1:3b7549dc09a1a42cd34c5789ab94b5c4d5578f16
+  internal/sdk/models/operations/getuseractivity.go:
+    last_write_checksum: sha1:7d0c1a15a970aaefefbc97f5287b21eea76ea3fd
+  internal/sdk/models/operations/getvideos.go:
+    last_write_checksum: sha1:d778d827074b388be4dc244edfbaf1d2ffa036e5
+  internal/sdk/models/operations/getworkspace.go:
+    last_write_checksum: sha1:4f5ba24d48999159c13a9a5f8d872dd89feacc48
+  internal/sdk/models/operations/list.go:
+    last_write_checksum: sha1:f6784b193887618773e241206a8dbb5bfb4dcb94
+  internal/sdk/models/operations/listbyokkeys.go:
+    last_write_checksum: sha1:317a5e09e36afe4970da0eafcc44a25504a917f5
+  internal/sdk/models/operations/listembeddingsmodels.go:
+    last_write_checksum: sha1:4521e9de2c3f8c4019fa297e239436280a2c02dd
+  internal/sdk/models/operations/listendpoints.go:
+    last_write_checksum: sha1:c8e34fd11d65ffa6f2c438224f1f1ebe57fdc5be
+  internal/sdk/models/operations/listendpointszdr.go:
+    last_write_checksum: sha1:072103ab31bd0b2ba0585843311861f8ab9af72c
+  internal/sdk/models/operations/listgenerationcontent.go:
+    last_write_checksum: sha1:2eae9dc762b6b2a751e6df034bf3402322cfbe6e
+  internal/sdk/models/operations/listguardrailkeyassignments.go:
+    last_write_checksum: sha1:f0f8a4f0f766e247cc73193d87d2daade6b41b7f
+  internal/sdk/models/operations/listguardrailmemberassignments.go:
+    last_write_checksum: sha1:b2097a69c6899402b3682a395a7554e5aaedef0d
+  internal/sdk/models/operations/listguardrails.go:
+    last_write_checksum: sha1:22f7288251b30c621a6b3266d05a0e1c7db40b77
+  internal/sdk/models/operations/listkeyassignments.go:
+    last_write_checksum: sha1:06cc188be8d2cd98d36b4ecf56bf374b84a28ba6
+  internal/sdk/models/operations/listmemberassignments.go:
+    last_write_checksum: sha1:f5eb298ce5dad3c7293fc132dd2aa2918e6edd65
+  internal/sdk/models/operations/listmodelscount.go:
+    last_write_checksum: sha1:29e3866e7cbf661cd77149cad95679b3c3ec679a
+  internal/sdk/models/operations/listmodelsuser.go:
+    last_write_checksum: sha1:37a8795d388089f88e1bfa2480b280e400c52015
+  internal/sdk/models/operations/listobservabilitydestinations.go:
+    last_write_checksum: sha1:46d368b60485e9e873de8ca5fed667e71b68da38
+  internal/sdk/models/operations/listorganizationmembers.go:
+    last_write_checksum: sha1:34d70c61754a0e7b05e3921dd17988f96188eeed
+  internal/sdk/models/operations/listproviders.go:
+    last_write_checksum: sha1:9fbc2c767e585b9b60e3710ed7b790d3f04b3cab
+  internal/sdk/models/operations/listvideoscontent.go:
+    last_write_checksum: sha1:e7ebf86ab02475902a1527f1d28239f7d2efa027
+  internal/sdk/models/operations/listvideosmodels.go:
+    last_write_checksum: sha1:64c53c2e6c359b711f5e69d42fce619cc7b7db29
+  internal/sdk/models/operations/listworkspaces.go:
+    last_write_checksum: sha1:61a297a0b687262bbab7eccd0bcdbb33d7cb47b0
+  internal/sdk/models/operations/options.go:
+    last_write_checksum: sha1:9faa65aab9ada9b54efd18d05d00a8b567295232
+  internal/sdk/models/operations/sendchatcompletionrequest.go:
+    last_write_checksum: sha1:ac51fdebc985dab186c29aa6565231398e2e89d4
+  internal/sdk/models/operations/updatebyokkey.go:
+    last_write_checksum: sha1:6284d978e356191974a96b45ec1c965f377e4b8e
+  internal/sdk/models/operations/updateguardrail.go:
+    last_write_checksum: sha1:b365ebd836129a1299e10fcf24594847fb379207
+  internal/sdk/models/operations/updatekeys.go:
+    last_write_checksum: sha1:9eb201079bac8537b521e741913dd37f5f212679
+  internal/sdk/models/operations/updateobservabilitydestination.go:
+    last_write_checksum: sha1:06f08373564596244c3149231eff758085889a0e
+  internal/sdk/models/operations/updateworkspace.go:
+    last_write_checksum: sha1:bd714e86f90bde625ea78c1310d655570c699b07
+  internal/sdk/models/sdkerrors/badgatewayresponse.go:
+    last_write_checksum: sha1:9624b9f6f8571136a8f3cfa1c60f0e38637b84db
+  internal/sdk/models/sdkerrors/badrequestresponse.go:
+    last_write_checksum: sha1:963c59189f6c9c95e282b28033995fea849c6bd3
+  internal/sdk/models/sdkerrors/conflictresponse.go:
+    last_write_checksum: sha1:9748726bb17cf92e0c80dc8db4f9160e11d0f7a3
+  internal/sdk/models/sdkerrors/edgenetworktimeoutresponse.go:
+    last_write_checksum: sha1:501ec7342e183b17cd4af58289603e01fb828a5e
+  internal/sdk/models/sdkerrors/forbiddenresponse.go:
+    last_write_checksum: sha1:b63045c8804e3e7a7667426877d6fdee33544788
+  internal/sdk/models/sdkerrors/internalserverresponse.go:
+    last_write_checksum: sha1:8f4cd3c90d04a9cd71e7d815e752a4a462d4583a
+  internal/sdk/models/sdkerrors/notfoundresponse.go:
+    last_write_checksum: sha1:a940e431510aa5361a19f0ebb2ac359436cb7424
+  internal/sdk/models/sdkerrors/payloadtoolargeresponse.go:
+    last_write_checksum: sha1:69e5ef68d8491b18ec042e0c8c1bc726a8fb32e1
+  internal/sdk/models/sdkerrors/paymentrequiredresponse.go:
+    last_write_checksum: sha1:f47d70bea8ccd329b805c476bfd16a7db50b180b
+  internal/sdk/models/sdkerrors/provideroverloadedresponse.go:
+    last_write_checksum: sha1:9ae0232765cc6b13f685b079f3776943cba66cf7
+  internal/sdk/models/sdkerrors/requesttimeoutresponse.go:
+    last_write_checksum: sha1:59822f56dfabdf37c00e0450d77127c8a5b60938
+  internal/sdk/models/sdkerrors/sdkdefaulterror.go:
+    last_write_checksum: sha1:437b3a3eacb54d8648a68f80b3cd38fa5019f006
+  internal/sdk/models/sdkerrors/serviceunavailableresponse.go:
+    last_write_checksum: sha1:1d533be8096e877c575cebc48bbacbd3f7bff453
+  internal/sdk/models/sdkerrors/toomanyrequestsresponse.go:
+    last_write_checksum: sha1:6f3eb11357b307cc0f2c6470fd608064900dc3c5
+  internal/sdk/models/sdkerrors/unauthorizedresponse.go:
+    last_write_checksum: sha1:33f4b230255b94aef278a0d3e4a1dc9925dd8715
+  internal/sdk/models/sdkerrors/unprocessableentityresponse.go:
+    last_write_checksum: sha1:4c5ae39d7ceac4a684c941e62073e936fb9e1e47
+  internal/sdk/oauth.go:
+    last_write_checksum: sha1:8eb1ac2118b473d96697b024b8737de82fd6304b
+  internal/sdk/observability.go:
+    last_write_checksum: sha1:73c0e53ce9d7dde13212a154ed4fb3a4060b4e58
+  internal/sdk/openrouter.go:
+    last_write_checksum: sha1:444d3d12633ba310c9911ad1a8533b1ba17fad53
+  internal/sdk/optionalnullable/optionalnullable.go:
+    last_write_checksum: sha1:d6aff1a420c31e025ea21d46cf056e305ae76fe8
+  internal/sdk/optionalnullable/optionalnullable_test.go:
+    last_write_checksum: sha1:2e9433eff1651ac77d6678ea76880d9a4980cbc2
+  internal/sdk/organization.go:
+    last_write_checksum: sha1:4ef337ac2b951ffc74aa4a5890232c77b06e194e
+  internal/sdk/presets.go:
+    last_write_checksum: sha1:8da8a31fbc44d75e529ba4fbf527385c35e699da
+  internal/sdk/providers.go:
+    last_write_checksum: sha1:cfb1a90d28559d8c19b1c2ee346f0933fbd8b6c9
+  internal/sdk/rerank.go:
+    last_write_checksum: sha1:863a9812335999507761d4786d55463da9b147cb
+  internal/sdk/responses.go:
+    last_write_checksum: sha1:3e7e8b93160aff9017f6a3924100d2301a04f7a4
+  internal/sdk/retry/config.go:
+    last_write_checksum: sha1:7f7d96b59a18e95bac847ae09c63bbd911ee8432
+  internal/sdk/sdkinternal/config/sdkconfiguration.go:
+    last_write_checksum: sha1:dc29e4659213617b880d5954bae81ec1f4bc6a09
+  internal/sdk/sdkinternal/globals/globals.go:
+    last_write_checksum: sha1:409227f27d2b9d37e83dbc51b71e12422d2b38ec
+  internal/sdk/sdkinternal/hooks/hooks.go:
+    last_write_checksum: sha1:680bda312de7672b9caab7ebeef7d5c5bec98b8b
+  internal/sdk/sdkinternal/utils/contenttype.go:
+    last_write_checksum: sha1:ab5cfd860d02c6e6a37f89e2b5649a9859947fb1
+  internal/sdk/sdkinternal/utils/env.go:
+    last_write_checksum: sha1:1e0bcb2d2caed9f3657f1dbc99b55811bed0298c
+  internal/sdk/sdkinternal/utils/form.go:
+    last_write_checksum: sha1:0e013695ab95c9f867bd11b875a6cd88ba106367
+  internal/sdk/sdkinternal/utils/headers.go:
+    last_write_checksum: sha1:1a2ebc2c513e6a8d0c0bf457166cd767c5a81622
+  internal/sdk/sdkinternal/utils/json.go:
+    last_write_checksum: sha1:16d607540d09d9473c7d693f094f8992230d6076
+  internal/sdk/sdkinternal/utils/pathparams.go:
+    last_write_checksum: sha1:2f41ffdcd2e53802a28ae1bbe7e894c65dac9850
+  internal/sdk/sdkinternal/utils/queryparams.go:
+    last_write_checksum: sha1:9e29be690eb543b23d80b4e8a37906d735d94ea1
+  internal/sdk/sdkinternal/utils/requestbody.go:
+    last_write_checksum: sha1:d1e52a854e509811a96e0fea35cd4847b31ac479
+  internal/sdk/sdkinternal/utils/retries.go:
+    last_write_checksum: sha1:8baa1f1979a43efc4b3613d93e1ce7602883dd8f
+  internal/sdk/sdkinternal/utils/security.go:
+    last_write_checksum: sha1:49fee4e9252239953611e6de36f4682851499ab5
+  internal/sdk/sdkinternal/utils/union.go:
+    last_write_checksum: sha1:c87a27877e688f55698d1a4b25e7da10fcdcda56
+  internal/sdk/sdkinternal/utils/union_test.go:
+    last_write_checksum: sha1:bd5c7506e1d6238117c1ac4e340314a5a41401b5
+  internal/sdk/sdkinternal/utils/utils.go:
+    last_write_checksum: sha1:c03378176a107205b8938606faef3fd8fb8f91a0
+  internal/sdk/stt.go:
+    last_write_checksum: sha1:b6e75bde4957bbcb786d47a6f4d91007b152e66f
+  internal/sdk/tts.go:
+    last_write_checksum: sha1:fa62cc50c1d6d5b8c26299d9488586a72e1435de
+  internal/sdk/types/bigint.go:
+    last_write_checksum: sha1:49b004005d0461fb04b846eca062b070b0360b31
+  internal/sdk/types/date.go:
+    last_write_checksum: sha1:3036a2e1ed15a1d484c093367eba000c38f384d0
+  internal/sdk/types/datetime.go:
+    last_write_checksum: sha1:196d050af6450669214e9ae4fd28e56263ae2b5d
+  internal/sdk/types/pointers.go:
+    last_write_checksum: sha1:fc2275ea006257ba9ba4ff6f2a2cdb6205371eef
+  internal/sdk/types/stream/stream.go:
+    last_write_checksum: sha1:a93d55dd6863059b21f647a016747a4a60bfc839
+  internal/sdk/videogeneration.go:
+    last_write_checksum: sha1:9ab7c11b1ed905a554191fe1a10437493a423ada
+  internal/sdk/workspaces.go:
+    last_write_checksum: sha1:587732e183b9579291461b1ff4cad56471bb19a6
+  internal/testclient/testclient.go:
+    last_write_checksum: sha1:7107e59d336235c44af152c5a61ee3896a7841fa
+  internal/usage/schema.go:
+    last_write_checksum: sha1:0981f7ea8afdf02afb65335c03563dd2bb970772
+  scripts/install.ps1:
+    last_write_checksum: sha1:656013447a0d86ff2dee46ee386b02b5be5e3d9f
+  scripts/install.sh:
+    last_write_checksum: sha1:ad1e650ab683b7b88d5e8d2cabdeb63eeae7effc
+examples:
+  getUserActivity:
+    speakeasy-default-get-user-activity:
+      parameters:
+        query:
+          date: "2025-08-24"
+          api_key_hash: "abc123def456..."
+          user_id: "user_abc123"
+      responses:
+        "200":
+          application/json: {"data": [{"byok_usage_inference": 0.012, "completion_tokens": 125, "date": "2025-08-24", "endpoint_id": "550e8400-e29b-41d4-a716-446655440000", "model": "openai/gpt-4.1", "model_permaslug": "openai/gpt-4.1-2025-04-14", "prompt_tokens": 50, "provider_name": "OpenAI", "reasoning_tokens": 25, "requests": 5, "usage": 0.015}]}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createAudioSpeech:
+    speakeasy-default-create-audio-speech:
+      requestBody:
+        application/json: {"input": "Hello world", "model": "elevenlabs/eleven-turbo-v2", "response_format": "pcm", "speed": 1, "voice": "alloy"}
+      responses:
+        "200":
+          audio/*: "<binary audio data>"
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "402":
+          application/json: {"error": {"code": 402, "message": "Insufficient credits. Add more using https://openrouter.ai/credits"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+        "503":
+          application/json: {"error": {"code": 503, "message": "Service temporarily unavailable"}}
+        "524":
+          application/json: {"error": {"code": 524, "message": "Request timed out. Please try again later."}}
+        "529":
+          application/json: {"error": {"code": 529, "message": "Provider returned error"}}
+  createAudioTranscriptions:
+    speakeasy-default-create-audio-transcriptions:
+      requestBody:
+        application/json: {"input_audio": {"data": "UklGRiQA...", "format": "wav"}, "language": "en", "model": "openai/whisper-large-v3"}
+      responses:
+        "200":
+          application/json: {"text": "Hello, this is a test of OpenAI speech-to-text transcription.", "usage": {"cost": 0.000508, "input_tokens": 83, "output_tokens": 30, "seconds": 9.2, "total_tokens": 113}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "402":
+          application/json: {"error": {"code": 402, "message": "Insufficient credits. Add more using https://openrouter.ai/credits"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+        "503":
+          application/json: {"error": {"code": 503, "message": "Service temporarily unavailable"}}
+        "524":
+          application/json: {"error": {"code": 524, "message": "Request timed out. Please try again later."}}
+        "529":
+          application/json: {"error": {"code": 529, "message": "Provider returned error"}}
+  exchangeAuthCodeForAPIKey:
+    speakeasy-default-exchange-auth-code-for-API-key:
+      requestBody:
+        application/json: {"code": "auth_code_abc123def456", "code_challenge_method": "S256", "code_verifier": "dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"}
+      responses:
+        "200":
+          application/json: {"key": "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", "user_id": "user_2yOPcMpKoQhcd4bVgSMlELRaIah"}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createAuthKeysCode:
+    speakeasy-default-create-auth-keys-code:
+      requestBody:
+        application/json: {"callback_url": "https://myapp.com/auth/callback", "code_challenge": "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM", "code_challenge_method": "S256", "limit": 100}
+      responses:
+        "200":
+          application/json: {"data": {"app_id": 12345, "created_at": "2025-08-24T10:30:00Z", "id": "auth_code_xyz789"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "409":
+          application/json: {"error": {"code": 409, "message": "Resource conflict. Please try again later."}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listBYOKKeys:
+    speakeasy-default-list-BYOK-keys:
+      parameters:
+        query:
+          offset: 0
+          limit: 50
+          workspace_id: "550e8400-e29b-41d4-a716-446655440000"
+          provider: "openai"
+      responses:
+        "200":
+          application/json: {"data": [{"allowed_api_key_hashes": null, "allowed_models": null, "allowed_user_ids": null, "created_at": "2025-08-24T10:30:00Z", "disabled": false, "id": "11111111-2222-3333-4444-555555555555", "is_fallback": false, "label": "sk-...AbCd", "name": "Production OpenAI Key", "provider": "openai", "sort_order": 0, "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}], "total_count": 1}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createBYOKKey:
+    speakeasy-default-create-BYOK-key:
+      requestBody:
+        application/json: {"key": "sk-proj-abc123...", "name": "Production OpenAI Key", "provider": "openai"}
+      responses:
+        "201":
+          application/json: {"data": {"allowed_api_key_hashes": null, "allowed_models": null, "allowed_user_ids": null, "created_at": "2025-08-24T10:30:00Z", "disabled": false, "id": "11111111-2222-3333-4444-555555555555", "is_fallback": false, "label": "sk-...AbCd", "name": "Production OpenAI Key", "provider": "openai", "sort_order": 0, "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  deleteBYOKKey:
+    speakeasy-default-delete-BYOK-key:
+      parameters:
+        path:
+          id: "11111111-2222-3333-4444-555555555555"
+      responses:
+        "200":
+          application/json: {"deleted": true}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getBYOKKey:
+    speakeasy-default-get-BYOK-key:
+      parameters:
+        path:
+          id: "11111111-2222-3333-4444-555555555555"
+      responses:
+        "200":
+          application/json: {"data": {"allowed_api_key_hashes": null, "allowed_models": null, "allowed_user_ids": null, "created_at": "2025-08-24T10:30:00Z", "disabled": false, "id": "11111111-2222-3333-4444-555555555555", "is_fallback": false, "label": "sk-...AbCd", "name": "Production OpenAI Key", "provider": "openai", "sort_order": 0, "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  updateBYOKKey:
+    speakeasy-default-update-BYOK-key:
+      parameters:
+        path:
+          id: "11111111-2222-3333-4444-555555555555"
+      requestBody:
+        application/json: {"disabled": false, "name": "Updated OpenAI Key"}
+      responses:
+        "200":
+          application/json: {"data": {"allowed_api_key_hashes": null, "allowed_models": null, "allowed_user_ids": null, "created_at": "2025-08-24T10:30:00Z", "disabled": false, "id": "11111111-2222-3333-4444-555555555555", "is_fallback": false, "label": "sk-...AbCd", "name": "Updated OpenAI Key", "provider": "openai", "sort_order": 0, "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  sendChatCompletionRequest:
+    speakeasy-default-send-chat-completion-request:
+      parameters:
+        header:
+          X-OpenRouter-Experimental-Metadata: "enabled"
+      requestBody:
+        application/json: {"max_tokens": 150, "messages": [{"content": "You are a helpful assistant.", "role": "system"}, {"content": "What is the capital of France?", "role": "user"}], "model": "openai/gpt-4", "stream": false, "temperature": 0.7}
+      responses:
+        "200":
+          application/json: {"choices": [{"finish_reason": "stop", "index": 0, "message": {"content": "The capital of France is Paris.", "role": "assistant"}}], "created": 1677652288, "id": "chatcmpl-123", "model": "openai/gpt-4", "object": "chat.completion", "system_fingerprint": "fp_44709d6fcb", "usage": {"completion_tokens": 15, "prompt_tokens": 10, "total_tokens": 25}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "402":
+          application/json: {"error": {"code": 402, "message": "Insufficient credits. Add more using https://openrouter.ai/credits"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "408":
+          application/json: {"error": {"code": 408, "message": "Operation timed out. Please try again later."}}
+        "413":
+          application/json: {"error": {"code": 413, "message": "Request payload too large"}}
+        "422":
+          application/json: {"error": {"code": 422, "message": "Invalid argument"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+        "503":
+          application/json: {"error": {"code": 503, "message": "Service temporarily unavailable"}}
+        "524":
+          application/json: {"error": {"code": 524, "message": "Request timed out. Please try again later."}}
+        "529":
+          application/json: {"error": {"code": 529, "message": "Provider returned error"}}
+    guardrail-blocked:
+      parameters:
+        header:
+          X-OpenRouter-Experimental-Metadata: "enabled"
+      requestBody:
+        application/json: {"max_tokens": 150, "messages": [{"content": "You are a helpful assistant.", "role": "system"}, {"content": "What is the capital of France?", "role": "user"}], "model": "openai/gpt-4", "stream": false, "temperature": 0.7}
+      responses:
+        "403":
+          application/json: {"error": {"code": 403, "message": "Request blocked: prompt injection patterns detected", "metadata": {"patterns": ["ignore all previous instructions"]}}, "openrouter_metadata": {"attempt": 1, "endpoints": {"available": [{"model": "openai/gpt-4o", "provider": "OpenAI", "selected": false}], "total": 1}, "is_byok": false, "pipeline": [{"data": {"action": "blocked", "detected": true, "engines": ["regex"], "patterns": ["ignore all previous instructions"]}, "guardrail_id": "grd_abc123", "guardrail_scope": "api-key", "name": "regex_pi_detection", "summary": "Blocked: prompt injection detected (1 pattern matched)", "type": "guardrail"}], "region": "iad", "requested": "openai/gpt-4o", "strategy": "direct", "summary": "available=1"}}
+    insufficient-permissions:
+      parameters:
+        header:
+          X-OpenRouter-Experimental-Metadata: "enabled"
+      requestBody:
+        application/json: {"max_tokens": 150, "messages": [{"content": "You are a helpful assistant.", "role": "system"}, {"content": "What is the capital of France?", "role": "user"}], "model": "openai/gpt-4", "stream": false, "temperature": 0.7}
+      responses:
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+  getCredits:
+    speakeasy-default-get-credits:
+      responses:
+        "200":
+          application/json: {"data": {"total_credits": 100.5, "total_usage": 25.75}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createEmbeddings:
+    speakeasy-default-create-embeddings:
+      requestBody:
+        application/json: {"dimensions": 1536, "input": "The quick brown fox jumps over the lazy dog", "model": "openai/text-embedding-3-small"}
+      responses:
+        "200":
+          application/json: {"data": [{"embedding": [0.0023064255, -0.009327292, 0.015797347], "index": 0, "object": "embedding"}], "model": "openai/text-embedding-3-small", "object": "list", "usage": {"prompt_tokens": 8, "total_tokens": 8}}
+          text/event-stream: "<value>"
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "402":
+          application/json: {"error": {"code": 402, "message": "Insufficient credits. Add more using https://openrouter.ai/credits"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+        "503":
+          application/json: {"error": {"code": 503, "message": "Service temporarily unavailable"}}
+        "524":
+          application/json: {"error": {"code": 524, "message": "Request timed out. Please try again later."}}
+        "529":
+          application/json: {"error": {"code": 529, "message": "Provider returned error"}}
+  listEmbeddingsModels:
+    speakeasy-default-list-embeddings-models:
+      responses:
+        "200":
+          application/json: {"data": [{"architecture": {"input_modalities": ["text"], "instruct_type": "chatml", "modality": "text->text", "output_modalities": ["text"], "tokenizer": "GPT"}, "canonical_slug": "openai/gpt-4", "context_length": 8192, "created": 1692901234, "default_parameters": null, "description": "GPT-4 is a large multimodal model that can solve difficult problems with greater accuracy.", "expiration_date": null, "id": "openai/gpt-4", "knowledge_cutoff": null, "links": {"details": "/api/v1/models/openai/gpt-5.4/endpoints"}, "name": "GPT-4", "per_request_limits": null, "pricing": {"completion": "0.00006", "image": "0", "prompt": "0.00003", "request": "0"}, "supported_parameters": ["temperature", "top_p", "max_tokens", "frequency_penalty", "presence_penalty"], "supported_voices": null, "top_provider": {"context_length": 8192, "is_moderated": true, "max_completion_tokens": 4096}}]}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listEndpointsZdr:
+    speakeasy-default-list-endpoints-zdr:
+      responses:
+        "200":
+          application/json: {"data": [{"context_length": 8192, "latency_last_30m": {"p50": 0.25, "p75": 0.35, "p90": 0.48, "p99": 0.85}, "max_completion_tokens": 4096, "max_prompt_tokens": 8192, "model_id": "openai/gpt-4", "model_name": "GPT-4", "name": "OpenAI: GPT-4", "pricing": {"completion": "0.00006", "image": "0", "prompt": "0.00003", "request": "0"}, "provider_name": "OpenAI", "quantization": "fp16", "status": -10, "supported_parameters": ["temperature", "top_p", "max_tokens"], "supports_implicit_caching": true, "tag": "openai", "throughput_last_30m": {"p50": 45.2, "p75": 38.5, "p90": 28.3, "p99": 15.1}, "uptime_last_1d": 99.8, "uptime_last_30m": 99.5, "uptime_last_5m": 100}]}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listEndpoints:
+    speakeasy-default-list-endpoints:
+      parameters:
+        path:
+          author: "openai"
+          slug: "gpt-4"
+      responses:
+        "200":
+          application/json: {"data": {"architecture": {"input_modalities": ["text"], "instruct_type": "chatml", "modality": "text->text", "output_modalities": ["text"], "tokenizer": "GPT"}, "created": 1692901234, "description": "GPT-4 is a large multimodal model that can solve difficult problems with greater accuracy.", "endpoints": [{"context_length": 8192, "latency_last_30m": {"p50": 0.25, "p75": 0.35, "p90": 0.48, "p99": 0.85}, "max_completion_tokens": 4096, "max_prompt_tokens": 8192, "model_id": "openai/gpt-4", "model_name": "GPT-4", "name": "OpenAI: GPT-4", "pricing": {"completion": "0.00006", "image": "0", "prompt": "0.00003", "request": "0"}, "provider_name": "OpenAI", "quantization": "fp16", "status": -3, "supported_parameters": ["temperature", "top_p", "max_tokens"], "supports_implicit_caching": true, "tag": "openai", "throughput_last_30m": {"p50": 45.2, "p75": 38.5, "p90": 28.3, "p99": 15.1}, "uptime_last_1d": 99.8, "uptime_last_30m": 99.5, "uptime_last_5m": 100}], "id": "openai/gpt-4", "name": "GPT-4"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getGeneration:
+    speakeasy-default-get-generation:
+      parameters:
+        query:
+          id: "gen-1234567890"
+      responses:
+        "200":
+          application/json: {"data": {"api_type": "completions", "app_id": 12345, "cache_discount": null, "cancelled": false, "created_at": "2024-07-15T23:33:19.433273+00:00", "external_user": "user-123", "finish_reason": "stop", "generation_time": 1200, "http_referer": "https://openrouter.ai/", "id": "gen-3bhGkxlo4XFrqiabUM7NDtwDzWwG", "is_byok": false, "latency": 1250, "model": "sao10k/l3-stheno-8b", "moderation_latency": 50, "native_finish_reason": "stop", "native_tokens_cached": 3, "native_tokens_completion": 25, "native_tokens_completion_images": 0, "native_tokens_prompt": 10, "native_tokens_reasoning": 5, "num_fetches": 0, "num_input_audio_prompt": 0, "num_media_completion": 0, "num_media_prompt": 1, "num_search_results": 5, "origin": "https://openrouter.ai/", "provider_name": "Infermatic", "provider_responses": null, "request_id": "req-1727282430-aBcDeFgHiJkLmNoPqRsT", "router": "openrouter/auto", "service_tier": "priority", "session_id": null, "streamed": true, "tokens_completion": 25, "tokens_prompt": 10, "total_cost": 0.0015, "upstream_id": "chatcmpl-791bcf62-080e-4568-87d0-94c72e3b4946", "upstream_inference_cost": 0.0012, "usage": 0.0015, "user_agent": "Mozilla/5.0", "web_search_engine": "exa"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "402":
+          application/json: {"error": {"code": 402, "message": "Insufficient credits. Add more using https://openrouter.ai/credits"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+        "524":
+          application/json: {"error": {"code": 524, "message": "Request timed out. Please try again later."}}
+        "529":
+          application/json: {"error": {"code": 529, "message": "Provider returned error"}}
+  listGenerationContent:
+    speakeasy-default-list-generation-content:
+      parameters:
+        query:
+          id: "gen-1234567890"
+      responses:
+        "200":
+          application/json: {"data": {"input": {"messages": [{"content": "What is the meaning of life?", "role": "user"}]}, "output": {"completion": "The meaning of life is a philosophical question...", "reasoning": null}}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+        "524":
+          application/json: {"error": {"code": 524, "message": "Request timed out. Please try again later."}}
+        "529":
+          application/json: {"error": {"code": 529, "message": "Provider returned error"}}
+  listGuardrails:
+    speakeasy-default-list-guardrails:
+      parameters:
+        query:
+          offset: 0
+          limit: 50
+          workspace_id: "0df9e665-d932-5740-b2c7-b52af166bc11"
+      responses:
+        "200":
+          application/json: {"data": [{"allowed_models": null, "allowed_providers": ["openai", "anthropic", "google"], "content_filter_builtins": [{"action": "block", "label": "[PROMPT_INJECTION]", "slug": "regex-prompt-injection"}], "content_filters": null, "created_at": "2025-08-24T10:30:00Z", "description": "Guardrail for production environment", "enforce_zdr": null, "enforce_zdr_anthropic": true, "enforce_zdr_google": false, "enforce_zdr_openai": true, "enforce_zdr_other": false, "id": "550e8400-e29b-41d4-a716-446655440000", "ignored_models": null, "ignored_providers": null, "limit_usd": 100, "name": "Production Guardrail", "reset_interval": "monthly", "updated_at": "2025-08-24T15:45:00Z", "workspace_id": "0df9e665-d932-5740-b2c7-b52af166bc11"}], "total_count": 1}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createGuardrail:
+    speakeasy-default-create-guardrail:
+      requestBody:
+        application/json: {"allowed_models": null, "allowed_providers": ["openai", "anthropic", "deepseek"], "content_filter_builtins": [{"action": "block", "slug": "regex-prompt-injection"}], "content_filters": null, "description": "A guardrail for limiting API usage", "enforce_zdr_anthropic": true, "enforce_zdr_google": false, "enforce_zdr_openai": true, "enforce_zdr_other": false, "ignored_models": null, "ignored_providers": null, "limit_usd": 50, "name": "My New Guardrail", "reset_interval": "monthly"}
+      responses:
+        "201":
+          application/json: {"data": {"allowed_models": null, "allowed_providers": ["openai", "anthropic", "google"], "content_filter_builtins": [{"action": "block", "label": "[PROMPT_INJECTION]", "slug": "regex-prompt-injection"}], "content_filters": null, "created_at": "2025-08-24T10:30:00Z", "description": "A guardrail for limiting API usage", "enforce_zdr": null, "enforce_zdr_anthropic": true, "enforce_zdr_google": false, "enforce_zdr_openai": true, "enforce_zdr_other": false, "id": "550e8400-e29b-41d4-a716-446655440000", "ignored_models": null, "ignored_providers": null, "limit_usd": 50, "name": "My New Guardrail", "reset_interval": "monthly", "updated_at": null, "workspace_id": "0df9e665-d932-5740-b2c7-b52af166bc11"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  deleteGuardrail:
+    speakeasy-default-delete-guardrail:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+      responses:
+        "200":
+          application/json: {"deleted": true}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getGuardrail:
+    speakeasy-default-get-guardrail:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+      responses:
+        "200":
+          application/json: {"data": {"allowed_models": null, "allowed_providers": ["openai", "anthropic", "google"], "content_filter_builtins": [{"action": "block", "label": "[PROMPT_INJECTION]", "slug": "regex-prompt-injection"}], "content_filters": null, "created_at": "2025-08-24T10:30:00Z", "description": "Guardrail for production environment", "enforce_zdr": null, "enforce_zdr_anthropic": true, "enforce_zdr_google": false, "enforce_zdr_openai": true, "enforce_zdr_other": false, "id": "550e8400-e29b-41d4-a716-446655440000", "ignored_models": null, "ignored_providers": null, "limit_usd": 100, "name": "Production Guardrail", "reset_interval": "monthly", "updated_at": "2025-08-24T15:45:00Z", "workspace_id": "0df9e665-d932-5740-b2c7-b52af166bc11"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  updateGuardrail:
+    speakeasy-default-update-guardrail:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+      requestBody:
+        application/json: {"description": "Updated description", "limit_usd": 75, "name": "Updated Guardrail Name", "reset_interval": "weekly"}
+      responses:
+        "200":
+          application/json: {"data": {"allowed_models": null, "allowed_providers": ["openai"], "content_filter_builtins": [{"action": "block", "label": "[PROMPT_INJECTION]", "slug": "regex-prompt-injection"}], "content_filters": null, "created_at": "2025-08-24T10:30:00Z", "description": "Updated description", "enforce_zdr": null, "enforce_zdr_anthropic": true, "enforce_zdr_google": true, "enforce_zdr_openai": true, "enforce_zdr_other": true, "id": "550e8400-e29b-41d4-a716-446655440000", "ignored_models": null, "ignored_providers": null, "limit_usd": 75, "name": "Updated Guardrail Name", "reset_interval": "weekly", "updated_at": "2025-08-24T16:00:00Z", "workspace_id": "0df9e665-d932-5740-b2c7-b52af166bc11"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listGuardrailKeyAssignments:
+    speakeasy-default-list-guardrail-key-assignments:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+        query:
+          offset: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"data": [{"assigned_by": "user_abc123", "created_at": "2025-08-24T10:30:00Z", "guardrail_id": "550e8400-e29b-41d4-a716-446655440001", "id": "550e8400-e29b-41d4-a716-446655440000", "key_hash": "c56454edb818d6b14bc0d61c46025f1450b0f4012d12304ab40aacb519fcbc93", "key_label": "prod-key", "key_name": "Production Key"}], "total_count": 1}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  bulkAssignKeysToGuardrail:
+    speakeasy-default-bulk-assign-keys-to-guardrail:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+      requestBody:
+        application/json: {"key_hashes": ["c56454edb818d6b14bc0d61c46025f1450b0f4012d12304ab40aacb519fcbc93"]}
+      responses:
+        "200":
+          application/json: {"assigned_count": 3}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  bulkUnassignKeysFromGuardrail:
+    speakeasy-default-bulk-unassign-keys-from-guardrail:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+      requestBody:
+        application/json: {"key_hashes": ["c56454edb818d6b14bc0d61c46025f1450b0f4012d12304ab40aacb519fcbc93"]}
+      responses:
+        "200":
+          application/json: {"unassigned_count": 3}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listGuardrailMemberAssignments:
+    speakeasy-default-list-guardrail-member-assignments:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+        query:
+          offset: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"data": [{"assigned_by": "user_abc123", "created_at": "2025-08-24T10:30:00Z", "guardrail_id": "550e8400-e29b-41d4-a716-446655440001", "id": "550e8400-e29b-41d4-a716-446655440000", "organization_id": "org_xyz789", "user_id": "user_abc123"}], "total_count": 1}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  bulkAssignMembersToGuardrail:
+    speakeasy-default-bulk-assign-members-to-guardrail:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+      requestBody:
+        application/json: {"member_user_ids": ["user_abc123", "user_def456"]}
+      responses:
+        "200":
+          application/json: {"assigned_count": 2}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  bulkUnassignMembersFromGuardrail:
+    speakeasy-default-bulk-unassign-members-from-guardrail:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+      requestBody:
+        application/json: {"member_user_ids": ["user_abc123", "user_def456"]}
+      responses:
+        "200":
+          application/json: {"unassigned_count": 2}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listKeyAssignments:
+    speakeasy-default-list-key-assignments:
+      parameters:
+        query:
+          offset: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"data": [{"assigned_by": "user_abc123", "created_at": "2025-08-24T10:30:00Z", "guardrail_id": "550e8400-e29b-41d4-a716-446655440001", "id": "550e8400-e29b-41d4-a716-446655440000", "key_hash": "c56454edb818d6b14bc0d61c46025f1450b0f4012d12304ab40aacb519fcbc93", "key_label": "prod-key", "key_name": "Production Key"}], "total_count": 1}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listMemberAssignments:
+    speakeasy-default-list-member-assignments:
+      parameters:
+        query:
+          offset: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"data": [{"assigned_by": "user_abc123", "created_at": "2025-08-24T10:30:00Z", "guardrail_id": "550e8400-e29b-41d4-a716-446655440001", "id": "550e8400-e29b-41d4-a716-446655440000", "organization_id": "org_xyz789", "user_id": "user_abc123"}], "total_count": 1}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getCurrentKey:
+    speakeasy-default-get-current-key:
+      responses:
+        "200":
+          application/json: {"data": {"byok_usage": 17.38, "byok_usage_daily": 17.38, "byok_usage_monthly": 17.38, "byok_usage_weekly": 17.38, "creator_user_id": "user_2dHFtVWx2n56w6HkM0000000000", "expires_at": "2027-12-31T23:59:59Z", "include_byok_in_limit": false, "is_free_tier": false, "is_management_key": false, "is_provisioning_key": false, "label": "sk-or-v1-au7...890", "limit": 100, "limit_remaining": 74.5, "limit_reset": "monthly", "rate_limit": {"interval": "1h", "note": "This field is deprecated and safe to ignore.", "requests": 1000}, "usage": 25.5, "usage_daily": 25.5, "usage_monthly": 25.5, "usage_weekly": 25.5}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  list:
+    speakeasy-default-list:
+      parameters:
+        query:
+          include_disabled: false
+          offset: 0
+          workspace_id: "0df9e665-d932-5740-b2c7-b52af166bc11"
+      responses:
+        "200":
+          application/json: {"data": [{"byok_usage": 17.38, "byok_usage_daily": 17.38, "byok_usage_monthly": 17.38, "byok_usage_weekly": 17.38, "created_at": "2025-08-24T10:30:00Z", "creator_user_id": "user_2dHFtVWx2n56w6HkM0000000000", "disabled": false, "expires_at": "2027-12-31T23:59:59Z", "hash": "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943", "include_byok_in_limit": false, "label": "Production API Key", "limit": 100, "limit_remaining": 74.5, "limit_reset": "monthly", "name": "My Production Key", "updated_at": "2025-08-24T15:45:00Z", "usage": 25.5, "usage_daily": 25.5, "usage_monthly": 25.5, "usage_weekly": 25.5, "workspace_id": "0df9e665-d932-5740-b2c7-b52af166bc11"}]}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createKeys:
+    speakeasy-default-create-keys:
+      requestBody:
+        application/json: {"expires_at": "2027-12-31T23:59:59Z", "include_byok_in_limit": true, "limit": 50, "limit_reset": "monthly", "name": "My New API Key"}
+      responses:
+        "201":
+          application/json: {"data": {"byok_usage": 0, "byok_usage_daily": 0, "byok_usage_monthly": 0, "byok_usage_weekly": 0, "created_at": "2025-08-24T10:30:00Z", "creator_user_id": "user_2dHFtVWx2n56w6HkM0000000000", "disabled": false, "expires_at": "2027-12-31T23:59:59Z", "hash": "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943", "include_byok_in_limit": true, "label": "My New API Key", "limit": 50, "limit_remaining": 50, "limit_reset": "monthly", "name": "My New API Key", "updated_at": null, "usage": 0, "usage_daily": 0, "usage_monthly": 0, "usage_weekly": 0, "workspace_id": "0df9e665-d932-5740-b2c7-b52af166bc11"}, "key": "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"}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  deleteKeys:
+    speakeasy-default-delete-keys:
+      parameters:
+        path:
+          hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943"
+      responses:
+        "200":
+          application/json: {"deleted": true}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getKey:
+    speakeasy-default-get-key:
+      parameters:
+        path:
+          hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943"
+      responses:
+        "200":
+          application/json: {"data": {"byok_usage": 17.38, "byok_usage_daily": 17.38, "byok_usage_monthly": 17.38, "byok_usage_weekly": 17.38, "created_at": "2025-08-24T10:30:00Z", "creator_user_id": "user_2dHFtVWx2n56w6HkM0000000000", "disabled": false, "expires_at": "2027-12-31T23:59:59Z", "hash": "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943", "include_byok_in_limit": false, "label": "Production API Key", "limit": 100, "limit_remaining": 74.5, "limit_reset": "monthly", "name": "My Production Key", "updated_at": "2025-08-24T15:45:00Z", "usage": 25.5, "usage_daily": 25.5, "usage_monthly": 25.5, "usage_weekly": 25.5, "workspace_id": "0df9e665-d932-5740-b2c7-b52af166bc11"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  updateKeys:
+    speakeasy-default-update-keys:
+      parameters:
+        path:
+          hash: "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943"
+      requestBody:
+        application/json: {"disabled": false, "include_byok_in_limit": true, "limit": 75, "limit_reset": "daily", "name": "Updated API Key Name"}
+      responses:
+        "200":
+          application/json: {"data": {"byok_usage": 17.38, "byok_usage_daily": 17.38, "byok_usage_monthly": 17.38, "byok_usage_weekly": 17.38, "created_at": "2025-08-24T10:30:00Z", "creator_user_id": "user_2dHFtVWx2n56w6HkM0000000000", "disabled": false, "expires_at": null, "hash": "f01d52606dc8f0a8303a7b5cc3fa07109c2e346cec7c0a16b40de462992ce943", "include_byok_in_limit": true, "label": "Updated API Key Name", "limit": 75, "limit_remaining": 49.5, "limit_reset": "daily", "name": "Updated API Key Name", "updated_at": "2025-08-24T16:00:00Z", "usage": 25.5, "usage_daily": 25.5, "usage_monthly": 25.5, "usage_weekly": 25.5, "workspace_id": "0df9e665-d932-5740-b2c7-b52af166bc11"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getModels:
+    speakeasy-default-get-models:
+      parameters:
+        query:
+          category: "programming"
+          supported_parameters: "temperature"
+          output_modalities: "text"
+      responses:
+        "200":
+          application/json: {"data": [{"architecture": {"input_modalities": ["text"], "instruct_type": "chatml", "modality": "text->text", "output_modalities": ["text"], "tokenizer": "GPT"}, "canonical_slug": "openai/gpt-4", "context_length": 8192, "created": 1692901234, "default_parameters": null, "description": "GPT-4 is a large multimodal model that can solve difficult problems with greater accuracy.", "expiration_date": null, "id": "openai/gpt-4", "knowledge_cutoff": null, "links": {"details": "/api/v1/models/openai/gpt-5.4/endpoints"}, "name": "GPT-4", "per_request_limits": null, "pricing": {"completion": "0.00006", "image": "0", "prompt": "0.00003", "request": "0"}, "supported_parameters": ["temperature", "top_p", "max_tokens", "frequency_penalty", "presence_penalty"], "supported_voices": null, "top_provider": {"context_length": 8192, "is_moderated": true, "max_completion_tokens": 4096}}]}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listModelsCount:
+    speakeasy-default-list-models-count:
+      parameters:
+        query:
+          output_modalities: "text"
+      responses:
+        "200":
+          application/json: {"data": {"count": 150}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listModelsUser:
+    speakeasy-default-list-models-user:
+      responses:
+        "200":
+          application/json: {"data": [{"architecture": {"input_modalities": ["text"], "instruct_type": "chatml", "modality": "text->text", "output_modalities": ["text"], "tokenizer": "GPT"}, "canonical_slug": "openai/gpt-4", "context_length": 8192, "created": 1692901234, "default_parameters": null, "description": "GPT-4 is a large multimodal model that can solve difficult problems with greater accuracy.", "expiration_date": null, "id": "openai/gpt-4", "knowledge_cutoff": null, "links": {"details": "/api/v1/models/openai/gpt-5.4/endpoints"}, "name": "GPT-4", "per_request_limits": null, "pricing": {"completion": "0.00006", "image": "0", "prompt": "0.00003", "request": "0"}, "supported_parameters": ["temperature", "top_p", "max_tokens", "frequency_penalty", "presence_penalty"], "supported_voices": null, "top_provider": {"context_length": 8192, "is_moderated": true, "max_completion_tokens": 4096}}]}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listObservabilityDestinations:
+    speakeasy-default-list-observability-destinations:
+      parameters:
+        query:
+          offset: 0
+          limit: 50
+          workspace_id: "550e8400-e29b-41d4-a716-446655440000"
+      responses:
+        "200":
+          application/json: {"data": [{"api_key_hashes": null, "config": {"baseUrl": "https://us.cloud.langfuse.com", "publicKey": "pk-l...EfGh", "secretKey": "sk-l...AbCd"}, "created_at": "2025-08-24T10:30:00Z", "enabled": true, "filter_rules": null, "id": "99999999-aaaa-bbbb-cccc-dddddddddddd", "name": "Production Langfuse", "privacy_mode": false, "sampling_rate": 1, "type": "langfuse", "updated_at": "2025-08-24T15:45:00Z", "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}], "total_count": 1}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createObservabilityDestination:
+    speakeasy-default-create-observability-destination:
+      requestBody:
+        application/json: {"config": {"baseUrl": "https://us.cloud.langfuse.com", "publicKey": "pk-l...EfGh", "secretKey": "sk-l...AbCd"}, "enabled": true, "name": "Production Langfuse", "privacy_mode": false, "type": "langfuse"}
+      responses:
+        "201":
+          application/json: {"data": {"api_key_hashes": null, "config": {"baseUrl": "https://us.cloud.langfuse.com", "publicKey": "pk-l...EfGh", "secretKey": "sk-l...AbCd"}, "created_at": "2025-08-24T10:30:00Z", "enabled": true, "filter_rules": null, "id": "99999999-aaaa-bbbb-cccc-dddddddddddd", "name": "Production Langfuse", "privacy_mode": false, "sampling_rate": 1, "type": "langfuse", "updated_at": "2025-08-24T15:45:00Z", "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "409":
+          application/json: {"error": {"code": 409, "message": "Resource conflict. Please try again later."}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  deleteObservabilityDestination:
+    speakeasy-default-delete-observability-destination:
+      parameters:
+        path:
+          id: "99999999-aaaa-bbbb-cccc-dddddddddddd"
+      responses:
+        "200":
+          application/json: {"deleted": true}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getObservabilityDestination:
+    speakeasy-default-get-observability-destination:
+      parameters:
+        path:
+          id: "99999999-aaaa-bbbb-cccc-dddddddddddd"
+      responses:
+        "200":
+          application/json: {"data": {"api_key_hashes": null, "config": {"baseUrl": "https://us.cloud.langfuse.com", "publicKey": "pk-l...EfGh", "secretKey": "sk-l...AbCd"}, "created_at": "2025-08-24T10:30:00Z", "enabled": true, "filter_rules": null, "id": "99999999-aaaa-bbbb-cccc-dddddddddddd", "name": "Production Langfuse", "privacy_mode": false, "sampling_rate": 1, "type": "langfuse", "updated_at": "2025-08-24T15:45:00Z", "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  updateObservabilityDestination:
+    speakeasy-default-update-observability-destination:
+      parameters:
+        path:
+          id: "99999999-aaaa-bbbb-cccc-dddddddddddd"
+      requestBody:
+        application/json: {"enabled": false, "name": "Updated Langfuse"}
+      responses:
+        "200":
+          application/json: {"data": {"api_key_hashes": null, "config": {"baseUrl": "https://us.cloud.langfuse.com", "publicKey": "pk-l...EfGh", "secretKey": "sk-l...AbCd"}, "created_at": "2025-08-24T10:30:00Z", "enabled": true, "filter_rules": null, "id": "99999999-aaaa-bbbb-cccc-dddddddddddd", "name": "Production Langfuse", "privacy_mode": false, "sampling_rate": 1, "type": "langfuse", "updated_at": "2025-08-24T15:45:00Z", "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "409":
+          application/json: {"error": {"code": 409, "message": "Resource conflict. Please try again later."}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listOrganizationMembers:
+    speakeasy-default-list-organization-members:
+      parameters:
+        query:
+          offset: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"data": [{"email": "jane.doe@example.com", "first_name": "Jane", "id": "user_2dHFtVWx2n56w6HkM0000000000", "last_name": "Doe", "role": "org:member"}], "total_count": 25}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createPresetsChatCompletions:
+    speakeasy-default-create-presets-chat-completions:
+      parameters:
+        path:
+          slug: "my-preset"
+      requestBody:
+        application/json: {"max_tokens": 150, "messages": [{"content": "You are a helpful assistant.", "role": "system"}, {"content": "What is the capital of France?", "role": "user"}], "model": "openai/gpt-4", "stream": false, "temperature": 0.7}
+      responses:
+        "200":
+          application/json: {"data": {"created_at": "2026-04-20T10:00:00Z", "creator_user_id": "user_2dHFtVWx2n56w6HkM0000000000", "description": null, "designated_version": {"config": {"model": "openai/gpt-4o", "temperature": 0.7}, "created_at": "2026-04-20T10:00:00Z", "creator_id": "user_2dHFtVWx2n56w6HkM0000000000", "id": "550e8400-e29b-41d4-a716-446655440000", "preset_id": "650e8400-e29b-41d4-a716-446655440001", "system_prompt": "You are a helpful assistant.", "updated_at": "2026-04-20T10:00:00Z", "version": 1}, "designated_version_id": "550e8400-e29b-41d4-a716-446655440000", "id": "650e8400-e29b-41d4-a716-446655440001", "name": "my-preset", "slug": "my-preset", "status": "active", "status_updated_at": null, "updated_at": "2026-04-20T10:00:00Z", "workspace_id": "750e8400-e29b-41d4-a716-446655440002"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "409":
+          application/json: {"error": {"code": 409, "message": "Resource conflict. Please try again later."}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listProviders:
+    speakeasy-default-list-providers:
+      responses:
+        "200":
+          application/json: {"data": [{"datacenters": ["US", "IE"], "headquarters": "US", "name": "OpenAI", "privacy_policy_url": "https://openai.com/privacy", "slug": "openai", "status_page_url": "https://status.openai.com", "terms_of_service_url": "https://openai.com/terms"}]}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createRerank:
+    speakeasy-default-create-rerank:
+      requestBody:
+        application/json: {"documents": ["Paris is the capital of France.", "Berlin is the capital of Germany."], "model": "cohere/rerank-v3.5", "query": "What is the capital of France?", "top_n": 3}
+      responses:
+        "200":
+          application/json: {"id": "gen-rerank-1234567890-abc", "model": "cohere/rerank-v3.5", "results": [{"document": {"text": "Paris is the capital of France."}, "index": 0, "relevance_score": 0.98}], "usage": {"search_units": 1, "total_tokens": 150}}
+          text/event-stream: "<value>"
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "402":
+          application/json: {"error": {"code": 402, "message": "Insufficient credits. Add more using https://openrouter.ai/credits"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+        "503":
+          application/json: {"error": {"code": 503, "message": "Service temporarily unavailable"}}
+        "524":
+          application/json: {"error": {"code": 524, "message": "Request timed out. Please try again later."}}
+        "529":
+          application/json: {"error": {"code": 529, "message": "Provider returned error"}}
+  createResponses:
+    speakeasy-default-create-responses:
+      parameters:
+        header:
+          X-OpenRouter-Experimental-Metadata: "enabled"
+      requestBody:
+        application/json: {"input": [{"content": "Hello, how are you?", "role": "user", "type": "message"}], "model": "anthropic/claude-4.5-sonnet-20250929", "service_tier": "auto", "store": false, "stream": false, "temperature": 0.7, "tools": [{"description": "Get the current weather in a given location", "name": "get_current_weather", "parameters": {"properties": {"location": {"type": "string"}}, "type": "object"}, "type": "function"}], "top_p": 0.9}
+      responses:
+        "200":
+          application/json: {"completed_at": 251063, "created_at": 1704067200, "error": null, "frequency_penalty": 7468.94, "id": "resp-abc123", "incomplete_details": null, "instructions": null, "max_output_tokens": null, "metadata": null, "model": "gpt-4", "object": "response", "output": [{"content": [{"annotations": [], "text": "Hello! How can I help you today?", "type": "output_text"}], "id": "msg-abc123", "role": "assistant", "status": "completed", "type": "message"}], "parallel_tool_calls": true, "presence_penalty": 3967.09, "status": "completed", "temperature": null, "tool_choice": "auto", "tools": [], "top_p": null, "usage": {"input_tokens": 10, "input_tokens_details": {"cached_tokens": 0}, "output_tokens": 25, "output_tokens_details": {"reasoning_tokens": 0}, "total_tokens": 35}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "402":
+          application/json: {"error": {"code": 402, "message": "Insufficient credits. Add more using https://openrouter.ai/credits"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "408":
+          application/json: {"error": {"code": 408, "message": "Operation timed out. Please try again later."}}
+        "413":
+          application/json: {"error": {"code": 413, "message": "Request payload too large"}}
+        "422":
+          application/json: {"error": {"code": 422, "message": "Invalid argument"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+        "503":
+          application/json: {"error": {"code": 503, "message": "Service temporarily unavailable"}}
+        "524":
+          application/json: {"error": {"code": 524, "message": "Request timed out. Please try again later."}}
+        "529":
+          application/json: {"error": {"code": 529, "message": "Provider returned error"}}
+    guardrail-blocked:
+      parameters:
+        header:
+          X-OpenRouter-Experimental-Metadata: "enabled"
+      requestBody:
+        application/json: {"input": [{"content": "Hello, how are you?", "role": "user", "type": "message"}], "model": "anthropic/claude-4.5-sonnet-20250929", "service_tier": "auto", "store": false, "stream": false, "temperature": 0.7, "tools": [{"description": "Get the current weather in a given location", "name": "get_current_weather", "parameters": {"properties": {"location": {"type": "string"}}, "type": "object"}, "type": "function"}], "top_p": 0.9}
+      responses:
+        "403":
+          application/json: {"error": {"code": 403, "message": "Request blocked: prompt injection patterns detected", "metadata": {"patterns": ["ignore all previous instructions"]}}, "openrouter_metadata": {"attempt": 1, "endpoints": {"available": [{"model": "openai/gpt-4o", "provider": "OpenAI", "selected": false}], "total": 1}, "is_byok": false, "pipeline": [{"data": {"action": "blocked", "detected": true, "engines": ["regex"], "patterns": ["ignore all previous instructions"]}, "guardrail_id": "grd_abc123", "guardrail_scope": "api-key", "name": "regex_pi_detection", "summary": "Blocked: prompt injection detected (1 pattern matched)", "type": "guardrail"}], "region": "iad", "requested": "openai/gpt-4o", "strategy": "direct", "summary": "available=1"}}
+    insufficient-permissions:
+      parameters:
+        header:
+          X-OpenRouter-Experimental-Metadata: "enabled"
+      requestBody:
+        application/json: {"input": [{"content": "Hello, how are you?", "role": "user", "type": "message"}], "model": "anthropic/claude-4.5-sonnet-20250929", "service_tier": "auto", "store": false, "stream": false, "temperature": 0.7, "tools": [{"description": "Get the current weather in a given location", "name": "get_current_weather", "parameters": {"properties": {"location": {"type": "string"}}, "type": "object"}, "type": "function"}], "top_p": 0.9}
+      responses:
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+  createVideos:
+    speakeasy-default-create-videos:
+      requestBody:
+        application/json: {"aspect_ratio": "16:9", "duration": 8, "model": "google/veo-3.1", "prompt": "A serene mountain landscape at sunset", "resolution": "720p"}
+      responses:
+        "202":
+          application/json: {"generation_id": "gen-xyz789", "id": "job-abc123", "polling_url": "/api/v1/videos/job-abc123", "status": "pending"}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "402":
+          application/json: {"error": {"code": 402, "message": "Insufficient credits. Add more using https://openrouter.ai/credits"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "429":
+          application/json: {"error": {"code": 429, "message": "Rate limit exceeded"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getVideos:
+    speakeasy-default-get-videos:
+      parameters:
+        path:
+          jobId: "job-abc123"
+      responses:
+        "200":
+          application/json: {"generation_id": "gen-xyz789", "id": "job-abc123", "polling_url": "/api/v1/videos/job-abc123", "status": "pending"}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listVideosContent:
+    speakeasy-default-list-videos-content:
+      parameters:
+        path:
+          jobId: "job-abc123"
+        query:
+          index: 0
+      responses:
+        "200":
+          application/octet-stream: "x-file: example.file"
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+        "502":
+          application/json: {"error": {"code": 502, "message": "Provider returned error"}}
+  listVideosModels:
+    speakeasy-default-list-videos-models:
+      responses:
+        "200":
+          application/json: {"data": [{"allowed_passthrough_parameters": [], "canonical_slug": "google/veo-3.1", "created": 1700000000, "description": "Google video generation model", "generate_audio": true, "id": "google/veo-3.1", "name": "Veo 3.1", "pricing_skus": {"generate": "0.50"}, "seed": null, "supported_aspect_ratios": ["16:9"], "supported_durations": [5, 8], "supported_frame_images": ["first_frame", "last_frame"], "supported_resolutions": ["720p"], "supported_sizes": null}]}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  listWorkspaces:
+    speakeasy-default-list-workspaces:
+      parameters:
+        query:
+          offset: 0
+          limit: 50
+      responses:
+        "200":
+          application/json: {"data": [{"created_at": "2025-08-24T10:30:00Z", "created_by": "user_abc123", "default_image_model": "openai/dall-e-3", "default_provider_sort": "price", "default_text_model": "openai/gpt-4o", "description": "Production environment workspace", "id": "550e8400-e29b-41d4-a716-446655440000", "io_logging_api_key_ids": null, "io_logging_sampling_rate": 1, "is_data_discount_logging_enabled": true, "is_observability_broadcast_enabled": false, "is_observability_io_logging_enabled": false, "name": "Production", "slug": "production", "updated_at": "2025-08-24T15:45:00Z"}], "total_count": 1}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  createWorkspace:
+    speakeasy-default-create-workspace:
+      requestBody:
+        application/json: {"default_image_model": "openai/dall-e-3", "default_provider_sort": "price", "default_text_model": "openai/gpt-4o", "description": "Production environment workspace", "name": "Production", "slug": "production"}
+      responses:
+        "201":
+          application/json: {"data": {"created_at": "2025-08-24T10:30:00Z", "created_by": "user_abc123", "default_image_model": "openai/dall-e-3", "default_provider_sort": "price", "default_text_model": "openai/gpt-4o", "description": "Production environment workspace", "id": "550e8400-e29b-41d4-a716-446655440000", "io_logging_api_key_ids": null, "io_logging_sampling_rate": 1, "is_data_discount_logging_enabled": true, "is_observability_broadcast_enabled": false, "is_observability_io_logging_enabled": false, "name": "Production", "slug": "production", "updated_at": null}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  deleteWorkspace:
+    speakeasy-default-delete-workspace:
+      parameters:
+        path:
+          id: "production"
+      responses:
+        "200":
+          application/json: {"deleted": true}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  getWorkspace:
+    speakeasy-default-get-workspace:
+      parameters:
+        path:
+          id: "production"
+      responses:
+        "200":
+          application/json: {"data": {"created_at": "2025-08-24T10:30:00Z", "created_by": "user_abc123", "default_image_model": "openai/dall-e-3", "default_provider_sort": "price", "default_text_model": "openai/gpt-4o", "description": "Production environment workspace", "id": "550e8400-e29b-41d4-a716-446655440000", "io_logging_api_key_ids": null, "io_logging_sampling_rate": 1, "is_data_discount_logging_enabled": true, "is_observability_broadcast_enabled": false, "is_observability_io_logging_enabled": false, "name": "Production", "slug": "production", "updated_at": "2025-08-24T15:45:00Z"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  updateWorkspace:
+    speakeasy-default-update-workspace:
+      parameters:
+        path:
+          id: "production"
+      requestBody:
+        application/json: {"name": "Updated Workspace", "slug": "updated-workspace"}
+      responses:
+        "200":
+          application/json: {"data": {"created_at": "2025-08-24T10:30:00Z", "created_by": "user_abc123", "default_image_model": "openai/dall-e-3", "default_provider_sort": "price", "default_text_model": "openai/gpt-4o", "description": "Production environment workspace", "id": "550e8400-e29b-41d4-a716-446655440000", "io_logging_api_key_ids": null, "io_logging_sampling_rate": 1, "is_data_discount_logging_enabled": true, "is_observability_broadcast_enabled": false, "is_observability_io_logging_enabled": false, "name": "Updated Workspace", "slug": "updated-workspace", "updated_at": "2025-08-25T10:00:00Z"}}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  bulkAddWorkspaceMembers:
+    speakeasy-default-bulk-add-workspace-members:
+      parameters:
+        path:
+          id: "production"
+      requestBody:
+        application/json: {"user_ids": ["user_abc123", "user_def456"]}
+      responses:
+        "200":
+          application/json: {"added_count": 1, "data": [{"created_at": "2025-08-24T10:30:00Z", "id": "660e8400-e29b-41d4-a716-446655440000", "role": "member", "user_id": "user_abc123", "workspace_id": "550e8400-e29b-41d4-a716-446655440000"}]}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+  bulkRemoveWorkspaceMembers:
+    speakeasy-default-bulk-remove-workspace-members:
+      parameters:
+        path:
+          id: "production"
+      requestBody:
+        application/json: {"user_ids": ["user_abc123", "user_def456"]}
+      responses:
+        "200":
+          application/json: {"removed_count": 2}
+        "400":
+          application/json: {"error": {"code": 400, "message": "Invalid request parameters"}}
+        "401":
+          application/json: {"error": {"code": 401, "message": "Missing Authentication header"}}
+        "403":
+          application/json: {"error": {"code": 403, "message": "Only management keys can perform this operation"}}
+        "404":
+          application/json: {"error": {"code": 404, "message": "Resource not found"}}
+        "500":
+          application/json: {"error": {"code": 500, "message": "Internal Server Error"}}
+examplesVersion: 1.0.2

@@ -1,0 +1,25 @@
+# OpenRouter CLI Customizations
+
+This project uses the Speakeasy-generated Go/Cobra CLI as the base. The custom layer is intentionally small and focused on agent-safe authentication.
+
+## Auth and Agent UX
+
+- `openrouter login` and `openrouter auth login` validate API keys with `/key` before saving.
+- API keys are stored only in the operating system credential store.
+- Plaintext config-file fallback for API keys is disabled.
+- `openrouter doctor` reports credential storage, auth source, and API validation status.
+- `openrouter exec -- <command>` injects `OPENROUTER_API_KEY` into a child process without writing it to shell profiles or project files.
+- `--json` is a shortcut for `--output-format json`.
+
+## API Key Management
+
+- The generated `API-keys` command is exposed as `keys`, while keeping `API-keys` and `api-keys` as aliases.
+- `openrouter keys create-saved` creates a key through the generated SDK and immediately stores the returned secret in the OS credential store, printing only a masked key.
+
+## Agent Prompt
+
+- `docs/agents-prompt.md` contains the proposed prompt text for `openrouter.ai/agents`.
+
+## Regeneration Note
+
+This folder is not currently a Git repository, so Speakeasy persistent custom-code merging is not enabled yet. Before repeated regeneration, put the project under Git and enable `generation.persistentEdits.enabled` in `gen.yaml`, or keep these customizations isolated in a patch applied after `speakeasy run`.

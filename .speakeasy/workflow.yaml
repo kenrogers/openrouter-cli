@@ -1,0 +1,14 @@
+workflowVersion: 1.0.0
+speakeasyVersion: pinned
+sources:
+  openrouter:
+    inputs:
+      - location: ./openapi.yaml
+targets:
+  openrouter-cli:
+    target: cli
+    source: openrouter
+    testing:
+      enabled: false
+      mockServer:
+        enabled: false
