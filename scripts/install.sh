@@ -22,6 +22,7 @@ DEFAULT_INSTALL_DIR="/usr/local/bin"
 USER_INSTALL_DIR="$HOME/.local/bin"
 VERSION="${OPENROUTER_VERSION:-latest}"
 BINARY_NAME="openrouter"
+ARCHIVE_PREFIX="openrouter-cli"
 
 # Colors for output
 RED='\033[0;31m'
@@ -128,10 +129,10 @@ install_cli() {
     local archive_name
     local archive_format
     if [ "$os" = "Windows" ]; then
-        archive_name="${BINARY_NAME}_${os}_${arch}.zip"
+        archive_name="${ARCHIVE_PREFIX}_${os}_${arch}.zip"
         archive_format="zip"
     else
-        archive_name="${BINARY_NAME}_${os}_${arch}.tar.gz"
+        archive_name="${ARCHIVE_PREFIX}_${os}_${arch}.tar.gz"
         archive_format="tar.gz"
     fi
 

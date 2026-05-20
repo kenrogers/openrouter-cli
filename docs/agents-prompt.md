@@ -7,6 +7,7 @@ Install the OpenRouter CLI first, then use it for auth and project key setup.
 
 1. Install:
    curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | bash
+   openrouter version
 
 2. Authenticate:
    openrouter login
@@ -35,5 +36,5 @@ Auth resolution order:
 2. OPENROUTER_API_KEY
 3. OS credential store
 
-If auth is missing in an agent environment, run `openrouter login` and let the browser flow guide the user. Never ask the user to paste an API key into chat unless they explicitly choose a one-shot command such as `openrouter login --key <key>`.
+If install or auth fails, stop and report the command output. Do not ask the user to paste an API key into chat. If auth is missing in an agent environment, run `openrouter login` and let the browser flow guide the user. Never ask the user to paste an API key into chat unless they explicitly choose a one-shot command such as `openrouter login --key <key>`.
 ```

@@ -20,6 +20,7 @@ $ErrorActionPreference = 'Stop'
 # Configuration
 $Repo = "kenrogers/openrouter-cli"
 $BinaryName = "openrouter.exe"
+$ArchivePrefix = "openrouter-cli"
 $DefaultInstallDir = Join-Path $env:LOCALAPPDATA "Programs\openrouter"
 $InstallDir = if ($env:OPENROUTER_INSTALL_DIR) { $env:OPENROUTER_INSTALL_DIR } else { $DefaultInstallDir }
 $Version = if ($env:OPENROUTER_VERSION) { $env:OPENROUTER_VERSION } else { "latest" }
@@ -71,7 +72,7 @@ function Install-CLI {
     }
 
     # Construct download URL
-    $archiveName = "openrouter_Windows_$arch.zip"
+    $archiveName = "${ArchivePrefix}_Windows_$arch.zip"
     $downloadUrl = "https://github.com/$Repo/releases/download/$Version/$archiveName"
 
     Write-ColorOutput "Downloading from: $downloadUrl" -Color Cyan
