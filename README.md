@@ -26,6 +26,19 @@ openrouter whoami
 openrouter doctor
 ```
 
+For agent sessions that need `OPENROUTER_API_KEY` in the current shell without
+touching the OS credential store, use the shell-export flow:
+
+```sh
+eval "$(openrouter login --print-env --no-store)"
+```
+
+If you already have a saved credential and just need it in the current shell:
+
+```sh
+eval "$(openrouter env)"
+```
+
 Resolution order is:
 
 1. `--api-key`

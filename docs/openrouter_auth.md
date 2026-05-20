@@ -47,6 +47,7 @@ Subcommands:
 ### SEE ALSO
 
 * [openrouter](openrouter.md)	 - OpenRouter API: OpenAI-compatible API with additional OpenRouter features
+* [openrouter auth env](openrouter_auth_env.md)	 - Emit shell code for OPENROUTER_API_KEY
 * [openrouter auth login](openrouter_auth_login.md)	 - Authenticate with OpenRouter
 * [openrouter auth logout](openrouter_auth_logout.md)	 - Clear all stored authentication credentials
 * [openrouter auth whoami](openrouter_auth_whoami.md)	 - Display current authentication and global parameter configuration

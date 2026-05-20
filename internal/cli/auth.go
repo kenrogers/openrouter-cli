@@ -28,6 +28,7 @@ Subcommands:
 	parent.AddCommand(authCmd)
 
 	authCmd.AddCommand(newOpenRouterLoginCommand())
+	authCmd.AddCommand(newOpenRouterEnvCommand())
 	parent.AddCommand(newOpenRouterLoginCommand())
 
 	authCmd.AddCommand(&cobra.Command{

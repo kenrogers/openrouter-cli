@@ -23,6 +23,9 @@ openrouter auth login [flags]
       --key string               API key to validate and store securely (manual fallback)
       --login-timeout duration   How long to wait for browser authorization (default 10m0s)
       --no-open                  Do not open the browser automatically; print the auth URL instead
+      --no-store                 Do not save the API key; use with --print-env for session-only auth
+      --print-env                Print shell code that exports OPENROUTER_API_KEY for the current shell
+      --shell string             Shell syntax for --print-env: auto, posix, fish, powershell, or cmd (default "auto")
 ```
 
 ### Options inherited from parent commands

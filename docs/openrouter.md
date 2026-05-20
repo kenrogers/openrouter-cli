@@ -51,6 +51,7 @@ openrouter [flags]
 * [openrouter doctor](openrouter_doctor.md)	 - Check OpenRouter CLI authentication and configuration
 * [openrouter embeddings](openrouter_embeddings.md)	 - Text embedding endpoints
 * [openrouter endpoints](openrouter_endpoints.md)	 - Endpoint information
+* [openrouter env](openrouter_env.md)	 - Emit shell code for OPENROUTER_API_KEY
 * [openrouter exec](openrouter_exec.md)	 - Run a command with OPENROUTER_API_KEY injected from secure storage
 * [openrouter explore](openrouter_explore.md)	 - Interactively browse and run commands
 * [openrouter generations](openrouter_generations.md)	 - Generation history endpoints

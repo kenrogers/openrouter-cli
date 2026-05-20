@@ -75,6 +75,9 @@ credential store. API keys are not written to config files.`,
 	}
 	cmd.Flags().String("key", "", "API key to validate and store securely (manual fallback)")
 	cmd.Flags().Bool("no-open", false, "Do not open the browser automatically; print the auth URL instead")
+	cmd.Flags().Bool("print-env", false, "Print shell code that exports OPENROUTER_API_KEY for the current shell")
+	cmd.Flags().Bool("no-store", false, "Do not save the API key; use with --print-env for session-only auth")
+	cmd.Flags().String("shell", "auto", "Shell syntax for --print-env: auto, posix, fish, powershell, or cmd")
 	cmd.Flags().String("auth-url", openRouterAuthURL, "OpenRouter browser authorization URL")
 	cmd.Flags().Int("callback-port", 3000, "Localhost port for the PKCE callback")
 	cmd.Flags().Duration("login-timeout", 10*time.Minute, "How long to wait for browser authorization")
@@ -93,6 +96,7 @@ func newOpenRouterLogoutCommand() *cobra.Command {
 func initOpenRouterUtilityCommands(parent *cobra.Command) {
 	parent.AddCommand(newOpenRouterInitCommand())
 	parent.AddCommand(newOpenRouterDoctorCommand())
+	parent.AddCommand(newOpenRouterEnvCommand())
 	parent.AddCommand(newOpenRouterExecCommand())
 	initOpenRouterKeyCommands(parent)
 }
@@ -126,7 +130,21 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return err
 	}
-	if !config.KeyringAvailable() {
+	printEnv, _ := cmd.Flags().GetBool("print-env")
+	noStore, _ := cmd.Flags().GetBool("no-store")
+	if noStore && !printEnv {
+		return output.AgentModeError(cmd,
+			"invalid_auth_options",
+			"`--no-store` requires `--print-env` because the credential must go somewhere",
+			[]string{"Run `eval \"$(openrouter login --print-env --no-store)\"` for session-only auth"},
+		)
+	}
+
+	keyringAvailable := false
+	if !noStore {
+		keyringAvailable = config.KeyringAvailable()
+	}
+	if !noStore && !keyringAvailable && !printEnv {
 		return credentialStoreUnavailableError(cmd)
 	}
 
@@ -156,11 +174,15 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	if cfg == nil {
 		cfg = &config.Config{}
 	}
-	if err := storeAPIKeySecurely(cfg, key); err != nil {
-		return err
-	}
-	if err := config.SaveConfig(cfg); err != nil {
-		return fmt.Errorf("failed to save configuration: %w", err)
+	stored := false
+	if keyringAvailable {
+		if err := storeAPIKeySecurely(cfg, key); err != nil {
+			return err
+		}
+		if err := config.SaveConfig(cfg); err != nil {
+			return fmt.Errorf("failed to save configuration: %w", err)
+		}
+		stored = true
 	}
 
 	out := cmd.OutOrStderr()
@@ -175,8 +197,21 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 		}
 		fmt.Fprintf(out, "Key: %s (%s)\n", name, maskSecret(key))
 	}
-	fmt.Fprintln(out, "Secret stored in the operating system credential store.")
-	fmt.Fprintf(out, "Config saved to %s without storing the API key in plaintext.\n", config.GetConfigPath())
+	if stored {
+		fmt.Fprintln(out, "Secret stored in the operating system credential store.")
+		fmt.Fprintf(out, "Config saved to %s without storing the API key in plaintext.\n", config.GetConfigPath())
+	} else if noStore {
+		fmt.Fprintln(out, "Session-only auth: key was not saved.")
+		fmt.Fprintln(out, "OPENROUTER_API_KEY was emitted for the current shell only.")
+	} else if printEnv {
+		fmt.Fprintln(out, "Secure credential storage is unavailable, so the key was not saved.")
+		fmt.Fprintln(out, "OPENROUTER_API_KEY was emitted for the current shell only.")
+	}
+	if printEnv {
+		if err := writeOpenRouterEnv(cmd.OutOrStdout(), cmd, key); err != nil {
+			return err
+		}
+	}
 	return nil
 }
 

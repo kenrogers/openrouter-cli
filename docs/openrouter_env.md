@@ -1,31 +1,29 @@
-## openrouter login
+## openrouter env
 
-Authenticate with OpenRouter
+Emit shell code for OPENROUTER_API_KEY
 
 ### Synopsis
 
-Authenticate with OpenRouter using a browser-based PKCE flow.
+Emit shell code that exports OPENROUTER_API_KEY from the current
+OpenRouter credential source.
 
-The CLI opens OpenRouter in your browser, waits for the local callback, exchanges
-the authorization code for an API key, and stores it in the operating system
-credential store. API keys are not written to config files.
+Use this when an agent or local tool needs OpenRouter credentials in its
+environment without writing the key to a shell profile:
+
+  eval "$(openrouter env)"
+
+If a saved OS credential is unavailable, this command can still re-export an
+OPENROUTER_API_KEY that is already present in the current process environment.
 
 ```
-openrouter login [flags]
+openrouter env [flags]
 ```
 
 ### Options
 
 ```
-      --auth-url string          OpenRouter browser authorization URL (default "https://openrouter.ai/auth")
-      --callback-port int        Localhost port for the PKCE callback (default 3000)
-  -h, --help                     help for login
-      --key string               API key to validate and store securely (manual fallback)
-      --login-timeout duration   How long to wait for browser authorization (default 10m0s)
-      --no-open                  Do not open the browser automatically; print the auth URL instead
-      --no-store                 Do not save the API key; use with --print-env for session-only auth
-      --print-env                Print shell code that exports OPENROUTER_API_KEY for the current shell
-      --shell string             Shell syntax for --print-env: auto, posix, fish, powershell, or cmd (default "auto")
+  -h, --help           help for env
+      --shell string   Shell syntax to emit: auto, posix, fish, powershell, or cmd (default "auto")
 ```
 
 ### Options inherited from parent commands
