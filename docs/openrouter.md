@@ -55,6 +55,7 @@ openrouter [flags]
 * [openrouter explore](openrouter_explore.md)	 - Interactively browse and run commands
 * [openrouter generations](openrouter_generations.md)	 - Generation history endpoints
 * [openrouter guardrails](openrouter_guardrails.md)	 - Guardrails endpoints
+* [openrouter init](openrouter_init.md)	 - Provision OpenRouter credentials for the current project
 * [openrouter keys](openrouter_keys.md)	 - API key management endpoints
 * [openrouter login](openrouter_login.md)	 - Authenticate with OpenRouter
 * [openrouter logout](openrouter_logout.md)	 - Clear saved OpenRouter credentials

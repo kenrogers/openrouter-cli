@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/kenrogers/openrouter-cli/internal/cli"
+	"github.com/kenrogers/openrouter-cli/internal/output"
 )
 
 // version and buildTime can be set at build time using Go linker flags:
@@ -24,6 +25,9 @@ func main() {
 	}
 
 	if err := cli.Execute(); err != nil {
+		if output.IsPrintedError(err) {
+			os.Exit(1)
+		}
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}

@@ -18,7 +18,7 @@ go build -o ./bin/openrouter ./cmd/openrouter
 
 ## Authenticate
 
-Interactive login opens the OpenRouter keys page, prompts with masked input, validates the key with `/key`, and stores it in the operating system credential store.
+Interactive login opens OpenRouter in the browser, completes a local PKCE callback, exchanges the authorization code for an API key, validates it with `/key`, and stores it in the operating system credential store.
 
 ```sh
 openrouter login
@@ -33,6 +33,8 @@ Resolution order is:
 3. Saved keychain credential
 
 API keys are not read from or written to plaintext config files. If secure credential storage is unavailable, `openrouter login` refuses to save the key and tells the user to use `OPENROUTER_API_KEY` for that invocation instead.
+
+If a browser cannot be opened automatically, run `openrouter login --no-open` and open the printed URL yourself. Manual key input remains available as `openrouter login --key <key>` for break-glass cases, but agents should prefer the browser flow.
 
 For one-off agent and local tool commands that require `OPENROUTER_API_KEY`, inject it into a child process without writing it to a shell profile:
 
@@ -241,7 +243,7 @@ Set credentials via environment variables:
 
 ### 3. OS Keychain (recommended for workstations)
 
-Credentials are stored securely in your operating system's keychain when you run:
+Credentials are stored securely in your operating system's keychain when you run the browser-based login flow:
 
 ```bash
 openrouter login

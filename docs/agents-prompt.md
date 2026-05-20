@@ -11,7 +11,9 @@ Install the OpenRouter CLI first, then use it for auth and project key setup.
 2. Authenticate:
    openrouter login
 
-   This opens https://openrouter.ai/keys, asks the user to paste an API key with hidden input, validates it with OpenRouter, and saves it to the operating system credential store. Do not write API keys into prompts, project files, shell profiles, or agent memory.
+   This opens OpenRouter in the browser, waits for the local callback, and saves the returned API key in the operating system credential store. Do not ask the user to paste an API key into chat. If the browser cannot open automatically, run:
+   openrouter login --no-open
+   Then show the printed URL to the user.
 
 3. Verify:
    openrouter --json doctor
@@ -33,5 +35,5 @@ Auth resolution order:
 2. OPENROUTER_API_KEY
 3. OS credential store
 
-If auth is missing in an agent environment, ask the user to run `openrouter login` in their terminal. Never ask the user to paste an API key into chat unless they explicitly choose a one-shot command such as `openrouter login --key <key>`.
+If auth is missing in an agent environment, run `openrouter login` and let the browser flow guide the user. Never ask the user to paste an API key into chat unless they explicitly choose a one-shot command such as `openrouter login --key <key>`.
 ```

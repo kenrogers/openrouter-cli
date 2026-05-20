@@ -4,10 +4,11 @@ Authenticate with OpenRouter
 
 ### Synopsis
 
-Authenticate with OpenRouter using an API key.
+Authenticate with OpenRouter using a browser-based PKCE flow.
 
-The key is validated with OpenRouter before it is saved. Secrets are stored in
-the operating system credential store and are not written to config files.
+The CLI opens OpenRouter in your browser, waits for the local callback, exchanges
+the authorization code for an API key, and stores it in the operating system
+credential store. API keys are not written to config files.
 
 ```
 openrouter login [flags]
@@ -16,9 +17,12 @@ openrouter login [flags]
 ### Options
 
 ```
-  -h, --help         help for login
-      --key string   API key to validate and store securely
-      --no-open      Do not open the OpenRouter keys page
+      --auth-url string          OpenRouter browser authorization URL (default "https://openrouter.ai/auth")
+      --callback-port int        Localhost port for the PKCE callback (default 3000)
+  -h, --help                     help for login
+      --key string               API key to validate and store securely (manual fallback)
+      --login-timeout duration   How long to wait for browser authorization (default 10m0s)
+      --no-open                  Do not open the browser automatically; print the auth URL instead
 ```
 
 ### Options inherited from parent commands

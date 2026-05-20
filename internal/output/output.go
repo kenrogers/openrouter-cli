@@ -318,7 +318,7 @@ func Error(cmd *cobra.Command, err error) error {
 			fmt.Fprintf(cmd.ErrOrStderr(), "\nHint: run '%s configure' to set up or update your credentials.\n", cliName)
 		}
 
-		return err
+		return PrintedError(err)
 	}
 
 	out := cmd.ErrOrStderr()
@@ -406,7 +406,7 @@ func Error(cmd *cobra.Command, err error) error {
 
 	printJSON(out, jsonData, colorize)
 
-	return err
+	return PrintedError(err)
 }
 
 // tryReadRawBody attempts to read the raw HTTP response body from the response

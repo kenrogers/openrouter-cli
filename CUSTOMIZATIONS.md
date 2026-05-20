@@ -4,7 +4,7 @@ This project uses the Speakeasy-generated Go/Cobra CLI as the base. The custom l
 
 ## Auth and Agent UX
 
-- `openrouter login` and `openrouter auth login` validate API keys with `/key` before saving.
+- `openrouter login` and `openrouter auth login` use a browser-based PKCE flow, exchange the authorization code for an API key, validate it with `/key`, and save it.
 - API keys are stored only in the operating system credential store.
 - Plaintext config-file fallback for API keys is disabled.
 - `openrouter doctor` reports credential storage, auth source, and API validation status.

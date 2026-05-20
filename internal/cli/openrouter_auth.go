@@ -12,7 +12,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/charmbracelet/huh"
 	sdkclient "github.com/kenrogers/openrouter-cli/internal/client"
 	"github.com/kenrogers/openrouter-cli/internal/config"
 	"github.com/kenrogers/openrouter-cli/internal/output"
@@ -23,7 +22,7 @@ import (
 )
 
 const (
-	openRouterKeysURL        = "https://openrouter.ai/keys"
+	openRouterAuthURL        = "https://openrouter.ai/auth"
 	openRouterDefaultAPIBase = "https://openrouter.ai/api/v1"
 )
 
@@ -67,14 +66,18 @@ func newOpenRouterLoginCommand() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "login",
 		Short: "Authenticate with OpenRouter",
-		Long: `Authenticate with OpenRouter using an API key.
+		Long: `Authenticate with OpenRouter using a browser-based PKCE flow.
 
-The key is validated with OpenRouter before it is saved. Secrets are stored in
-the operating system credential store and are not written to config files.`,
+The CLI opens OpenRouter in your browser, waits for the local callback, exchanges
+the authorization code for an API key, and stores it in the operating system
+credential store. API keys are not written to config files.`,
 		RunE: runAuthLoginCmd,
 	}
-	cmd.Flags().String("key", "", "API key to validate and store securely")
-	cmd.Flags().Bool("no-open", false, "Do not open the OpenRouter keys page")
+	cmd.Flags().String("key", "", "API key to validate and store securely (manual fallback)")
+	cmd.Flags().Bool("no-open", false, "Do not open the browser automatically; print the auth URL instead")
+	cmd.Flags().String("auth-url", openRouterAuthURL, "OpenRouter browser authorization URL")
+	cmd.Flags().Int("callback-port", 3000, "Localhost port for the PKCE callback")
+	cmd.Flags().Duration("login-timeout", 10*time.Minute, "How long to wait for browser authorization")
 	return cmd
 }
 
@@ -124,40 +127,16 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	if key == "" && output.IsAgentMode() {
-		return output.AgentModeError(cmd,
-			"auth_login_needs_user",
-			"OpenRouter login needs a user-provided API key",
-			[]string{
-				"Ask the user to open https://openrouter.ai/keys and create or copy an API key",
-				"Then run: openrouter login --key <OPENROUTER_API_KEY>",
-				"Do not write API keys into prompts, project files, or shell profiles",
-			},
-		)
-	}
-
 	if key == "" {
-		noOpen, _ := cmd.Flags().GetBool("no-open")
-		if !noOpen {
-			fmt.Fprintf(cmd.OutOrStderr(), "Opening %s so you can create or copy an OpenRouter API key...\n", openRouterKeysURL)
-			if err := openBrowser(openRouterKeysURL); err != nil {
-				fmt.Fprintf(cmd.OutOrStderr(), "Open this URL in your browser: %s\n", openRouterKeysURL)
-			}
+		var userID string
+		key, userID, err = runOpenRouterPKCELogin(cmd)
+		if err != nil {
+			return err
 		}
-
-		var authAPIKey string
-		fields := []huhField{
-			newPasswordField().
-				Title("Paste your OpenRouter API key").
-				Description("Input is hidden. The key will be validated and saved to the OS credential store.").
-				Placeholder(maskSecret(config.GetKeyringValue("api-key"))).
-				Value(&authAPIKey),
+		source = "pkce"
+		if userID != "" {
+			fmt.Fprintf(cmd.ErrOrStderr(), "Authorized OpenRouter user %s.\n", userID)
 		}
-		if err := runAuthForm(cmd, fields); err != nil {
-			return fmt.Errorf("auth login: %w", err)
-		}
-		key = authAPIKey
-		source = "prompt"
 	}
 
 	key = normalizeAPIKey(key)
@@ -196,63 +175,6 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	fmt.Fprintln(out, "Secret stored in the operating system credential store.")
 	fmt.Fprintf(out, "Config saved to %s without storing the API key in plaintext.\n", config.GetConfigPath())
 	return nil
-}
-
-type huhField interface{}
-
-func newPasswordField() passwordField {
-	return passwordField{}
-}
-
-type passwordField struct {
-	title       string
-	desc        string
-	placeholder string
-	value       *string
-}
-
-func (p passwordField) Title(v string) passwordField {
-	p.title = v
-	return p
-}
-
-func (p passwordField) Description(v string) passwordField {
-	p.desc = v
-	return p
-}
-
-func (p passwordField) Placeholder(v string) passwordField {
-	p.placeholder = v
-	return p
-}
-
-func (p passwordField) Value(v *string) passwordField {
-	p.value = v
-	return p
-}
-
-func runAuthForm(cmd *cobra.Command, fields []huhField) error {
-	if len(fields) != 1 {
-		return fmt.Errorf("expected one auth field")
-	}
-	field, ok := fields[0].(passwordField)
-	if !ok {
-		return fmt.Errorf("unsupported auth field")
-	}
-	formFields := []huh.Field{
-		huh.NewInput().
-			Title(field.title).
-			Description(field.desc).
-			EchoMode(huh.EchoModePassword).
-			Placeholder(field.placeholder).
-			Value(field.value),
-	}
-	form := huh.NewForm(huh.NewGroup(formFields...)).
-		WithAccessible(!authIsInteractive(cmd)).
-		WithTheme(authFormTheme()).
-		WithWidth(authFormWidth()).
-		WithShowHelp(false)
-	return form.Run()
 }
 
 func loginKeyCandidate(cmd *cobra.Command) (string, string, error) {

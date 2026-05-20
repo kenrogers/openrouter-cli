@@ -7,7 +7,7 @@ Manage authentication credentials
 Manage authentication credentials for openrouter.
 
 Subcommands:
-  login   - Interactively configure credentials
+  login   - Authenticate with browser-based OpenRouter login
   whoami  - Display current authentication status
   logout  - Clear all stored credentials
 

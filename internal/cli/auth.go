@@ -21,7 +21,7 @@ func initAuthCmd(parent *cobra.Command) error {
 		Long: `Manage authentication credentials for openrouter.
 
 Subcommands:
-  login   - Interactively configure credentials
+  login   - Authenticate with browser-based OpenRouter login
   whoami  - Display current authentication status
   logout  - Clear all stored credentials`,
 	}
@@ -59,7 +59,7 @@ This removes all credentials previously set via auth login or configure.`,
 	return nil
 }
 
-// runAuthLoginCmd executes the auth login command using huh forms.
+// runAuthLoginCmd executes browser-based OpenRouter login.
 func runAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	return runOpenRouterAuthLoginCmd(cmd, args)
 }
