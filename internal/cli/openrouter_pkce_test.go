@@ -50,13 +50,13 @@ func TestBuildPKCEAuthURL(t *testing.T) {
 
 func TestPKCECallbackServerReceivesCode(t *testing.T) {
 	port := freeLocalPort(t)
-	resultCh, shutdown, err := startPKCECallbackServer(port)
+	resultCh, shutdown, err := startPKCECallbackServer("127.0.0.1", port)
 	if err != nil {
 		t.Fatalf("start server: %v", err)
 	}
 	defer shutdown()
 
-	res, err := http.Get("http://localhost:" + strconv.Itoa(port) + pkceCallbackPath + "?code=auth_code_123")
+	res, err := http.Get("http://127.0.0.1:" + strconv.Itoa(port) + pkceCallbackPath + "?code=auth_code_123")
 	if err != nil {
 		t.Fatalf("get callback: %v", err)
 	}
@@ -79,9 +79,37 @@ func TestPKCECallbackServerReceivesCode(t *testing.T) {
 	}
 }
 
+func TestPKCECallbackServerReceivesCodeOnRoot(t *testing.T) {
+	port := freeLocalPort(t)
+	resultCh, shutdown, err := startPKCECallbackServer("127.0.0.1", port)
+	if err != nil {
+		t.Fatalf("start server: %v", err)
+	}
+	defer shutdown()
+
+	res, err := http.Get("http://127.0.0.1:" + strconv.Itoa(port) + "/?code=auth_code_root")
+	if err != nil {
+		t.Fatalf("get callback: %v", err)
+	}
+	defer res.Body.Close()
+	body, _ := io.ReadAll(res.Body)
+	if res.StatusCode != http.StatusOK {
+		t.Fatalf("unexpected status %d body %s", res.StatusCode, string(body))
+	}
+
+	select {
+	case result := <-resultCh:
+		if result.Code != "auth_code_root" || result.Err != "" {
+			t.Fatalf("unexpected callback result: %+v", result)
+		}
+	case <-time.After(2 * time.Second):
+		t.Fatal("timed out waiting for callback result")
+	}
+}
+
 func freeLocalPort(t *testing.T) int {
 	t.Helper()
-	listener, err := net.Listen("tcp", "localhost:0")
+	listener, err := net.Listen("tcp", "127.0.0.1:0")
 	if err != nil {
 		t.Fatalf("find free port: %v", err)
 	}

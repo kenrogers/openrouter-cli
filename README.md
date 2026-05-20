@@ -33,6 +33,13 @@ touching the OS credential store, use the shell-export flow:
 eval "$(openrouter login --print-env --no-store)"
 ```
 
+For coding agents that run each command in a fresh shell, install the global
+environment hook during login so the browser flow happens once:
+
+```sh
+eval "$(openrouter login --print-env --no-store --install-env)"
+```
+
 If you already have a saved credential and just need it in the current shell:
 
 ```sh

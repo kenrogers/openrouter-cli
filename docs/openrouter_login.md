@@ -18,13 +18,16 @@ openrouter login [flags]
 
 ```
       --auth-url string          OpenRouter browser authorization URL (default "https://openrouter.ai/auth")
+      --callback-host string     Loopback host for the PKCE callback (default "localhost")
       --callback-port int        Localhost port for the PKCE callback (default 3000)
   -h, --help                     help for login
+      --install-env              After login, write OPENROUTER_API_KEY to a managed shell startup block for future agents
       --key string               API key to validate and store securely (manual fallback)
       --login-timeout duration   How long to wait for browser authorization (default 10m0s)
       --no-open                  Do not open the browser automatically; print the auth URL instead
-      --no-store                 Do not save the API key; use with --print-env for session-only auth
+      --no-store                 Do not save the API key; use with --print-env or --install-env
       --print-env                Print shell code that exports OPENROUTER_API_KEY for the current shell
+      --profile-file string      Shell startup file to update when --install-env is used (default: auto-detect)
       --shell string             Shell syntax for --print-env: auto, posix, fish, powershell, or cmd (default "auto")
 ```
 

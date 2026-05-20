@@ -148,6 +148,21 @@ func runOpenRouterEnvInstallCommand(cmd *cobra.Command, args []string) error {
 	return nil
 }
 
+func installPlaintextOpenRouterEnv(cmd *cobra.Command, key string) (string, error) {
+	shell, profilePath, err := envInstallTarget(cmd)
+	if err != nil {
+		return "", err
+	}
+	block, err := openRouterEnvInstallBlock(shell, true, normalizeAPIKey(key))
+	if err != nil {
+		return "", err
+	}
+	if err := writeManagedEnvBlock(profilePath, block); err != nil {
+		return "", err
+	}
+	return profilePath, nil
+}
+
 func runOpenRouterEnvUninstallCommand(cmd *cobra.Command, args []string) error {
 	_, profilePath, err := envInstallTarget(cmd)
 	if err != nil {

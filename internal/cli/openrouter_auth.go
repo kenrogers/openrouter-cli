@@ -76,9 +76,12 @@ credential store. API keys are not written to config files.`,
 	cmd.Flags().String("key", "", "API key to validate and store securely (manual fallback)")
 	cmd.Flags().Bool("no-open", false, "Do not open the browser automatically; print the auth URL instead")
 	cmd.Flags().Bool("print-env", false, "Print shell code that exports OPENROUTER_API_KEY for the current shell")
-	cmd.Flags().Bool("no-store", false, "Do not save the API key; use with --print-env for session-only auth")
+	cmd.Flags().Bool("no-store", false, "Do not save the API key; use with --print-env or --install-env")
+	cmd.Flags().Bool("install-env", false, "After login, write OPENROUTER_API_KEY to a managed shell startup block for future agents")
 	cmd.Flags().String("shell", "auto", "Shell syntax for --print-env: auto, posix, fish, powershell, or cmd")
+	cmd.Flags().String("profile-file", "", "Shell startup file to update when --install-env is used (default: auto-detect)")
 	cmd.Flags().String("auth-url", openRouterAuthURL, "OpenRouter browser authorization URL")
+	cmd.Flags().String("callback-host", "localhost", "Loopback host for the PKCE callback")
 	cmd.Flags().Int("callback-port", 3000, "Localhost port for the PKCE callback")
 	cmd.Flags().Duration("login-timeout", 10*time.Minute, "How long to wait for browser authorization")
 	return cmd
@@ -132,11 +135,15 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	}
 	printEnv, _ := cmd.Flags().GetBool("print-env")
 	noStore, _ := cmd.Flags().GetBool("no-store")
-	if noStore && !printEnv {
+	installEnv, _ := cmd.Flags().GetBool("install-env")
+	if noStore && !printEnv && !installEnv {
 		return output.AgentModeError(cmd,
 			"invalid_auth_options",
-			"`--no-store` requires `--print-env` because the credential must go somewhere",
-			[]string{"Run `eval \"$(openrouter login --print-env --no-store)\"` for session-only auth"},
+			"`--no-store` requires `--print-env` or `--install-env` because the credential must go somewhere",
+			[]string{
+				"Run `openrouter login --no-store --install-env` to make OPENROUTER_API_KEY available to future shell-launched agents",
+				"Or run `eval \"$(openrouter login --print-env --no-store)\"` for session-only auth",
+			},
 		)
 	}
 
@@ -144,7 +151,7 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	if !noStore {
 		keyringAvailable = config.KeyringAvailable()
 	}
-	if !noStore && !keyringAvailable && !printEnv {
+	if !noStore && !keyringAvailable && !printEnv && !installEnv {
 		return credentialStoreUnavailableError(cmd)
 	}
 
@@ -184,6 +191,13 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 		}
 		stored = true
 	}
+	installedEnvProfile := ""
+	if installEnv {
+		installedEnvProfile, err = installPlaintextOpenRouterEnv(cmd, key)
+		if err != nil {
+			return err
+		}
+	}
 
 	out := cmd.OutOrStderr()
 	fmt.Fprintf(out, "Authenticated with OpenRouter (%s).\n", source)
@@ -200,12 +214,18 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	if stored {
 		fmt.Fprintln(out, "Secret stored in the operating system credential store.")
 		fmt.Fprintf(out, "Config saved to %s without storing the API key in plaintext.\n", config.GetConfigPath())
-	} else if noStore {
+	} else if noStore && installedEnvProfile == "" {
 		fmt.Fprintln(out, "Session-only auth: key was not saved.")
 		fmt.Fprintln(out, "OPENROUTER_API_KEY was emitted for the current shell only.")
-	} else if printEnv {
+	} else if printEnv && installedEnvProfile == "" {
 		fmt.Fprintln(out, "Secure credential storage is unavailable, so the key was not saved.")
 		fmt.Fprintln(out, "OPENROUTER_API_KEY was emitted for the current shell only.")
+	}
+	if installedEnvProfile != "" {
+		if !stored {
+			fmt.Fprintln(out, "Secret was not saved to the operating system credential store.")
+		}
+		fmt.Fprintf(out, "Installed OPENROUTER_API_KEY in %s for future shell-launched agents.\n", installedEnvProfile)
 	}
 	if printEnv {
 		if err := writeOpenRouterEnv(cmd.OutOrStdout(), cmd, key); err != nil {

@@ -28,6 +28,11 @@ type pkceCallbackResult struct {
 }
 
 func runOpenRouterPKCELogin(cmd *cobra.Command) (string, string, error) {
+	host, _ := cmd.Flags().GetString("callback-host")
+	host = strings.TrimSpace(host)
+	if host == "" {
+		host = "localhost"
+	}
 	port, _ := cmd.Flags().GetInt("callback-port")
 	timeout, _ := cmd.Flags().GetDuration("login-timeout")
 	if timeout <= 0 {
@@ -39,13 +44,17 @@ func runOpenRouterPKCELogin(cmd *cobra.Command) (string, string, error) {
 		return "", "", err
 	}
 	challenge := pkceS256Challenge(verifier)
-	callbackURL := fmt.Sprintf("http://localhost:%d%s", port, pkceCallbackPath)
+	callbackURL := (&url.URL{
+		Scheme: "http",
+		Host:   net.JoinHostPort(host, fmt.Sprintf("%d", port)),
+		Path:   pkceCallbackPath,
+	}).String()
 
-	resultCh, shutdown, err := startPKCECallbackServer(port)
+	resultCh, shutdown, err := startPKCECallbackServer(host, port)
 	if err != nil {
 		return "", "", output.AgentModeError(cmd,
 			"pkce_callback_unavailable",
-			fmt.Sprintf("Could not start local PKCE callback server on localhost:%d: %v", port, err),
+			fmt.Sprintf("Could not start local PKCE callback server on %s: %v", net.JoinHostPort(host, fmt.Sprintf("%d", port)), err),
 			[]string{
 				"Stop the process using that port and rerun `openrouter login`",
 				"Or rerun with `openrouter login --callback-port 3000` using a free OpenRouter-supported localhost port",
@@ -111,11 +120,15 @@ func buildPKCEAuthURL(cmd *cobra.Command, callbackURL, challenge string) (string
 	return u.String(), nil
 }
 
-func startPKCECallbackServer(port int) (<-chan pkceCallbackResult, func(), error) {
+func startPKCECallbackServer(host string, port int) (<-chan pkceCallbackResult, func(), error) {
 	if port <= 0 || port > 65535 {
 		return nil, nil, fmt.Errorf("invalid callback port %d", port)
 	}
-	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", port))
+	host = strings.TrimSpace(host)
+	if host == "" {
+		host = "localhost"
+	}
+	listener, err := net.Listen("tcp", net.JoinHostPort(host, fmt.Sprintf("%d", port)))
 	if err != nil {
 		return nil, nil, err
 	}
@@ -123,7 +136,7 @@ func startPKCECallbackServer(port int) (<-chan pkceCallbackResult, func(), error
 	resultCh := make(chan pkceCallbackResult, 1)
 	mux := http.NewServeMux()
 	server := &http.Server{Handler: mux}
-	mux.HandleFunc(pkceCallbackPath, func(w http.ResponseWriter, r *http.Request) {
+	handleCallback := func(w http.ResponseWriter, r *http.Request) {
 		query := r.URL.Query()
 		result := pkceCallbackResult{
 			Code: strings.TrimSpace(query.Get("code")),
@@ -137,8 +150,14 @@ func startPKCECallbackServer(port int) (<-chan pkceCallbackResult, func(), error
 		default:
 		}
 		writePKCECallbackPage(w, result)
-	})
+	}
+	mux.HandleFunc(pkceCallbackPath, handleCallback)
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		query := r.URL.Query()
+		if strings.TrimSpace(query.Get("code")) != "" || strings.TrimSpace(query.Get("error")) != "" || strings.TrimSpace(query.Get("error_description")) != "" {
+			handleCallback(w, r)
+			return
+		}
 		http.NotFound(w, r)
 	})
 
