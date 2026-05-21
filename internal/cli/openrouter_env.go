@@ -98,69 +98,22 @@ func newOpenRouterEnvUninstallCommand() *cobra.Command {
 }
 
 func runOpenRouterEnvInstallCommand(cmd *cobra.Command, args []string) error {
-	shell, profilePath, err := envInstallTarget(cmd)
-	if err != nil {
-		return err
-	}
-
 	plaintext, _ := cmd.Flags().GetBool("plaintext")
-	key := ""
-	source := "keyring"
-	if plaintext {
-		key, source = config.ResolveSecurityCredential(cmd, "api-key")
-		key = normalizeAPIKey(key)
-		if key == "" {
-			return output.AgentModeError(cmd,
-				"auth_error",
-				"No OpenRouter API key found",
-				[]string{
-					"Run `eval \"$(openrouter login --print-env --no-store)\"` first",
-					"Or set OPENROUTER_API_KEY for this command",
-				},
-			)
-		}
-	} else if config.GetKeyringValue("api-key") == "" {
-		return output.AgentModeError(cmd,
-			"credential_store_unavailable",
-			"No saved OpenRouter credential was found for the shell startup hook",
-			[]string{
-				"Run `openrouter login` to save the key in the OS credential store, then rerun `openrouter env install`",
-				"Or run `eval \"$(openrouter login --print-env --no-store)\"` and then `openrouter env install --plaintext` to write the key into the profile file",
-			},
-		)
-	}
-
-	block, err := openRouterEnvInstallBlock(shell, plaintext, key)
+	exposure, err := installAgentCredentialExposure(cmd, agentCredentialExposureRequest{
+		Mode: agentCredentialExposureModeFromPlaintext(plaintext),
+	})
 	if err != nil {
 		return err
 	}
-	if err := writeManagedEnvBlock(profilePath, block); err != nil {
-		return err
-	}
 
-	if plaintext {
-		fmt.Fprintf(cmd.ErrOrStderr(), "Installed plaintext %s from %s in %s.\n", openRouterAPIKeyEnv, source, profilePath)
+	if exposure.Mode == agentCredentialExposureModePlaintext {
+		fmt.Fprintf(cmd.ErrOrStderr(), "Installed plaintext %s from %s in %s.\n", openRouterAPIKeyEnv, exposure.CredentialSource, exposure.ProfilePath)
 		fmt.Fprintln(cmd.ErrOrStderr(), "The key is now stored directly in that profile file.")
 	} else {
-		fmt.Fprintf(cmd.ErrOrStderr(), "Installed OpenRouter credential-store loader in %s.\n", profilePath)
+		fmt.Fprintf(cmd.ErrOrStderr(), "Installed OpenRouter credential-store loader in %s.\n", exposure.ProfilePath)
 	}
 	fmt.Fprintln(cmd.ErrOrStderr(), "Open a new shell, or source the profile file, for future agents to inherit OPENROUTER_API_KEY.")
 	return nil
-}
-
-func installPlaintextOpenRouterEnv(cmd *cobra.Command, key string) (string, error) {
-	shell, profilePath, err := envInstallTarget(cmd)
-	if err != nil {
-		return "", err
-	}
-	block, err := openRouterEnvInstallBlock(shell, true, normalizeAPIKey(key))
-	if err != nil {
-		return "", err
-	}
-	if err := writeManagedEnvBlock(profilePath, block); err != nil {
-		return "", err
-	}
-	return profilePath, nil
 }
 
 func runOpenRouterEnvUninstallCommand(cmd *cobra.Command, args []string) error {

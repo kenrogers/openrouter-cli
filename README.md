@@ -37,8 +37,12 @@ For coding agents that run each command in a fresh shell, install the global
 environment hook during login so the browser flow happens once:
 
 ```sh
-eval "$(openrouter login --print-env --no-store --install-env)"
+openrouter login --install-env
 ```
+
+That stores the key in the operating system credential store, then adds a
+managed shell startup block that loads `OPENROUTER_API_KEY` from secure storage
+for future shell-launched agents. The key is not written into the profile file.
 
 If you already have a saved credential and just need it in the current shell:
 
@@ -60,6 +64,12 @@ comfortable storing it in the profile file, use:
 
 ```sh
 openrouter env install --plaintext
+```
+
+Or during login:
+
+```sh
+openrouter login --install-env --plaintext
 ```
 
 Resolution order is:

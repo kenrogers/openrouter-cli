@@ -76,8 +76,9 @@ credential store. API keys are not written to config files.`,
 	cmd.Flags().String("key", "", "API key to validate and store securely (manual fallback)")
 	cmd.Flags().Bool("no-open", false, "Do not open the browser automatically; print the auth URL instead")
 	cmd.Flags().Bool("print-env", false, "Print shell code that exports OPENROUTER_API_KEY for the current shell")
-	cmd.Flags().Bool("no-store", false, "Do not save the API key; use with --print-env or --install-env")
-	cmd.Flags().Bool("install-env", false, "After login, write OPENROUTER_API_KEY to a managed shell startup block for future agents")
+	cmd.Flags().Bool("no-store", false, "Do not save the API key; use with --print-env or --install-env --plaintext")
+	cmd.Flags().Bool("install-env", false, "After login, install a managed shell startup block for future agents")
+	cmd.Flags().Bool("plaintext", false, "With --install-env, write the API key directly into the shell profile instead of installing the secure loader")
 	cmd.Flags().String("shell", "auto", "Shell syntax for --print-env: auto, posix, fish, powershell, or cmd")
 	cmd.Flags().String("profile-file", "", "Shell startup file to update when --install-env is used (default: auto-detect)")
 	cmd.Flags().String("auth-url", openRouterAuthURL, "OpenRouter browser authorization URL")
@@ -136,15 +137,9 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 	printEnv, _ := cmd.Flags().GetBool("print-env")
 	noStore, _ := cmd.Flags().GetBool("no-store")
 	installEnv, _ := cmd.Flags().GetBool("install-env")
-	if noStore && !printEnv && !installEnv {
-		return output.AgentModeError(cmd,
-			"invalid_auth_options",
-			"`--no-store` requires `--print-env` or `--install-env` because the credential must go somewhere",
-			[]string{
-				"Run `openrouter login --no-store --install-env` to make OPENROUTER_API_KEY available to future shell-launched agents",
-				"Or run `eval \"$(openrouter login --print-env --no-store)\"` for session-only auth",
-			},
-		)
+	plaintextEnv, _ := cmd.Flags().GetBool("plaintext")
+	if err := validateAgentCredentialLoginOptions(cmd, noStore, printEnv, installEnv, plaintextEnv); err != nil {
+		return err
 	}
 
 	keyringAvailable := false
@@ -192,11 +187,17 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 		stored = true
 	}
 	installedEnvProfile := ""
+	installedEnvMode := agentCredentialExposureMode("")
 	if installEnv {
-		installedEnvProfile, err = installPlaintextOpenRouterEnv(cmd, key)
+		exposure, err := installAgentCredentialExposure(cmd, agentCredentialExposureRequest{
+			Mode:       agentCredentialExposureModeFromPlaintext(plaintextEnv),
+			Credential: agentCredentialRef{Key: key, Source: source},
+		})
 		if err != nil {
 			return err
 		}
+		installedEnvProfile = exposure.ProfilePath
+		installedEnvMode = exposure.Mode
 	}
 
 	out := cmd.OutOrStderr()
@@ -222,10 +223,17 @@ func runOpenRouterAuthLoginCmd(cmd *cobra.Command, args []string) error {
 		fmt.Fprintln(out, "OPENROUTER_API_KEY was emitted for the current shell only.")
 	}
 	if installedEnvProfile != "" {
-		if !stored {
-			fmt.Fprintln(out, "Secret was not saved to the operating system credential store.")
+		switch installedEnvMode {
+		case agentCredentialExposureModeSecure:
+			fmt.Fprintf(out, "Installed secure OPENROUTER_API_KEY loader in %s for future shell-launched agents.\n", installedEnvProfile)
+		case agentCredentialExposureModePlaintext:
+			if !stored {
+				fmt.Fprintln(out, "Secret was not saved to the operating system credential store.")
+			}
+			fmt.Fprintf(out, "Installed plaintext OPENROUTER_API_KEY in %s for future shell-launched agents.\n", installedEnvProfile)
+		default:
+			fmt.Fprintf(out, "Installed OPENROUTER_API_KEY in %s for future shell-launched agents.\n", installedEnvProfile)
 		}
-		fmt.Fprintf(out, "Installed OPENROUTER_API_KEY in %s for future shell-launched agents.\n", installedEnvProfile)
 	}
 	if printEnv {
 		if err := writeOpenRouterEnv(cmd.OutOrStdout(), cmd, key); err != nil {
@@ -386,28 +394,41 @@ func newOpenRouterDoctorCommand() *cobra.Command {
 			}
 
 			add("Config file", "pass", config.GetConfigPath())
-			key, source := config.ResolveSecurityCredential(cmd, "api-key")
+			exposure := inspectAgentCredentialExposure(cmd)
+			key := exposure.Key
+			source := exposure.Source
 			if path, err := osexec.LookPath("openrouter"); err == nil {
 				add("PATH", "pass", path)
 			} else {
 				add("PATH", "warn", "openrouter was not found on PATH for this process")
 			}
-			if config.KeyringAvailable() {
+			if exposure.KeyringAvailable {
 				add("Credential storage", "pass", "OS credential store is available")
 			} else if key != "" && source == "env" {
 				add("Credential storage", "warn", "OS credential store is unavailable; using OPENROUTER_API_KEY from the environment")
 			} else if key != "" && source == "flag" {
 				add("Credential storage", "warn", "OS credential store is unavailable; using --api-key for this invocation")
 			} else {
-				add("Credential storage", "fail", "OS credential store is unavailable; API keys will not be saved")
+				message := "OS credential store is unavailable; API keys will not be saved"
+				if exposure.KeyringReason != "" {
+					message += ": " + exposure.KeyringReason
+				}
+				add("Credential storage", "fail", message)
 			}
 
-			if normalizeAPIKey(os.Getenv(openRouterAPIKeyEnv)) != "" {
+			if exposure.EnvPresent {
 				add("Agent environment", "pass", openRouterAPIKeyEnv+" is present in this process environment")
 			} else if key != "" {
 				add("Agent environment", "warn", fmt.Sprintf("Key is available from %s, but %s is not set for child agents", source, openRouterAPIKeyEnv))
 			} else {
 				add("Agent environment", "fail", openRouterAPIKeyEnv+" is not set")
+			}
+			if exposure.StartupHook.Err != nil {
+				add("Agent startup hook", "warn", exposure.StartupHook.Err.Error())
+			} else if exposure.StartupHook.Installed {
+				add("Agent startup hook", "pass", fmt.Sprintf("%s installed in %s", exposure.StartupHook.Mode, exposure.StartupHook.ProfilePath))
+			} else {
+				add("Agent startup hook", "warn", fmt.Sprintf("No managed OpenRouter env hook found in %s", exposure.StartupHook.ProfilePath))
 			}
 
 			if key == "" {

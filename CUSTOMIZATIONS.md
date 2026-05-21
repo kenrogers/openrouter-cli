@@ -2,6 +2,13 @@
 
 This project uses the Speakeasy-generated Go/Cobra CLI as the base. The custom layer is intentionally small and focused on agent-safe authentication.
 
+## Generated-vs-Custom Auth Seam
+
+- Generated code owns endpoint command generation, config loading, credential resolution order, and SDK security injection.
+- Custom OpenRouter code owns the user workflows that the generated CLI cannot infer from the OpenAPI spec: browser PKCE login, validation-before-store, OS credential storage policy, agent environment export/install, `doctor`, `exec`, project init, and `keys create-saved`.
+- Generated command files may call small custom hooks, but new OpenRouter-specific auth behavior should live in `internal/cli/openrouter_*` files rather than endpoint packages.
+- Prefer the generated SDK/client for authenticated API endpoint calls. Raw HTTP is reserved for bootstrapping flows where generated auth injection would be wrong, especially exchanging a PKCE code before a new credential exists.
+
 ## Auth and Agent UX
 
 - `openrouter login` and `openrouter auth login` use a browser-based PKCE flow, exchange the authorization code for an API key, validate it with `/key`, and save it.
@@ -28,4 +35,4 @@ This project uses the Speakeasy-generated Go/Cobra CLI as the base. The custom l
 
 ## Regeneration Note
 
-This folder is not currently a Git repository, so Speakeasy persistent custom-code merging is not enabled yet. Before repeated regeneration, put the project under Git and enable `generation.persistentEdits.enabled` in `gen.yaml`, or keep these customizations isolated in a patch applied after `speakeasy run`.
+This repository has generated files with intentional custom hook calls, and `gen.yaml` currently has `generation.persistentEdits: {}`. Treat regeneration as unsafe until the generated/custom auth seam above is verified after `speakeasy run`. If repeated regeneration becomes part of the workflow, enable and test Speakeasy persistent edits or keep these customizations as an explicit post-generation patch.
