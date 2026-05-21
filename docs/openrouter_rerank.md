@@ -1,19 +1,32 @@
 ## openrouter rerank
 
-Rerank endpoints
+Rerank documents
 
 ### Synopsis
 
-Rerank endpoints
+Rerank documents through OpenRouter. The generated endpoint remains available as `openrouter rerank rerank`.
 
 ```
 openrouter rerank [flags]
 ```
 
+### Examples
+
+```
+  openrouter rerank --query "capital of France" --documents "Paris is in France" --documents "Berlin is in Germany"
+  openrouter rerank "capital of France" --documents-file docs.txt --top-n 3
+```
+
 ### Options
 
 ```
-  -h, --help   help for rerank
+      --documents stringArray   Document text; repeat for multiple documents
+      --documents-file string   Read documents from a JSON array file or newline-delimited text file
+  -h, --help                    help for rerank
+  -m, --model string            Rerank model ID (default "cohere/rerank-v3.5")
+      --provider string         Provider routing JSON object
+      --query string            Search query to rank documents against (can also be positional)
+      --top-n int               Number of most relevant documents to return
 ```
 
 ### Options inherited from parent commands

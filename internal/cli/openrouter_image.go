@@ -32,10 +32,13 @@ type openRouterModelListResponse struct {
 }
 
 type openRouterModel struct {
-	ID            string `json:"id"`
-	Name          string `json:"name"`
-	ContextLength int64  `json:"context_length,omitempty"`
-	Architecture  struct {
+	ID                  string   `json:"id"`
+	Name                string   `json:"name"`
+	ContextLength       int64    `json:"context_length,omitempty"`
+	SupportedParameters []string `json:"supported_parameters,omitempty"`
+	SupportedVoices     []string `json:"supported_voices,omitempty"`
+	Created             int64    `json:"created,omitempty"`
+	Architecture        struct {
 		InputModalities  []string `json:"input_modalities,omitempty"`
 		OutputModalities []string `json:"output_modalities,omitempty"`
 	} `json:"architecture,omitempty"`

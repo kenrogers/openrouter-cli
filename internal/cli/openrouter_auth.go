@@ -387,6 +387,11 @@ func newOpenRouterDoctorCommand() *cobra.Command {
 
 			add("Config file", "pass", config.GetConfigPath())
 			key, source := config.ResolveSecurityCredential(cmd, "api-key")
+			if path, err := osexec.LookPath("openrouter"); err == nil {
+				add("PATH", "pass", path)
+			} else {
+				add("PATH", "warn", "openrouter was not found on PATH for this process")
+			}
 			if config.KeyringAvailable() {
 				add("Credential storage", "pass", "OS credential store is available")
 			} else if key != "" && source == "env" {
@@ -395,6 +400,14 @@ func newOpenRouterDoctorCommand() *cobra.Command {
 				add("Credential storage", "warn", "OS credential store is unavailable; using --api-key for this invocation")
 			} else {
 				add("Credential storage", "fail", "OS credential store is unavailable; API keys will not be saved")
+			}
+
+			if normalizeAPIKey(os.Getenv(openRouterAPIKeyEnv)) != "" {
+				add("Agent environment", "pass", openRouterAPIKeyEnv+" is present in this process environment")
+			} else if key != "" {
+				add("Agent environment", "warn", fmt.Sprintf("Key is available from %s, but %s is not set for child agents", source, openRouterAPIKeyEnv))
+			} else {
+				add("Agent environment", "fail", openRouterAPIKeyEnv+" is not set")
 			}
 
 			if key == "" {

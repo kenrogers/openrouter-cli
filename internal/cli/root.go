@@ -230,7 +230,13 @@ func NewRootCommand() (*cobra.Command, error) {
 }
 
 func initOpenRouterExperienceCommands(parent *cobra.Command) {
+	parent.AddCommand(newOpenRouterAskCommand())
 	parent.AddCommand(newOpenRouterImageCommand())
+	parent.AddCommand(newOpenRouterVideoCommand())
+	parent.AddCommand(newOpenRouterAudioCommand())
+	parent.AddCommand(newOpenRouterEmbedCommand())
+	enhanceOpenRouterModelsCommand(parent)
+	enhanceOpenRouterRerankCommand(parent)
 }
 
 func Execute() error {

@@ -1,31 +1,36 @@
-## openrouter rerank rerank
+## openrouter audio speak
 
-Submit a rerank request
+Generate speech audio from text
 
 ### Synopsis
 
-Submits a rerank request to the rerank router
+Generate speech audio from text and save it to an audio file.
 
 ```
-openrouter rerank rerank [flags]
+openrouter audio speak [text] [flags]
 ```
 
 ### Examples
 
 ```
-  openrouter rerank rerank --documents '["Paris is the capital of France.","Berlin is the capital of Germany."]' --model cohere/rerank-v3.5 --query What is the capital of France?
+  openrouter audio speak "Ship it, but make it calm." --output voice.mp3
+  openrouter audio speak --model openai/gpt-4o-mini-tts-2025-12-15 --voice alloy --format mp3 "Hello from OpenRouter"
 ```
 
 ### Options
 
 ```
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --documents stringArray   The list of documents to rerank [required]
-  -h, --help                    help for rerank
-  -m, --model string            The rerank model to use [required]
-  -p, --provider string         JSON object
-      --query string            The search query to rerank documents against [required]
-  -t, --top-n int               Number of most relevant documents to return
+  -f, --file string       Read text from a file
+      --force             Overwrite output files if they already exist
+      --format string     Audio format: mp3 or pcm (default "mp3")
+  -h, --help              help for speak
+  -m, --model string      Speech model ID, or auto to choose a current speech model (default "auto")
+      --output string     Output file path or directory (default: openrouter-audio-<timestamp>.<format>)
+      --provider string   Provider routing JSON object
+      --speed float       Playback speed multiplier for models that support it
+      --stdin             Read text from stdin
+  -t, --text string       Text to synthesize (can also be provided as positional args)
+      --voice string      Voice identifier (default "alloy")
 ```
 
 ### Options inherited from parent commands
@@ -57,4 +62,4 @@ openrouter rerank rerank [flags]
 
 ### SEE ALSO
 
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank documents
+* [openrouter audio](openrouter_audio.md)	 - Generate speech and transcribe audio

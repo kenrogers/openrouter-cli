@@ -1,31 +1,19 @@
-## openrouter rerank rerank
+## openrouter audio
 
-Submit a rerank request
+Generate speech and transcribe audio
 
 ### Synopsis
 
-Submits a rerank request to the rerank router
+Friendly audio workflows for OpenRouter text-to-speech and speech-to-text models.
 
 ```
-openrouter rerank rerank [flags]
-```
-
-### Examples
-
-```
-  openrouter rerank rerank --documents '["Paris is the capital of France.","Berlin is the capital of Germany."]' --model cohere/rerank-v3.5 --query What is the capital of France?
+openrouter audio [flags]
 ```
 
 ### Options
 
 ```
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --documents stringArray   The list of documents to rerank [required]
-  -h, --help                    help for rerank
-  -m, --model string            The rerank model to use [required]
-  -p, --provider string         JSON object
-      --query string            The search query to rerank documents against [required]
-  -t, --top-n int               Number of most relevant documents to return
+  -h, --help   help for audio
 ```
 
 ### Options inherited from parent commands
@@ -57,4 +45,7 @@ openrouter rerank rerank [flags]
 
 ### SEE ALSO
 
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank documents
+* [openrouter](openrouter.md)	 - OpenRouter API: OpenAI-compatible API with additional OpenRouter features
+* [openrouter audio models](openrouter_audio_models.md)	 - List audio models
+* [openrouter audio speak](openrouter_audio_speak.md)	 - Generate speech audio from text
+* [openrouter audio transcribe](openrouter_audio_transcribe.md)	 - Transcribe speech to text

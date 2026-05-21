@@ -1,31 +1,52 @@
-## openrouter rerank rerank
+## openrouter video
 
-Submit a rerank request
+Generate video from text and images
 
 ### Synopsis
 
-Submits a rerank request to the rerank router
+Generate a video through OpenRouter's async video API.
+
+By default the command submits the job, waits for completion, downloads the
+first video, and returns the saved path. Use --no-wait to only submit and return
+the job ID.
 
 ```
-openrouter rerank rerank [flags]
+openrouter video [prompt] [flags]
 ```
 
 ### Examples
 
 ```
-  openrouter rerank rerank --documents '["Paris is the capital of France.","Berlin is the capital of Germany."]' --model cohere/rerank-v3.5 --query What is the capital of France?
+  openrouter video "a calm product shot of a glass keyboard on a walnut desk"
+  openrouter video --model google/veo-3.1-lite --duration 4 --resolution 720p --aspect-ratio 16:9 "clouds over Denver"
+  openrouter video --first-frame start.png --last-frame end.png --output clip.mp4 "animate this transition"
+  openrouter video models veo
 ```
 
 ### Options
 
 ```
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --documents stringArray   The list of documents to rerank [required]
-  -h, --help                    help for rerank
-  -m, --model string            The rerank model to use [required]
-  -p, --provider string         JSON object
-      --query string            The search query to rerank documents against [required]
-  -t, --top-n int               Number of most relevant documents to return
+      --aspect-ratio string           Aspect ratio such as 16:9, 9:16, or 1:1
+      --callback-url string           HTTPS callback URL for completion notification
+      --duration int                  Duration in seconds
+  -f, --file string                   Read prompt text from a file
+      --first-frame string            First-frame image path, URL, or data URL
+      --force                         Overwrite output files if they already exist
+      --generate-audio                Generate audio when the selected model supports it
+  -h, --help                          help for video
+      --last-frame string             Last-frame image path, URL, or data URL
+  -m, --model string                  Video model ID, or auto to choose a current video model (default "auto")
+      --no-wait                       Submit the job and return without polling
+      --output string                 Output file path or directory (default: openrouter-video-<timestamp>.mp4)
+      --poll-interval duration        Polling interval while waiting for completion (default 5s)
+  -p, --prompt string                 Video prompt (can also be provided as positional args)
+      --provider string               Provider routing JSON object
+      --reference-image stringArray   Reference image path, URL, or data URL; repeat for multiple references
+      --resolution string             Resolution such as 480p, 720p, 1080p, 1K, 2K, or 4K
+      --seed int                      Deterministic seed for models that support it
+      --size string                   Exact size such as 1280x720
+      --stdin                         Read prompt text from stdin
+      --wait-timeout duration         Maximum time to wait for completion (default 15m0s)
 ```
 
 ### Options inherited from parent commands
@@ -57,4 +78,5 @@ openrouter rerank rerank [flags]
 
 ### SEE ALSO
 
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank documents
+* [openrouter](openrouter.md)	 - OpenRouter API: OpenAI-compatible API with additional OpenRouter features
+* [openrouter video models](openrouter_video_models.md)	 - List video generation models

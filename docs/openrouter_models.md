@@ -49,3 +49,5 @@ openrouter models [flags]
 * [openrouter models count](openrouter_models_count.md)	 - Get total count of available models
 * [openrouter models list](openrouter_models_list.md)	 - List all models and their properties
 * [openrouter models list-for-user](openrouter_models_list-for-user.md)	 - List models filtered by user provider preferences, privacy settings, and guardrails
+* [openrouter models resolve](openrouter_models_resolve.md)	 - Resolve a fuzzy model query to a concrete model ID
+* [openrouter models search](openrouter_models_search.md)	 - Search OpenRouter models by name, ID, and modality

@@ -42,6 +42,8 @@ openrouter [flags]
 
 * [openrouter O-auth](openrouter_O-auth.md)	 - OAuth authentication endpoints
 * [openrouter analytics](openrouter_analytics.md)	 - Analytics and usage endpoints
+* [openrouter ask](openrouter_ask.md)	 - Ask a text model a question
+* [openrouter audio](openrouter_audio.md)	 - Generate speech and transcribe audio
 * [openrouter auth](openrouter_auth.md)	 - Manage authentication credentials
 * [openrouter beta](openrouter_beta.md)	 - Operations for beta
 * [openrouter byok](openrouter_byok.md)	 - BYOK endpoints
@@ -49,6 +51,7 @@ openrouter [flags]
 * [openrouter configure](openrouter_configure.md)	 - Configure authentication, global parameters, and preferences
 * [openrouter credits](openrouter_credits.md)	 - Credit management endpoints
 * [openrouter doctor](openrouter_doctor.md)	 - Check OpenRouter CLI authentication and configuration
+* [openrouter embed](openrouter_embed.md)	 - Generate embeddings
 * [openrouter embeddings](openrouter_embeddings.md)	 - Text embedding endpoints
 * [openrouter endpoints](openrouter_endpoints.md)	 - Endpoint information
 * [openrouter env](openrouter_env.md)	 - Emit shell code for OPENROUTER_API_KEY
@@ -66,10 +69,11 @@ openrouter [flags]
 * [openrouter organization](openrouter_organization.md)	 - Organization endpoints
 * [openrouter presets](openrouter_presets.md)	 - Presets endpoints
 * [openrouter providers](openrouter_providers.md)	 - Provider information endpoints
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank endpoints
+* [openrouter rerank](openrouter_rerank.md)	 - Rerank documents
 * [openrouter stt](openrouter_stt.md)	 - Speech-to-text endpoints
 * [openrouter tts](openrouter_tts.md)	 - Text-to-speech endpoints
 * [openrouter version](openrouter_version.md)	 - Print the CLI version
+* [openrouter video](openrouter_video.md)	 - Generate video from text and images
 * [openrouter video-generation](openrouter_video-generation.md)	 - Video Generation endpoints
 * [openrouter whoami](openrouter_whoami.md)	 - Display current authentication and global parameter configuration
 * [openrouter workspaces](openrouter_workspaces.md)	 - Workspaces endpoints

@@ -6,12 +6,12 @@ Use this when an agent lands on `openrouter.ai/agents` and needs local OpenRoute
 Install the OpenRouter CLI first, then use it to make OPENROUTER_API_KEY available to local agents.
 
 1. Install:
-   curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | env OPENROUTER_VERSION=v0.1.8 bash
+   curl -fsSL https://raw.githubusercontent.com/kenrogers/openrouter-cli/main/scripts/install.sh | env OPENROUTER_VERSION=v0.1.9 bash
    export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
    hash -r 2>/dev/null || true
    openrouter version
 
-   The version must be 0.1.8 or newer. If it is older, stop and report the install output, the output of `command -v openrouter`, and the output of `openrouter version`.
+   The version must be 0.1.9 or newer. If it is older, stop and report the install output, the output of `command -v openrouter`, and the output of `openrouter version`.
 
 2. Authenticate:
    eval "$(openrouter login --print-env --no-store --install-env)"
@@ -31,10 +31,16 @@ Install the OpenRouter CLI first, then use it to make OPENROUTER_API_KEY availab
 4. If a one-off tool command needs OPENROUTER_API_KEY without project env setup:
    openrouter exec -- <command>
 
-5. For image generation or editing, prefer the friendly workflow command instead of hand-building chat JSON:
+5. Prefer friendly workflow commands before hand-building API JSON:
+   openrouter ask "prompt"
+   openrouter models resolve "model name" --modality text
    openrouter image "prompt"
    openrouter image --input-image ./source.png --output ./result.png "edit instructions"
-   openrouter image models --json
+   openrouter video "prompt"
+   openrouter audio speak "text" --output speech.mp3
+   openrouter audio transcribe ./audio.wav
+   openrouter embed "text"
+   openrouter rerank --query "query" --documents "doc one" --documents "doc two"
 
 Auth resolution order:
 1. --api-key

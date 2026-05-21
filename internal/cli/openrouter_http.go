@@ -12,6 +12,7 @@ import (
 
 	"github.com/kenrogers/openrouter-cli/internal/client"
 	"github.com/kenrogers/openrouter-cli/internal/config"
+	"github.com/kenrogers/openrouter-cli/internal/flagutil"
 	"github.com/kenrogers/openrouter-cli/internal/output"
 	"github.com/spf13/cobra"
 )
@@ -56,42 +57,97 @@ func openRouterJSONRequest(ctx context.Context, cmd *cobra.Command, method, path
 	if err != nil {
 		return nil, nil, err
 	}
+	if err := openRouterSetCommonHeaders(cmd, req, apiKey); err != nil {
+		return nil, nil, err
+	}
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("User-Agent", "openrouter-cli/"+Version)
-	req.Header.Set("X-OpenRouter-Title", "OpenRouter CLI")
-	req.Header.Set("HTTP-Referer", "https://openrouter.ai/agents")
-	if apiKey != "" {
-		req.Header.Set("Authorization", "Bearer "+apiKey)
-	}
 	return req, data, nil
 }
 
-func openRouterDoJSON(cmd *cobra.Command, req *http.Request, out any, defaultTimeout time.Duration) ([]byte, error) {
+func openRouterSetCommonHeaders(cmd *cobra.Command, req *http.Request, apiKey string) error {
+	req.Header.Set("User-Agent", "openrouter-cli/"+Version)
+
+	title := "OpenRouter CLI"
+	if flagutil.FlagChanged(cmd, "app-title") {
+		title, _ = flagutil.GetStringFlag(cmd, "app-title")
+	} else if value := config.GetString("app-title"); value != "" {
+		title = value
+	}
+	if strings.TrimSpace(title) != "" {
+		req.Header.Set("X-OpenRouter-Title", strings.TrimSpace(title))
+	}
+
+	referer := "https://openrouter.ai/agents"
+	if flagutil.FlagChanged(cmd, "http-referer") {
+		referer, _ = flagutil.GetStringFlag(cmd, "http-referer")
+	} else if value := config.GetString("http-referer"); value != "" {
+		referer = value
+	}
+	if strings.TrimSpace(referer) != "" {
+		req.Header.Set("HTTP-Referer", strings.TrimSpace(referer))
+	}
+
+	if categories := config.GetString("app-categories"); strings.TrimSpace(categories) != "" {
+		req.Header.Set("X-OpenRouter-Categories", strings.TrimSpace(categories))
+	}
+	if flagutil.FlagChanged(cmd, "app-categories") {
+		categories, _ := flagutil.GetStringFlag(cmd, "app-categories")
+		if strings.TrimSpace(categories) != "" {
+			req.Header.Set("X-OpenRouter-Categories", strings.TrimSpace(categories))
+		} else {
+			req.Header.Del("X-OpenRouter-Categories")
+		}
+	}
+
+	if apiKey != "" {
+		req.Header.Set("Authorization", "Bearer "+apiKey)
+	}
+	if headers, _ := flagutil.GetStringArrayFlag(cmd, "header"); len(headers) > 0 {
+		for _, header := range headers {
+			key, value, ok := strings.Cut(header, ":")
+			if !ok {
+				return fmt.Errorf("invalid header format %q: expected \"Key: Value\"", header)
+			}
+			req.Header.Set(strings.TrimSpace(key), strings.TrimSpace(value))
+		}
+	}
+	return nil
+}
+
+func openRouterDo(cmd *cobra.Command, req *http.Request, defaultTimeout time.Duration) ([]byte, http.Header, int, error) {
 	timeout := defaultTimeout
 	if f := cmd.Flag("timeout"); f != nil && strings.TrimSpace(f.Value.String()) != "" {
 		parsed, err := time.ParseDuration(strings.TrimSpace(f.Value.String()))
 		if err != nil {
-			return nil, fmt.Errorf("invalid --timeout value %q: %w", f.Value.String(), err)
+			return nil, nil, 0, fmt.Errorf("invalid --timeout value %q: %w", f.Value.String(), err)
 		}
 		timeout = parsed
 	}
 	httpClient := client.WrapClientForDiagnostics(cmd, &http.Client{Timeout: timeout})
 	res, err := httpClient.Do(req)
 	if err != nil {
-		return nil, err
+		return nil, nil, 0, err
 	}
 	defer res.Body.Close()
 
 	data, err := io.ReadAll(res.Body)
 	if err != nil {
-		return nil, err
+		return nil, res.Header, res.StatusCode, err
 	}
 	if client.IsDryRun(cmd) {
-		return data, nil
+		return data, res.Header, res.StatusCode, nil
 	}
 	if res.StatusCode < 200 || res.StatusCode >= 300 {
-		return nil, fmt.Errorf("%s", openRouterErrorMessage(res.StatusCode, data))
+		return nil, res.Header, res.StatusCode, fmt.Errorf("%s", openRouterErrorMessage(res.StatusCode, data))
+	}
+	return data, res.Header, res.StatusCode, nil
+}
+
+func openRouterDoJSON(cmd *cobra.Command, req *http.Request, out any, defaultTimeout time.Duration) ([]byte, error) {
+	data, _, _, err := openRouterDo(cmd, req, defaultTimeout)
+	if err != nil {
+		return nil, err
 	}
 	if out != nil {
 		if err := json.Unmarshal(data, out); err != nil {

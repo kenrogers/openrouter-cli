@@ -1,31 +1,29 @@
-## openrouter rerank rerank
+## openrouter models resolve
 
-Submit a rerank request
+Resolve a fuzzy model query to a concrete model ID
 
 ### Synopsis
 
-Submits a rerank request to the rerank router
+Resolve a human model query to the best matching OpenRouter model ID and a few alternatives.
 
 ```
-openrouter rerank rerank [flags]
+openrouter models resolve [query] [flags]
 ```
 
 ### Examples
 
 ```
-  openrouter rerank rerank --documents '["Paris is the capital of France.","Berlin is the capital of Germany."]' --model cohere/rerank-v3.5 --query What is the capital of France?
+  openrouter models resolve sonnet --modality text
+  openrouter models resolve nano banana --modality image
+  openrouter models resolve veo --modality video
 ```
 
 ### Options
 
 ```
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --documents stringArray   The list of documents to rerank [required]
-  -h, --help                    help for rerank
-  -m, --model string            The rerank model to use [required]
-  -p, --provider string         JSON object
-      --query string            The search query to rerank documents against [required]
-  -t, --top-n int               Number of most relevant documents to return
+  -h, --help              help for resolve
+      --limit int         Number of candidate matches to include (default 5)
+      --modality string   Output modality to resolve: all, text, image, audio, speech, transcription, embeddings, or video (default "text")
 ```
 
 ### Options inherited from parent commands
@@ -57,4 +55,4 @@ openrouter rerank rerank [flags]
 
 ### SEE ALSO
 
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank documents
+* [openrouter models](openrouter_models.md)	 - Model information endpoints

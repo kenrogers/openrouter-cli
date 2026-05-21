@@ -84,25 +84,43 @@ Use the generated API commands when you need full endpoint coverage. Use the
 top-level workflow commands when an agent or developer just needs the common
 task to work without hand-building JSON.
 
-Generate an image and save the returned base64 data URL to a file:
+Ask a model without building chat JSON:
+
+```sh
+openrouter ask "write a TypeScript fetch example for OpenRouter"
+openrouter ask --model anthropic/claude-sonnet-4.6 --raw "explain PKCE"
+```
+
+Find or resolve models at runtime instead of hardcoding stale IDs:
+
+```sh
+openrouter models search sonnet --modality text
+openrouter models resolve "nano banana" --modality image
+```
+
+Generate or edit images and save returned base64 data URLs to files:
 
 ```sh
 openrouter image "a tiny red robot, product photo style"
 openrouter image --model google/gemini-3.1-flash-image-preview --aspect-ratio 16:9 --output hero.png "a cinematic mountain sunrise"
-```
-
-Edit an existing image by passing one or more local files, URLs, or data URLs:
-
-```sh
 openrouter image --input-image avatar.png --output avatar-watercolor.png "turn this into a watercolor portrait"
 ```
 
-Find current image-output models without leaving the terminal:
+Generate video, speech, transcripts, embeddings, and rerank results through
+short workflow commands:
 
 ```sh
-openrouter image models
-openrouter image models flux --json
+openrouter video "a calm product shot of a glass keyboard on a walnut desk"
+openrouter audio speak "Welcome to the demo" --output welcome.mp3
+openrouter audio transcribe meeting.wav --json
+openrouter embed "The quick brown fox" --output embedding.json
+openrouter rerank --query "capital of France" --documents "Paris is in France" --documents "Berlin is in Germany"
 ```
+
+The generated endpoint tree remains available for full coverage:
+`chat`, `models`, `embeddings`, `tts`, `stt`, `video-generation`, `keys`,
+`credits`, `generations`, `providers`, `endpoints`, `presets`, `BYOK`,
+`workspaces`, `organization`, `observability`, `guardrails`, and beta APIs.
 
 ## Optional project key setup
 

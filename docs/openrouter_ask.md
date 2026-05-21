@@ -1,31 +1,40 @@
-## openrouter rerank rerank
+## openrouter ask
 
-Submit a rerank request
+Ask a text model a question
 
 ### Synopsis
 
-Submits a rerank request to the rerank router
+Ask a text model through OpenRouter chat completions.
+
+This is the low-friction path for agents and developers: pass a prompt, let the
+CLI choose a current text model, and get a compact response without hand-built
+JSON.
 
 ```
-openrouter rerank rerank [flags]
+openrouter ask [prompt] [flags]
 ```
 
 ### Examples
 
 ```
-  openrouter rerank rerank --documents '["Paris is the capital of France.","Berlin is the capital of Germany."]' --model cohere/rerank-v3.5 --query What is the capital of France?
+  openrouter ask "write a TypeScript fetch example for OpenRouter"
+  openrouter ask --model anthropic/claude-sonnet-4.6 --system "be brief" "explain PKCE"
+  openrouter ask --file prompt.md --max-tokens 600 --json
 ```
 
 ### Options
 
 ```
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --documents stringArray   The list of documents to rerank [required]
-  -h, --help                    help for rerank
-  -m, --model string            The rerank model to use [required]
-  -p, --provider string         JSON object
-      --query string            The search query to rerank documents against [required]
-  -t, --top-n int               Number of most relevant documents to return
+  -f, --file string         Read prompt text from a file
+  -h, --help                help for ask
+      --max-tokens int      Maximum tokens to generate
+  -m, --model string        Text model ID, or auto to choose a current text model (default "auto")
+  -p, --prompt string       Prompt text (can also be provided as positional args)
+      --provider string     Provider routing JSON object
+      --raw                 Print only the model's text response
+      --stdin               Read prompt text from stdin
+      --system string       Optional system message
+      --temperature float   Sampling temperature (default -1)
 ```
 
 ### Options inherited from parent commands
@@ -57,4 +66,4 @@ openrouter rerank rerank [flags]
 
 ### SEE ALSO
 
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank documents
+* [openrouter](openrouter.md)	 - OpenRouter API: OpenAI-compatible API with additional OpenRouter features

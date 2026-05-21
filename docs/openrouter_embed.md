@@ -1,31 +1,38 @@
-## openrouter rerank rerank
+## openrouter embed
 
-Submit a rerank request
+Generate embeddings
 
 ### Synopsis
 
-Submits a rerank request to the rerank router
+Generate embeddings for text or JSON input through OpenRouter embedding models.
 
 ```
-openrouter rerank rerank [flags]
+openrouter embed [text] [flags]
 ```
 
 ### Examples
 
 ```
-  openrouter rerank rerank --documents '["Paris is the capital of France.","Berlin is the capital of Germany."]' --model cohere/rerank-v3.5 --query What is the capital of France?
+  openrouter embed "The quick brown fox"
+  openrouter embed --model google/gemini-embedding-2-preview --file notes.txt --output embedding.json
+  openrouter embed --input-json '["query one","query two"]' --json
 ```
 
 ### Options
 
 ```
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --documents stringArray   The list of documents to rerank [required]
-  -h, --help                    help for rerank
-  -m, --model string            The rerank model to use [required]
-  -p, --provider string         JSON object
-      --query string            The search query to rerank documents against [required]
-  -t, --top-n int               Number of most relevant documents to return
+      --dimensions int           Number of embedding dimensions
+      --encoding-format string   Embedding encoding format: float or base64
+  -f, --file string              Read input text from a file
+      --force                    Overwrite output files if they already exist
+  -h, --help                     help for embed
+  -i, --input string             Input text (can also be provided as positional args)
+      --input-json string        Raw JSON input value for embedding arrays or token arrays
+      --input-type string        Input type, such as search_query or search_document
+  -m, --model string             Embedding model ID, or auto to choose a current embedding model (default "auto")
+      --output string            Optional file to save the full embedding response as JSON
+      --provider string          Provider routing JSON object
+      --stdin                    Read input text from stdin
 ```
 
 ### Options inherited from parent commands
@@ -57,4 +64,4 @@ openrouter rerank rerank [flags]
 
 ### SEE ALSO
 
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank documents
+* [openrouter](openrouter.md)	 - OpenRouter API: OpenAI-compatible API with additional OpenRouter features

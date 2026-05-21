@@ -1,31 +1,34 @@
-## openrouter rerank rerank
+## openrouter audio transcribe
 
-Submit a rerank request
+Transcribe speech to text
 
 ### Synopsis
 
-Submits a rerank request to the rerank router
+Transcribe a local audio file through OpenRouter speech-to-text models.
 
 ```
-openrouter rerank rerank [flags]
+openrouter audio transcribe <audio-file> [flags]
 ```
 
 ### Examples
 
 ```
-  openrouter rerank rerank --documents '["Paris is the capital of France.","Berlin is the capital of Germany."]' --model cohere/rerank-v3.5 --query What is the capital of France?
+  openrouter audio transcribe meeting.mp3
+  openrouter audio transcribe meeting.wav --model google/chirp-3 --language en --json
 ```
 
 ### Options
 
 ```
-      --body string             Request body as JSON (alternative to individual flags). Can also be provided via stdin.
-      --documents stringArray   The list of documents to rerank [required]
-  -h, --help                    help for rerank
-  -m, --model string            The rerank model to use [required]
-  -p, --provider string         JSON object
-      --query string            The search query to rerank documents against [required]
-  -t, --top-n int               Number of most relevant documents to return
+      --force               Overwrite output files if they already exist
+      --format string       Input audio format, or auto to infer from file extension (default "auto")
+  -h, --help                help for transcribe
+  -l, --language string     ISO-639-1 language code, such as en or ja
+  -m, --model string        Transcription model ID, or auto to choose a current STT model (default "auto")
+      --output string       Optional transcript output file
+      --provider string     Provider routing JSON object
+      --raw                 Print only the transcript text
+      --temperature float   Sampling temperature (default -1)
 ```
 
 ### Options inherited from parent commands
@@ -57,4 +60,4 @@ openrouter rerank rerank [flags]
 
 ### SEE ALSO
 
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank documents
+* [openrouter audio](openrouter_audio.md)	 - Generate speech and transcribe audio
