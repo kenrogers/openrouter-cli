@@ -78,6 +78,32 @@ For one-off agent and local tool commands that require `OPENROUTER_API_KEY`, inj
 openrouter exec -- your-agent-command
 ```
 
+## Agent-friendly model workflows
+
+Use the generated API commands when you need full endpoint coverage. Use the
+top-level workflow commands when an agent or developer just needs the common
+task to work without hand-building JSON.
+
+Generate an image and save the returned base64 data URL to a file:
+
+```sh
+openrouter image "a tiny red robot, product photo style"
+openrouter image --model google/gemini-3.1-flash-image-preview --aspect-ratio 16:9 --output hero.png "a cinematic mountain sunrise"
+```
+
+Edit an existing image by passing one or more local files, URLs, or data URLs:
+
+```sh
+openrouter image --input-image avatar.png --output avatar-watercolor.png "turn this into a watercolor portrait"
+```
+
+Find current image-output models without leaving the terminal:
+
+```sh
+openrouter image models
+openrouter image models flux --json
+```
+
 ## Optional project key setup
 
 Most agent workflows only need `OPENROUTER_API_KEY` in the environment. If you

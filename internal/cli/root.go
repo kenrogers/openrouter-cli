@@ -141,6 +141,7 @@ func NewRootCommand() (*cobra.Command, error) {
 	if err := initAuthCmd(rootCmd); err != nil {
 		return nil, fmt.Errorf("init auth: %w", err)
 	}
+	initOpenRouterExperienceCommands(rootCmd)
 	initExploreCmd(rootCmd)
 
 	// Global output format flag
@@ -226,6 +227,10 @@ func NewRootCommand() (*cobra.Command, error) {
 	rootCmd.SetUsageTemplate(groupedUsageTemplate())
 
 	return rootCmd, nil
+}
+
+func initOpenRouterExperienceCommands(parent *cobra.Command) {
+	parent.AddCommand(newOpenRouterImageCommand())
 }
 
 func Execute() error {

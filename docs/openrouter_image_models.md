@@ -1,16 +1,31 @@
-## openrouter
+## openrouter image models
 
-OpenRouter API: OpenAI-compatible API with additional OpenRouter features
+List image generation models
 
 ### Synopsis
 
-OpenRouter API: OpenAI-compatible API with additional OpenRouter features
+List OpenRouter models whose output modalities include image, optionally filtered by a search query.
 
 ```
-openrouter [flags]
+openrouter image models [query] [flags]
+```
+
+### Examples
+
+```
+  openrouter image models
+  openrouter image models flux
+  openrouter image models --limit 5 --json
 ```
 
 ### Options
+
+```
+  -h, --help        help for models
+      --limit int   Maximum number of models to show (0 for all) (default 20)
+```
+
+### Options inherited from parent commands
 
 ```
       --agent-mode                      Enable structured errors and default TOON output for AI coding agents. Automatically enabled when a known agent environment is detected (CLAUDE_CODE, CURSOR_AGENT, etc.). Use --agent-mode=false to disable.
@@ -21,7 +36,6 @@ openrouter [flags]
   -d, --debug                           Log request and response diagnostics to stderr
       --dry-run                         Preview the request that would be sent without executing it (output to stderr)
   -H, --header stringArray              Set a custom HTTP request header (format: "Key: Value"). Can be specified multiple times.
-  -h, --help                            help for openrouter
       --http-referer string             The app identifier should be your app's URL and is used as the primary identifier for rankings (env: OPENROUTER_HTTP_REFERER)
       --include-headers                 Include HTTP response headers in the output
   -q, --jq string                       Filter and transform output using a jq expression (e.g., '.name', '.items[] | .id')
@@ -40,36 +54,4 @@ openrouter [flags]
 
 ### SEE ALSO
 
-* [openrouter O-auth](openrouter_O-auth.md)	 - OAuth authentication endpoints
-* [openrouter analytics](openrouter_analytics.md)	 - Analytics and usage endpoints
-* [openrouter auth](openrouter_auth.md)	 - Manage authentication credentials
-* [openrouter beta](openrouter_beta.md)	 - Operations for beta
-* [openrouter byok](openrouter_byok.md)	 - BYOK endpoints
-* [openrouter chat](openrouter_chat.md)	 - Operations for chat
-* [openrouter configure](openrouter_configure.md)	 - Configure authentication, global parameters, and preferences
-* [openrouter credits](openrouter_credits.md)	 - Credit management endpoints
-* [openrouter doctor](openrouter_doctor.md)	 - Check OpenRouter CLI authentication and configuration
-* [openrouter embeddings](openrouter_embeddings.md)	 - Text embedding endpoints
-* [openrouter endpoints](openrouter_endpoints.md)	 - Endpoint information
-* [openrouter env](openrouter_env.md)	 - Emit shell code for OPENROUTER_API_KEY
-* [openrouter exec](openrouter_exec.md)	 - Run a command with OPENROUTER_API_KEY injected from secure storage
-* [openrouter explore](openrouter_explore.md)	 - Interactively browse and run commands
-* [openrouter generations](openrouter_generations.md)	 - Generation history endpoints
-* [openrouter guardrails](openrouter_guardrails.md)	 - Guardrails endpoints
 * [openrouter image](openrouter_image.md)	 - Generate or edit images
-* [openrouter init](openrouter_init.md)	 - Provision OpenRouter credentials for the current project
-* [openrouter keys](openrouter_keys.md)	 - API key management endpoints
-* [openrouter login](openrouter_login.md)	 - Authenticate with OpenRouter
-* [openrouter logout](openrouter_logout.md)	 - Clear saved OpenRouter credentials
-* [openrouter models](openrouter_models.md)	 - Model information endpoints
-* [openrouter observability](openrouter_observability.md)	 - Observability endpoints
-* [openrouter organization](openrouter_organization.md)	 - Organization endpoints
-* [openrouter presets](openrouter_presets.md)	 - Presets endpoints
-* [openrouter providers](openrouter_providers.md)	 - Provider information endpoints
-* [openrouter rerank](openrouter_rerank.md)	 - Rerank endpoints
-* [openrouter stt](openrouter_stt.md)	 - Speech-to-text endpoints
-* [openrouter tts](openrouter_tts.md)	 - Text-to-speech endpoints
-* [openrouter version](openrouter_version.md)	 - Print the CLI version
-* [openrouter video-generation](openrouter_video-generation.md)	 - Video Generation endpoints
-* [openrouter whoami](openrouter_whoami.md)	 - Display current authentication and global parameter configuration
-* [openrouter workspaces](openrouter_workspaces.md)	 - Workspaces endpoints
